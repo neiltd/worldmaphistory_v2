@@ -3,8 +3,9 @@ import { createPortal } from 'react-dom'
 import { Source, Layer, Marker } from 'react-map-gl/maplibre'
 import tradeData from '../../data/trade-routes.json'
 import type { TradeRoute, Chokepoint } from '../../types/traderoute'
+import { isValidCoord, fixGeometry } from '../../utils/geoUtils'
 
-const routes     = tradeData.routes as TradeRoute[]
+const routes      = tradeData.routes as TradeRoute[]
 const chokepoints = tradeData.chokepoints as Chokepoint[]
 
 const RISK_COLOR: Record<string, string> = {
@@ -20,47 +21,28 @@ interface Props {
 export default function TradeRouteLayer({ showRoutes, showChokepoints, labelLayerId }: Props) {
   const [cpTooltip, setCpTooltip] = useState<{ cp: Chokepoint; x: number; y: number } | null>(null)
 
-  function validCoord(c: [number, number] | undefined | null): boolean {
-    if (!c) return false
-    const [lng, lat] = c
-    if (isNaN(lng) || isNaN(lat)) return false
-    if (lng === 0 && lat === 0) return false
-    return true
-  }
-
-  // Wrap destination longitude so the route takes the shortest path
-  // and never crosses the antimeridian (which causes diagonal artifacts)
-  function wrapLng(fromLng: number, toLng: number): number {
-    let adjusted = toLng
-    while (adjusted - fromLng > 180) adjusted -= 360
-    while (adjusted - fromLng < -180) adjusted += 360
-    return adjusted
-  }
-
-  // Build GeoJSON FeatureCollection for route lines — computed once
+  // Build GeoJSON FeatureCollection — apply antimeridian fix in the geometry layer
   const routesGeo = useMemo(() => ({
     type: 'FeatureCollection' as const,
     features: routes
-      .filter(r => validCoord(r.from.coords) && validCoord(r.to.coords))
-      .map(r => {
-        const fromLng = r.from.coords[0]
-        const toLng = wrapLng(fromLng, r.to.coords[0])
-        const wrappedTo: [number, number] = [toLng, r.to.coords[1]]
-        return {
+      .filter(r => isValidCoord(r.from.coords) && isValidCoord(r.to.coords))
+      .map(r => ({
         type: 'Feature' as const,
-        geometry: { type: 'LineString' as const, coordinates: [r.from.coords, wrappedTo] },
+        geometry: fixGeometry({
+          type: 'LineString',
+          coordinates: [r.from.coords, r.to.coords],
+        }),
         properties: {
-          id: r.id,
-          name: r.name,
-          volume: r.volume,
-          riskLevel: r.riskLevel,
-          keyGoods: r.keyGoods.join(', '),
+          id:          r.id,
+          name:        r.name,
+          volume:      r.volume,
+          riskLevel:   r.riskLevel,
+          keyGoods:    r.keyGoods.join(', '),
           annualValue: r.annualValue,
-          fromName: r.from.name,
-          toName: r.to.name,
+          fromName:    r.from.name,
+          toName:      r.to.name,
         },
-      }
-      }),
+      })),
   }), [])
 
   return (
@@ -92,8 +74,8 @@ export default function TradeRouteLayer({ showRoutes, showChokepoints, labelLaye
         </Source>
       )}
 
-      {/* Chokepoint diamond markers — HTML so they stay fixed size */}
-      {showChokepoints && chokepoints.filter(cp => validCoord(cp.coordinates)).map(cp => (
+      {/* Chokepoint diamond markers */}
+      {showChokepoints && chokepoints.filter(cp => isValidCoord(cp.coordinates)).map(cp => (
         <Marker
           key={cp.id}
           longitude={cp.coordinates[0]}
@@ -116,12 +98,9 @@ export default function TradeRouteLayer({ showRoutes, showChokepoints, labelLaye
         </Marker>
       ))}
 
-      {/* Chokepoint tooltip rendered via portal */}
       {cpTooltip && createPortal(
-        <div
-          className="fixed z-[9999] pointer-events-none"
-          style={{ left: cpTooltip.x + 14, top: cpTooltip.y - 10 }}
-        >
+        <div className="fixed z-[9999] pointer-events-none"
+          style={{ left: cpTooltip.x + 14, top: cpTooltip.y - 10 }}>
           <div className="rounded-lg p-3 shadow-2xl border text-xs max-w-56"
             style={{ background: '#0E1525', borderColor: '#1E2D4A' }}>
             <p className="font-semibold text-white mb-1.5">{cpTooltip.cp.name}</p>

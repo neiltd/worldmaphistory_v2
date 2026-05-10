@@ -3,8 +3,10 @@ import { useMapStore } from '../../store/useMapStore'
 import conflictsData from '../../data/conflicts.json'
 import conflictZonesData from '../../data/conflict-zones.json'
 import type { Conflict } from '../../types/conflict'
+import { fixFeatureCollection, isValidCoord } from '../../utils/geoUtils'
 
 const conflicts = conflictsData as Conflict[]
+const safeZones = fixFeatureCollection(conflictZonesData)
 
 const INTENSITY_COLOR: Record<string, string> = {
   critical: '#ef4444',
@@ -26,7 +28,7 @@ export default function ConflictZoneLayer({ show, labelLayerId }: Props) {
   return (
     <>
       {/* Conflict zone polygons */}
-      <Source id="conflict-zones" type="geojson" data={conflictZonesData as any}>
+      <Source id="conflict-zones" type="geojson" data={safeZones}>
         <Layer
           id="conflict-zones-fill"
           type="fill"
@@ -61,10 +63,7 @@ export default function ConflictZoneLayer({ show, labelLayerId }: Props) {
       </Source>
 
       {/* Pulsing dot for each conflict — HTML Marker so it stays fixed screen size */}
-      {conflicts.filter(c => {
-        const [lng, lat] = c.coordinates ?? [0, 0]
-        return !isNaN(lng) && !isNaN(lat) && !(lng === 0 && lat === 0)
-      }).map(c => {
+      {conflicts.filter(c => isValidCoord(c.coordinates)).map(c => {
         const color = INTENSITY_COLOR[c.intensity] ?? '#ef4444'
         const isSelected = selectedConflict?.id === c.id
 
