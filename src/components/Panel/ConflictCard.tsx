@@ -1,4 +1,5 @@
 import { useMapStore } from '../../store/useMapStore'
+import type { ConflictParty } from '../../types/conflict'
 
 const INTENSITY: Record<string, { badge: string; dot: string }> = {
   critical: { badge: 'bg-red-950/70 text-red-400 border-red-800',    dot: '#ef4444' },
@@ -71,7 +72,7 @@ export default function ConflictCard() {
         {/* Parties */}
         <Row label="Parties">
           <div className="flex flex-col gap-1">
-            {c.parties.map((p, i) => (
+            {c.parties.map((p: ConflictParty, i: number) => (
               <div key={i} className="flex items-start gap-2 min-w-0">
                 <span className="text-[12px] font-semibold text-slate-200 flex-shrink-0">{p.countryName}</span>
                 <span className="text-[11px] text-slate-500 break-words">— {p.role}</span>

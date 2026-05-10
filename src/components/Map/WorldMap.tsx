@@ -6,8 +6,8 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import * as topojson from 'topojson-client'
 import { useMapStore } from '../../store/useMapStore'
 import indicatorsIndex from '../../data/indicators-index.json'
-import ConflictZoneLayer from './ConflictZoneLayer'
-import TradeRouteLayer from './TradeRouteLayer'
+import ConflictZoneLayer from '../../layers/geopolitical/ConflictZoneLayer'
+import TradeRouteLayer   from '../../layers/economic/TradeRouteLayer'
 import { fixFeatureCollection } from '../../utils/geoUtils'
 
 const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
@@ -216,8 +216,8 @@ export default function WorldMap() {
           </Source>
         )}
 
-        <ConflictZoneLayer show={showConflicts} labelLayerId={labelLayerId} />
-        <TradeRouteLayer showRoutes={showTradeRoutes} showChokepoints={showChokepoints} labelLayerId={labelLayerId} />
+        <ConflictZoneLayer visible={showConflicts} labelLayerId={labelLayerId} />
+        <TradeRouteLayer visible={showTradeRoutes} showChokepoints={showChokepoints} labelLayerId={labelLayerId} />
 
         <NavigationControl position="top-right" showCompass={false} />
       </Map>

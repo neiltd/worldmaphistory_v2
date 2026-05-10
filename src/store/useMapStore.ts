@@ -59,6 +59,12 @@ interface MapStore {
   // Map zoom (for scaling markers)
   mapZoom: number
   setMapZoom: (zoom: number) => void
+
+  // Extensible layer visibility for future layers (keyed by layer registry ID)
+  layerVisibility: Record<string, boolean>
+  setLayerVisible: (id: string, visible: boolean) => void
+  toggleLayerById: (id: string) => void
+  isLayerVisible: (id: string) => boolean
 }
 
 export const useMapStore = create<MapStore>((set) => ({
@@ -111,4 +117,17 @@ export const useMapStore = create<MapStore>((set) => ({
 
   mapZoom: 1,
   setMapZoom: (zoom) => set({ mapZoom: zoom }),
+
+  layerVisibility: {},
+  setLayerVisible: (id, visible) =>
+    set(s => ({ layerVisibility: { ...s.layerVisibility, [id]: visible } })),
+  toggleLayerById: (id) =>
+    set(s => ({ layerVisibility: { ...s.layerVisibility, [id]: !s.layerVisibility[id] } })),
+  isLayerVisible: (id: string): boolean => {
+    const s = useMapStore.getState()
+    if (id === 'conflicts' || id === 'conflict-zones') return s.showConflicts
+    if (id === 'trade-routes') return s.showTradeRoutes
+    if (id === 'chokepoints')  return s.showChokepoints
+    return s.layerVisibility[id] ?? false
+  },
 }))
