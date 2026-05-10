@@ -8,6 +8,7 @@ import { useMapStore } from '../../store/useMapStore'
 import indicatorsIndex from '../../data/indicators-index.json'
 import ConflictZoneLayer from './ConflictZoneLayer'
 import TradeRouteLayer from './TradeRouteLayer'
+import { fixFeatureCollection } from '../../utils/geoUtils'
 
 const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
 
@@ -83,9 +84,11 @@ export default function WorldMap() {
       .then((topo: any) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const geo = topojson.feature(topo, topo.objects.countries) as any
+        // Fix antimeridian crossings in country polygons (e.g. Fiji, Russia, USA/Alaska)
+        const fixed = fixFeatureCollection(geo)
         setCountriesGeo({
-          ...geo,
-          features: geo.features.map((f: any) => ({
+          ...fixed,
+          features: fixed.features.map((f: any) => ({
             ...f,
             properties: {
               numId: String(f.id),
