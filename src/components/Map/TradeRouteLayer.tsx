@@ -101,13 +101,28 @@ export default function TradeRouteLayer({ showRoutes, showChokepoints, labelLaye
       {cpTooltip && createPortal(
         <div className="fixed z-[9999] pointer-events-none"
           style={{ left: cpTooltip.x + 14, top: cpTooltip.y - 10 }}>
-          <div className="rounded-lg p-3 shadow-2xl border text-xs max-w-56"
-            style={{ background: '#0E1525', borderColor: '#1E2D4A' }}>
-            <p className="font-semibold text-white mb-1.5">{cpTooltip.cp.name}</p>
-            <div className="space-y-1 text-slate-400">
-              <p>{cpTooltip.cp.dailyVessels} vessels/day</p>
-              <p>{cpTooltip.cp.percentGlobalTrade}% of global trade</p>
-              <p className="text-slate-500 leading-snug">{cpTooltip.cp.currentThreat}</p>
+          <div className="rounded-xl shadow-2xl overflow-hidden"
+            style={{ background: '#0A0F1E', border: '1px solid #1E2D4A', minWidth: 200, maxWidth: 240 }}>
+            {/* Header stripe */}
+            <div className="px-3.5 pt-3 pb-2 border-b" style={{ borderColor: '#1E2D4A' }}>
+              <p className="text-[10px] uppercase tracking-widest font-semibold text-slate-500 mb-1">Chokepoint</p>
+              <p className="text-[13px] font-bold text-white leading-snug">{cpTooltip.cp.name}</p>
+            </div>
+            {/* Stats */}
+            <div className="px-3.5 py-2.5 flex flex-col gap-2">
+              <div className="flex justify-between items-center">
+                <span className="text-[11px] text-slate-500">Daily vessels</span>
+                <span className="text-[12px] font-semibold text-slate-200 tabular-nums">{cpTooltip.cp.dailyVessels}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-[11px] text-slate-500">Global trade</span>
+                <span className="text-[12px] font-semibold text-slate-200 tabular-nums">{cpTooltip.cp.percentGlobalTrade}%</span>
+              </div>
+              {cpTooltip.cp.currentThreat && (
+                <p className="text-[11px] text-slate-500 leading-snug pt-1 border-t" style={{ borderColor: '#1E2D4A' }}>
+                  {cpTooltip.cp.currentThreat}
+                </p>
+              )}
             </div>
           </div>
         </div>,

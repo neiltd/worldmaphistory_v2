@@ -1,10 +1,15 @@
 import { useMapStore } from '../../store/useMapStore'
 
-const INTENSITY_COLOR: Record<string, string> = {
-  critical: 'text-red-400 bg-red-900/40 border-red-800',
-  high:     'text-orange-400 bg-orange-900/40 border-orange-800',
-  medium:   'text-yellow-400 bg-yellow-900/40 border-yellow-800',
-  low:      'text-lime-400 bg-lime-900/40 border-lime-800',
+const INTENSITY: Record<string, { badge: string; dot: string }> = {
+  critical: { badge: 'bg-red-950/70 text-red-400 border-red-800',    dot: '#ef4444' },
+  high:     { badge: 'bg-orange-950/70 text-orange-400 border-orange-800', dot: '#f97316' },
+  medium:   { badge: 'bg-yellow-950/70 text-yellow-400 border-yellow-800', dot: '#eab308' },
+  low:      { badge: 'bg-lime-950/70 text-lime-400 border-lime-800',  dot: '#84cc16' },
+}
+
+const STATUS_COL: Record<string, string> = {
+  active: '#ef4444', escalating: '#f97316',
+  'de-escalating': '#eab308', ceasefire: '#60a5fa',
 }
 
 const TYPE_LABEL: Record<string, string> = {
@@ -15,70 +20,90 @@ const TYPE_LABEL: Record<string, string> = {
   frozen_conflict:     'Frozen Conflict',
 }
 
-const STATUS_COLOR: Record<string, string> = {
-  active:          'text-red-400',
-  escalating:      'text-orange-400',
-  'de-escalating': 'text-yellow-400',
-  ceasefire:       'text-blue-400',
+function Row({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="mb-3 last:mb-0">
+      <p className="text-[10px] uppercase tracking-widest font-semibold text-slate-500 mb-1.5">{label}</p>
+      {children}
+    </div>
+  )
 }
 
 export default function ConflictCard() {
   const { selectedConflict: c, clearConflict } = useMapStore()
   if (!c) return null
 
+  const int = INTENSITY[c.intensity] ?? INTENSITY.high
+
   return (
-    <div className="absolute bottom-20 left-4 z-30 w-80 bg-slate-900/95 border border-slate-700 rounded-xl shadow-2xl overflow-hidden backdrop-blur">
+    <div className="absolute bottom-5 left-4 z-30 w-[300px] bg-[#0A0F1E] border border-[#1E2D4A] rounded-xl shadow-2xl overflow-hidden"
+      style={{ backdropFilter: 'blur(8px)' }}>
+
       {/* Header */}
-      <div className="flex items-start justify-between px-4 pt-3 pb-2 border-b border-slate-800">
-        <div className="flex-1 pr-2">
-          <div className="flex items-center gap-2 flex-wrap mb-1">
-            <span className={`text-xs px-2 py-0.5 rounded-full border font-semibold ${INTENSITY_COLOR[c.intensity]}`}>
-              {c.intensity.toUpperCase()}
+      <div className="px-4 pt-3.5 pb-3 border-b border-[#1E2D4A]">
+        <div className="flex items-start justify-between gap-2 mb-2">
+          <div className="flex items-center gap-2 flex-wrap">
+            {/* Intensity badge */}
+            <span className={`text-[10px] px-2 py-0.5 rounded-full border font-semibold uppercase tracking-wide ${int.badge}`}>
+              {c.intensity}
             </span>
-            <span className={`text-xs font-medium ${STATUS_COLOR[c.status]}`}>
-              ● {c.status.replace('-', ' ')}
+            {/* Status */}
+            <span className="flex items-center gap-1 text-[11px] font-medium" style={{ color: STATUS_COL[c.status] ?? '#94a3b8' }}>
+              <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: STATUS_COL[c.status] ?? '#94a3b8' }} />
+              {c.status.replace(/-/g, ' ')}
             </span>
           </div>
-          <h3 className="text-sm font-bold text-white leading-tight">{c.name}</h3>
-          <p className="text-xs text-slate-500 mt-0.5">{TYPE_LABEL[c.type]} · Since {c.startYear}</p>
+          <button onClick={clearConflict}
+            className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded text-slate-500 hover:text-white hover:bg-[#1E2D4A] transition-colors text-base leading-none">
+            ×
+          </button>
         </div>
-        <button onClick={clearConflict} className="text-slate-500 hover:text-white text-xl leading-none flex-shrink-0">×</button>
+        <h3 className="text-[14px] font-bold text-white leading-snug break-words">{c.name}</h3>
+        <p className="text-[11px] text-slate-500 mt-1">
+          {TYPE_LABEL[c.type] ?? c.type} · Since {c.startYear}
+        </p>
       </div>
 
-      <div className="px-4 py-3 max-h-80 overflow-y-auto">
-        {/* Parties */}
-        <div className="mb-3">
-          <p className="text-xs text-slate-500 mb-1.5 font-medium uppercase tracking-wider">Parties</p>
-          {c.parties.map((p, i) => (
-            <div key={i} className="flex items-start gap-2 mb-1">
-              <span className="text-xs font-semibold text-slate-300 min-w-0 flex-shrink-0">{p.countryName}</span>
-              <span className="text-xs text-slate-500">— {p.role}</span>
-            </div>
-          ))}
-        </div>
+      {/* Scrollable body */}
+      <div className="px-4 py-3 max-h-72 overflow-y-auto flex flex-col gap-3"
+        style={{ scrollbarWidth: 'thin', scrollbarColor: '#1E2D4A transparent' }}>
 
-        {/* Current status */}
-        <div className="mb-3">
-          <p className="text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">Situation Now</p>
-          <p className="text-xs text-slate-300 leading-relaxed">{c.currentStatus}</p>
-        </div>
+        {/* Parties */}
+        <Row label="Parties">
+          <div className="flex flex-col gap-1">
+            {c.parties.map((p, i) => (
+              <div key={i} className="flex items-start gap-2 min-w-0">
+                <span className="text-[12px] font-semibold text-slate-200 flex-shrink-0">{p.countryName}</span>
+                <span className="text-[11px] text-slate-500 break-words">— {p.role}</span>
+              </div>
+            ))}
+          </div>
+        </Row>
+
+        {/* Situation */}
+        <Row label="Situation Now">
+          <p className="text-[12px] text-slate-300 leading-relaxed break-words">{c.currentStatus}</p>
+        </Row>
 
         {/* Casualties */}
-        <div className="mb-3 bg-red-950/30 border border-red-900/40 rounded-lg p-2.5">
-          <p className="text-xs text-red-400 font-medium mb-0.5">Casualties</p>
-          <p className="text-xs text-slate-300 leading-snug">{c.casualties}</p>
-        </div>
+        <Row label="Casualties">
+          <div className="bg-red-950/30 border border-red-900/40 rounded-lg px-3 py-2">
+            <p className="text-[12px] text-slate-300 leading-relaxed break-words">{c.casualties}</p>
+          </div>
+        </Row>
 
         {/* International */}
-        <div className="mb-2">
-          <p className="text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">International Involvement</p>
-          <p className="text-xs text-slate-400 leading-relaxed">{c.internationalInvolvement}</p>
-        </div>
+        <Row label="International Involvement">
+          <p className="text-[12px] text-slate-400 leading-relaxed break-words">{c.internationalInvolvement}</p>
+        </Row>
 
         {/* Summary */}
-        <div className="pt-2 border-t border-slate-800">
-          <p className="text-xs text-slate-500 leading-relaxed">{c.summary}</p>
-        </div>
+        {c.summary && (
+          <div className="pt-3 border-t border-[#1E2D4A]">
+            <p className="text-[11px] text-slate-500 leading-relaxed break-words">{c.summary}</p>
+          </div>
+        )}
+
       </div>
     </div>
   )
