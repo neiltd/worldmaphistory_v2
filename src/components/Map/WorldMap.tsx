@@ -1,13 +1,15 @@
-import { useState } from 'react'
-import {
-  ComposableMap, Geographies, Geography, ZoomableGroup,
-} from 'react-simple-maps'
+import { useState, useEffect, useMemo, useCallback } from 'react'
+import Map, { Source, Layer, NavigationControl } from 'react-map-gl/maplibre'
+import type { MapMouseEvent, MapEvent } from 'react-map-gl/maplibre'
+import 'maplibre-gl/dist/maplibre-gl.css'
+// @ts-expect-error topojson-client has no bundled types
+import * as topojson from 'topojson-client'
 import { useMapStore } from '../../store/useMapStore'
+import indicatorsIndex from '../../data/indicators-index.json'
 import ConflictZoneLayer from './ConflictZoneLayer'
 import TradeRouteLayer from './TradeRouteLayer'
-import indicatorsIndex from '../../data/indicators-index.json'
 
-const GEO_URL = '/worldmaphistory_v2/countries-110m.json'
+const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
 
 const NUM_TO_ISO3: Record<string, string> = {
   '004':'AFG','008':'ALB','012':'DZA','024':'AGO','028':'ATG','032':'ARG','036':'AUS',
@@ -39,102 +41,193 @@ const NUM_TO_ISO3: Record<string, string> = {
   '705':'SVN','090':'SLB',
 }
 
+type IndicatorsMap = Record<string, Record<string, number>>
+const allIndicators = indicatorsIndex as IndicatorsMap
 
-// Score (1-10) → hex colour for heatmap
 function scoreToColor(score: number): string {
   const t = (score - 1) / 9
   if (t < 0.5) {
-    const r = Math.round(220 + (217 - 220) * (t * 2))
-    const g = Math.round(38  + (119 - 38)  * (t * 2))
-    const b = Math.round(38  + (6   - 38)  * (t * 2))
-    return `rgb(${r},${g},${b})`
-  } else {
-    const u = (t - 0.5) * 2
-    const r = Math.round(217 + (22  - 217) * u)
-    const g = Math.round(119 + (163 - 119) * u)
-    const b = Math.round(6   + (74  - 6)   * u)
-    return `rgb(${r},${g},${b})`
+    const u = t * 2
+    return `rgb(${Math.round(220 + (217 - 220) * u)},${Math.round(38 + (119 - 38) * u)},38)`
   }
+  const u = (t - 0.5) * 2
+  return `rgb(${Math.round(217 + (22 - 217) * u)},${Math.round(119 + (163 - 119) * u)},${Math.round(6 + (74 - 6) * u)})`
 }
 
-type IndicatorsMap = Record<string, Record<string, number>>
-const indicators = indicatorsIndex as IndicatorsMap
+type TooltipState = {
+  kind: 'country'
+  name: string; score?: number; x: number; y: number
+} | {
+  kind: 'route'
+  name: string; from: string; to: string; goods: string; value: string; risk: string
+  x: number; y: number
+}
 
 export default function WorldMap() {
   const {
     countryData, compareData, selectCountry,
     showConflicts, showTradeRoutes, showChokepoints,
-    heatmapIndicator, setMapZoom,
+    heatmapIndicator,
   } = useMapStore()
 
-  const [position, setPosition] = useState<{ coordinates: [number, number]; zoom: number }>({
-    coordinates: [0, 10], zoom: 1,
-  })
-  const [tooltip, setTooltip] = useState<{ name: string; x: number; y: number; score?: number } | null>(null)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [countriesGeo, setCountriesGeo] = useState<any>(null)
+  const [labelLayerId, setLabelLayerId] = useState<string | undefined>()
+  const [tooltip, setTooltip] = useState<TooltipState | null>(null)
 
-  function getFill(numId: string): string {
-    const iso3 = NUM_TO_ISO3[numId]
+  // Fetch + convert topojson → GeoJSON once on mount
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}countries-110m.json`)
+      .then(r => r.json())
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .then((topo: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const geo = topojson.feature(topo, topo.objects.countries) as any
+        setCountriesGeo({
+          ...geo,
+          features: geo.features.map((f: any) => ({
+            ...f,
+            properties: {
+              numId: String(f.id),
+              iso3: NUM_TO_ISO3[String(f.id)] ?? null,
+              name: f.properties?.name ?? '',
+            },
+          })),
+        })
+      })
+  }, [])
 
-    // Heatmap mode overrides everything
-    if (heatmapIndicator !== 'none' && iso3) {
-      const score = indicators[iso3]?.[heatmapIndicator]
-      if (score !== undefined) return scoreToColor(score)
-      return '#1a1f2e'
-    }
+  // Find first symbol layer in style to insert fills underneath labels
+  function handleMapLoad(e: MapEvent) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const layers = (e.target.getStyle().layers ?? []) as any[]
+    const first = layers.find((l: any) => l.type === 'symbol')
+    setLabelLayerId(first?.id)
+  }
 
-    // Selected country
-    if (iso3 && countryData?.id === iso3) return '#3b82f6'
-    if (iso3 && compareData?.id === iso3) return '#8b5cf6'
+  // Compute per-country fill color, stored as a GeoJSON property
+  const geoWithColors = useMemo(() => {
+    if (!countriesGeo) return null
 
-    // Relationship highlight from selected country
-    if (countryData && iso3) {
-      const rel = countryData.relationships?.find(r => r.countryId === iso3)
-      if (rel) {
-        if (rel.sentiment === 'positive') return '#1d4ed8'
-        if (rel.sentiment === 'negative') return '#7f1d1d'
-        return '#78350f'
+    const relMap: Record<string, string> = {}
+    if (countryData) {
+      for (const rel of countryData.relationships ?? []) {
+        if (rel.sentiment === 'positive') relMap[rel.countryId] = '#1e3a8a'
+        else if (rel.sentiment === 'negative') relMap[rel.countryId] = '#7f1d1d'
+        else relMap[rel.countryId] = '#78350f'
       }
     }
 
-    // Has data — slightly lighter
-    if (iso3 && indicators[iso3]) return '#131C30'
+    return {
+      ...countriesGeo,
+      features: countriesGeo.features.map((f: any) => {
+        const iso3: string | null = f.properties?.iso3
+        let color = '#0C1220'
 
-    return '#0C1220'
-  }
+        if (heatmapIndicator !== 'none' && iso3) {
+          const score = allIndicators[iso3]?.[heatmapIndicator]
+          color = score !== undefined ? scoreToColor(score) : '#1a1f2e'
+        } else if (iso3 === countryData?.id) {
+          color = '#2563eb'
+        } else if (iso3 === compareData?.id) {
+          color = '#8b5cf6'
+        } else if (iso3 && relMap[iso3]) {
+          color = relMap[iso3]
+        } else if (iso3 && allIndicators[iso3]) {
+          color = '#131C30'
+        }
 
-  function handleMove(pos: { coordinates: [number, number]; zoom: number }) {
-    setPosition(pos)
-    setMapZoom(pos.zoom)
-  }
+        return { ...f, properties: { ...f.properties, color } }
+      }),
+    }
+  }, [countriesGeo, countryData, compareData, heatmapIndicator])
+
+  const interactiveIds = useMemo(() => {
+    const ids = ['countries-fill']
+    if (showTradeRoutes) ids.push('trade-routes-line')
+    return ids
+  }, [showTradeRoutes])
+
+  const handleMouseMove = useCallback((e: MapMouseEvent) => {
+    const f = e.features?.[0]
+    if (!f) { setTooltip(null); return }
+
+    if (f.layer.id === 'countries-fill') {
+      const iso3 = f.properties?.iso3
+      const score = heatmapIndicator !== 'none' && iso3
+        ? allIndicators[iso3]?.[heatmapIndicator]
+        : undefined
+      setTooltip({ kind: 'country', name: f.properties?.name ?? '', score, x: e.point.x, y: e.point.y })
+    } else if (f.layer.id === 'trade-routes-line') {
+      setTooltip({
+        kind: 'route',
+        name: f.properties?.name ?? '',
+        from: f.properties?.fromName ?? '',
+        to: f.properties?.toName ?? '',
+        goods: f.properties?.keyGoods ?? '',
+        value: f.properties?.annualValue ?? '',
+        risk: f.properties?.riskLevel ?? 'medium',
+        x: e.point.x,
+        y: e.point.y,
+      })
+    }
+  }, [heatmapIndicator])
+
+  const handleMouseLeave = useCallback(() => setTooltip(null), [])
+
+  const handleClick = useCallback((e: MapMouseEvent) => {
+    const f = e.features?.[0]
+    if (!f) return
+    if (f.layer.id === 'countries-fill') {
+      const iso3 = f.properties?.iso3
+      if (iso3) selectCountry(iso3)
+    }
+  }, [selectCountry])
+
+  const RISK_COLOR: Record<string, string> = { low: '#22c55e', medium: '#f59e0b', high: '#ef4444' }
 
   return (
-    <div className="relative w-full h-full bg-[#070B14] overflow-hidden select-none">
+    <div className="relative w-full h-full">
+      <Map
+        mapStyle={MAP_STYLE}
+        initialViewState={{ longitude: 0, latitude: 10, zoom: 1.5 }}
+        style={{ width: '100%', height: '100%' }}
+        interactiveLayerIds={interactiveIds}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
+        onLoad={handleMapLoad}
+      >
+        {/* Country fill layer — inserted before tile labels */}
+        {geoWithColors && (
+          <Source id="countries" type="geojson" data={geoWithColors} generateId>
+            <Layer
+              id="countries-fill"
+              type="fill"
+              beforeId={labelLayerId}
+              paint={{
+                'fill-color': ['get', 'color'],
+                'fill-opacity': 0.82,
+              }}
+            />
+          </Source>
+        )}
 
-      {/* Zoom controls */}
-      <div className="absolute top-3 right-3 z-10 flex flex-col gap-1">
-        {[
-          { label: '+', action: () => setPosition(p => ({ ...p, zoom: Math.min(p.zoom * 1.6, 10) })) },
-          { label: '−', action: () => setPosition(p => ({ ...p, zoom: Math.max(p.zoom / 1.6, 1) })) },
-          { label: '⊙', action: () => { setPosition({ coordinates: [0, 10], zoom: 1 }); setMapZoom(1) } },
-        ].map(btn => (
-          <button
-            key={btn.label}
-            onClick={btn.action}
-            className="w-7 h-7 bg-[#0E1525] hover:bg-[#151F35] text-slate-400 hover:text-white rounded-md text-sm font-bold flex items-center justify-center border border-[#1E2D4A] transition-colors"
-          >
-            {btn.label}
-          </button>
-        ))}
-      </div>
+        <ConflictZoneLayer show={showConflicts} labelLayerId={labelLayerId} />
+        <TradeRouteLayer showRoutes={showTradeRoutes} showChokepoints={showChokepoints} labelLayerId={labelLayerId} />
+
+        <NavigationControl position="top-right" showCompass={false} />
+      </Map>
 
       {/* Legend */}
       {heatmapIndicator === 'none' && (
-        <div className="absolute bottom-4 left-3 z-10 bg-[#0E1525]/90 rounded-lg p-2.5 border border-[#1E2D4A] text-xs space-y-1.5">
+        <div className="absolute bottom-4 left-3 z-10 rounded-lg p-2.5 border text-xs space-y-1.5"
+          style={{ background: '#0E1525CC', borderColor: '#1E2D4A' }}>
           {[
-            { color: '#3b82f6', label: 'Selected' },
+            { color: '#2563eb', label: 'Selected' },
             { color: '#8b5cf6', label: 'Compare' },
-            { color: '#1d4ed8', label: 'Ally' },
-            { color: '#78350f', label: 'Neutral rel.' },
+            { color: '#1e3a8a', label: 'Ally' },
+            { color: '#78350f', label: 'Neutral' },
             { color: '#7f1d1d', label: 'Rival' },
           ].map(l => (
             <div key={l.label} className="flex items-center gap-2">
@@ -145,62 +238,46 @@ export default function WorldMap() {
         </div>
       )}
 
-      {/* Tooltip */}
-      {tooltip && (
-        <div
-          className="fixed z-50 bg-[#0E1525] border border-[#1E2D4A] text-xs text-white px-2.5 py-1.5 rounded-lg pointer-events-none shadow-xl"
-          style={{ left: tooltip.x + 14, top: tooltip.y - 32 }}
-        >
-          <span className="font-medium">{tooltip.name}</span>
-          {tooltip.score !== undefined && (
-            <span className="ml-2 text-slate-400">{tooltip.score}/10</span>
-          )}
+      {/* Heatmap legend */}
+      {heatmapIndicator !== 'none' && (
+        <div className="absolute bottom-4 left-3 z-10 rounded-lg p-2.5 border text-xs"
+          style={{ background: '#0E1525CC', borderColor: '#1E2D4A' }}>
+          <div className="w-32 h-2 rounded-full mb-1"
+            style={{ background: 'linear-gradient(to right, #dc2626, #d97706, #16a34a)' }} />
+          <div className="flex justify-between text-slate-500">
+            <span>Low 1</span><span>High 10</span>
+          </div>
         </div>
       )}
 
-      <ComposableMap projection="geoMercator" style={{ width: '100%', height: '100%' }} projectionConfig={{ scale: 130 }}>
-        <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMove}>
-          <Geographies geography={GEO_URL}>
-            {({ geographies }) =>
-              geographies.map(geo => {
-                const iso3 = NUM_TO_ISO3[geo.id]
-                const score = heatmapIndicator !== 'none' && iso3
-                  ? indicators[iso3]?.[heatmapIndicator]
-                  : undefined
-
-                return (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill={getFill(geo.id)}
-                    stroke="#070B14"
-                    strokeWidth={0.4}
-                    style={{
-                      default: { outline: 'none' },
-                      hover:   { outline: 'none', fill: '#2563eb', cursor: 'pointer' },
-                      pressed: { outline: 'none' },
-                    }}
-                    onMouseEnter={(e: React.MouseEvent) => {
-                      setTooltip({ name: geo.properties.name, x: e.clientX, y: e.clientY, score })
-                    }}
-                    onMouseMove={(e: React.MouseEvent) => {
-                      setTooltip(t => t ? { ...t, x: e.clientX, y: e.clientY } : null)
-                    }}
-                    onMouseLeave={() => setTooltip(null)}
-                    onClick={() => {
-                      setTooltip(null)
-                      if (iso3) selectCountry(iso3)
-                    }}
-                  />
-                )
-              })
-            }
-          </Geographies>
-
-          <TradeRouteLayer showRoutes={showTradeRoutes} showChokepoints={showChokepoints} zoom={position.zoom} />
-          {showConflicts && <ConflictZoneLayer zoom={position.zoom} />}
-        </ZoomableGroup>
-      </ComposableMap>
+      {/* Tooltip */}
+      {tooltip && (
+        <div
+          className="absolute pointer-events-none z-50"
+          style={{ left: tooltip.x + 14, top: tooltip.y - 36 }}
+        >
+          <div className="rounded-lg shadow-xl border text-xs" style={{ background: '#0E1525', borderColor: '#1E2D4A' }}>
+            {tooltip.kind === 'country' ? (
+              <div className="px-2.5 py-1.5">
+                <span className="font-medium text-white">{tooltip.name}</span>
+                {tooltip.score !== undefined && (
+                  <span className="ml-2 text-slate-400">{tooltip.score.toFixed(1)}/10</span>
+                )}
+              </div>
+            ) : (
+              <div className="px-3 py-2 space-y-1 max-w-52">
+                <p className="font-semibold text-white">{tooltip.name}</p>
+                <p className="text-slate-400">{tooltip.from} → {tooltip.to}</p>
+                <p className="text-slate-500">{tooltip.goods}</p>
+                <p className="text-slate-400">
+                  {tooltip.value} ·{' '}
+                  <span style={{ color: RISK_COLOR[tooltip.risk] }}>{tooltip.risk} risk</span>
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -1,89 +1,100 @@
-import { useState } from 'react'
-import { Geographies, Geography, Marker } from 'react-simple-maps'
+import { Source, Layer, Marker } from 'react-map-gl/maplibre'
 import { useMapStore } from '../../store/useMapStore'
-import type { Conflict } from '../../types/conflict'
 import conflictsData from '../../data/conflicts.json'
 import conflictZonesData from '../../data/conflict-zones.json'
+import type { Conflict } from '../../types/conflict'
 
 const conflicts = conflictsData as Conflict[]
 
-// Zone fill colours by intensity
-const ZONE_FILL: Record<string, string> = {
+const INTENSITY_COLOR: Record<string, string> = {
   critical: '#ef4444',
   high:     '#f97316',
   medium:   '#eab308',
   low:      '#84cc16',
 }
-// Pulse dot colours
-const DOT_FILL = ZONE_FILL
 
-interface ZoneProperties {
-  id: string
-  name: string
-  intensity: string
-  type: string
-  description: string
+interface Props {
+  show: boolean
+  labelLayerId?: string
 }
 
-export default function ConflictZoneLayer({ zoom }: { zoom: number }) {
+export default function ConflictZoneLayer({ show, labelLayerId }: Props) {
   const { selectConflict, selectedConflict } = useMapStore()
-  const [hoveredZone, setHoveredZone] = useState<string | null>(null)
 
-  const dotSize = 7 / zoom
-
-  function handleZoneClick(id: string) {
-    const conflict = conflicts.find(c => c.id === id)
-    if (conflict) selectConflict(conflict)
-  }
+  if (!show) return null
 
   return (
     <>
-      {/* Filled zone polygons */}
-      <Geographies geography={conflictZonesData}>
-        {({ geographies }) =>
-          geographies.map(geo => {
-            const props = geo.properties as unknown as ZoneProperties
-            const isSelected = selectedConflict?.id === props.id
-            const isHovered  = hoveredZone === props.id
-            const color = ZONE_FILL[props.intensity] ?? '#ef4444'
+      {/* Conflict zone polygons */}
+      <Source id="conflict-zones" type="geojson" data={conflictZonesData as any}>
+        <Layer
+          id="conflict-zones-fill"
+          type="fill"
+          beforeId={labelLayerId}
+          paint={{
+            'fill-color': ['match', ['get', 'intensity'],
+              'critical', '#ef4444',
+              'high',     '#f97316',
+              'medium',   '#eab308',
+              'low',      '#84cc16',
+              '#ef4444',
+            ],
+            'fill-opacity': 0.15,
+          }}
+        />
+        <Layer
+          id="conflict-zones-line"
+          type="line"
+          beforeId={labelLayerId}
+          paint={{
+            'line-color': ['match', ['get', 'intensity'],
+              'critical', '#ef4444',
+              'high',     '#f97316',
+              'medium',   '#eab308',
+              'low',      '#84cc16',
+              '#ef4444',
+            ],
+            'line-width': 1,
+            'line-opacity': 0.5,
+          }}
+        />
+      </Source>
 
-            return (
-              <Geography
-                key={geo.rsmKey}
-                geography={geo}
-                fill={color}
-                fillOpacity={isSelected ? 0.35 : isHovered ? 0.28 : 0.18}
-                stroke={color}
-                strokeWidth={isSelected ? 1.5 : 0.8}
-                strokeOpacity={isSelected ? 0.9 : 0.5}
-                strokeDasharray={props.type === 'frontline' ? '4 2' : undefined}
-                style={{
-                  default: { outline: 'none', cursor: 'pointer' },
-                  hover:   { outline: 'none', cursor: 'pointer' },
-                  pressed: { outline: 'none' },
-                }}
-                onMouseEnter={() => setHoveredZone(props.id)}
-                onMouseLeave={() => setHoveredZone(null)}
-                onClick={() => handleZoneClick(props.id)}
-              />
-            )
-          })
-        }
-      </Geographies>
-
-      {/* Pulsing centre dot for each conflict */}
+      {/* Pulsing dot for each conflict — HTML Marker so it stays fixed screen size */}
       {conflicts.map(c => {
-        const color = DOT_FILL[c.intensity]
-        const r     = dotSize
+        const color = INTENSITY_COLOR[c.intensity] ?? '#ef4444'
         const isSelected = selectedConflict?.id === c.id
 
         return (
-          <Marker key={c.id} coordinates={c.coordinates} onClick={() => selectConflict(c)}>
-            <circle r={r * 2.5} fill="none" stroke={color} strokeWidth={0.8}
-              className="conflict-pulse" style={{ transformOrigin: '0px 0px' }} />
-            <circle r={r} fill={color} fillOpacity={isSelected ? 1 : 0.9}
-              stroke={isSelected ? '#fff' : '#070B14'} strokeWidth={isSelected ? 1.5 : 0.8}
-              style={{ cursor: 'pointer' }} />
+          <Marker
+            key={c.id}
+            longitude={c.coordinates[0]}
+            latitude={c.coordinates[1]}
+            anchor="center"
+            onClick={e => { e.originalEvent.stopPropagation(); selectConflict(c) }}
+          >
+            <div className="relative cursor-pointer" style={{ width: 16, height: 16 }}>
+              {/* Pulse ring */}
+              <div
+                className="conflict-pulse absolute rounded-full"
+                style={{
+                  inset: 0,
+                  border: `1.5px solid ${color}`,
+                }}
+              />
+              {/* Center dot */}
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: 8, height: 8,
+                  top: '50%', left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  background: color,
+                  border: isSelected ? '2px solid #fff' : '1.5px solid #070B14',
+                  boxShadow: isSelected ? `0 0 6px ${color}` : 'none',
+                }}
+              />
+            </div>
           </Marker>
         )
       })}
