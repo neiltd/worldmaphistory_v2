@@ -3,7 +3,7 @@ import {
   ComposableMap, Geographies, Geography, ZoomableGroup,
 } from 'react-simple-maps'
 import { useMapStore } from '../../store/useMapStore'
-import ConflictLayer from './ConflictLayer'
+import ConflictZoneLayer from './ConflictZoneLayer'
 import TradeRouteLayer from './TradeRouteLayer'
 import indicatorsIndex from '../../data/indicators-index.json'
 
@@ -198,7 +198,7 @@ export default function WorldMap() {
           </Geographies>
 
           <TradeRouteLayer showRoutes={showTradeRoutes} showChokepoints={showChokepoints} zoom={position.zoom} />
-          {showConflicts && <ConflictLayer zoom={position.zoom} />}
+          {showConflicts && <ConflictZoneLayer zoom={position.zoom} />}
         </ZoomableGroup>
       </ComposableMap>
     </div>

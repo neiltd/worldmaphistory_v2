@@ -96,7 +96,7 @@ export default function App() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: '100%', opacity: 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="w-80 xl:w-96 flex-shrink-0 flex flex-col overflow-hidden border-l"
+              className="w-[420px] xl:w-[480px] flex-shrink-0 flex flex-col overflow-hidden border-l"
               style={{ background: '#0A0F1E', borderColor: '#1E2D4A' }}
             >
               <CountryPanel />
