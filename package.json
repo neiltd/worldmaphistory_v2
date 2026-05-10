@@ -12,6 +12,7 @@
     "pipeline": "tsx scripts/pipeline.ts",
     "normalize": "tsx scripts/normalize.ts",
     "generate:prompts": "tsx scripts/generate-gemini-prompts.ts",
+    "generate:company-prompts": "tsx scripts/generate-company-prompts.ts",
     "validate:data": "tsx scripts/validate-data.ts",
     "import:data": "tsx scripts/import-data.ts"
   },
