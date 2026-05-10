@@ -1,122 +1,109 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useMapStore } from './store/useMapStore'
+import WorldMap from './components/Map/WorldMap'
+import CountryPanel from './components/Panel/CountryPanel'
+import ConflictCard from './components/Panel/ConflictCard'
+import SearchBar from './components/UI/SearchBar'
+import LayerToggle from './components/UI/LayerToggle'
+import HeatmapSelector from './components/UI/HeatmapSelector'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const { selectedCountryId, selectedConflict } = useMapStore()
+  const showPanel = !!selectedCountryId
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="flex flex-col h-screen" style={{ background: '#070B14' }}>
 
-      <div className="ticks"></div>
+      {/* Header */}
+      <header className="flex items-center gap-3 px-4 py-2 border-b flex-shrink-0 z-20"
+        style={{ background: '#0A0F1E', borderColor: '#1E2D4A' }}>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+        {/* Brand */}
+        <div className="flex items-center gap-2.5 flex-shrink-0">
+          <span className="text-lg">🌍</span>
+          <div className="hidden sm:block">
+            <p className="text-xs font-bold text-white leading-none">World Intelligence</p>
+            <p className="text-xs leading-none mt-0.5" style={{ color: '#334155' }}>v2</p>
+          </div>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+        <div className="w-px h-5 mx-1 hidden sm:block" style={{ background: '#1E2D4A' }} />
+
+        {/* Search */}
+        <SearchBar />
+
+        <div className="w-px h-5 mx-1 hidden md:block" style={{ background: '#1E2D4A' }} />
+
+        {/* Layer toggles */}
+        <div className="hidden md:flex">
+          <LayerToggle />
+        </div>
+
+        <div className="w-px h-5 mx-1 hidden lg:block" style={{ background: '#1E2D4A' }} />
+
+        {/* Heatmap */}
+        <div className="hidden lg:flex">
+          <HeatmapSelector />
+        </div>
+
+        <div className="flex-1" />
+
+        <a href="https://github.com/neiltd/worldmaphistory_v2" target="_blank" rel="noopener noreferrer"
+          className="text-xs hover:text-slate-300 transition-colors hidden sm:block" style={{ color: '#334155' }}>
+          GitHub ↗
+        </a>
+      </header>
+
+      {/* Map + Panel */}
+      <div className="flex flex-1 overflow-hidden relative">
+
+        {/* Map fills available space */}
+        <div className="flex-1 relative">
+          <WorldMap />
+
+          {/* Conflict card — bottom left over map */}
+          <AnimatePresence>
+            {selectedConflict && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.2 }}
+                className="absolute bottom-0 left-0 w-full pointer-events-none"
+              >
+                <div className="pointer-events-auto">
+                  <ConflictCard />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Empty state hint */}
+          {!selectedCountryId && !selectedConflict && (
+            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 pointer-events-none text-center">
+              <p className="text-xs px-3 py-1.5 rounded-full" style={{ background: '#0E1525CC', color: '#475569', border: '1px solid #1E2D4A' }}>
+                Click any country · Toggle layers above · Scroll to zoom
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Side panel — slides in */}
+        <AnimatePresence>
+          {showPanel && (
+            <motion.div
+              initial={{ x: '100%', opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: '100%', opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="w-80 xl:w-96 flex-shrink-0 flex flex-col overflow-hidden border-l"
+              style={{ background: '#0A0F1E', borderColor: '#1E2D4A' }}
+            >
+              <CountryPanel />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
   )
 }
-
-export default App

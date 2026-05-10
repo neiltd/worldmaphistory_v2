@@ -2,6 +2,27 @@ import { create } from 'zustand'
 import type { Country } from '../types/country'
 import type { Conflict } from '../types/conflict'
 
+export type IndicatorKey =
+  | 'none'
+  | 'politicalStability'
+  | 'economicDirection'
+  | 'investmentAttractiveness'
+  | 'geopoliticalRisk'
+  | 'educationQuality'
+  | 'healthcareQuality'
+  | 'technologyInvestment'
+
+export const INDICATOR_LABELS: Record<IndicatorKey, string> = {
+  none:                     'No heatmap',
+  politicalStability:       'Political Stability',
+  economicDirection:        'Economic Direction',
+  investmentAttractiveness: 'Investment Attractiveness',
+  geopoliticalRisk:         'Geopolitical Risk',
+  educationQuality:         'Education Quality',
+  healthcareQuality:        'Healthcare Quality',
+  technologyInvestment:     'Technology Investment',
+}
+
 interface MapStore {
   // Country selection
   selectedCountryId: string | null
@@ -11,6 +32,13 @@ interface MapStore {
   selectCountry: (id: string) => Promise<void>
   clearSelection: () => void
 
+  // Comparison (second country)
+  compareCountryId: string | null
+  compareData: Country | null
+  compareLoading: boolean
+  setCompare: (id: string) => Promise<void>
+  clearCompare: () => void
+
   // Layer toggles
   showConflicts: boolean
   showTradeRoutes: boolean
@@ -19,10 +47,18 @@ interface MapStore {
   toggleTradeRoutes: () => void
   toggleChokepoints: () => void
 
-  // Conflict card
+  // Heatmap
+  heatmapIndicator: IndicatorKey
+  setHeatmapIndicator: (key: IndicatorKey) => void
+
+  // Conflict popup
   selectedConflict: Conflict | null
   selectConflict: (conflict: Conflict) => void
   clearConflict: () => void
+
+  // Map zoom (for scaling markers)
+  mapZoom: number
+  setMapZoom: (zoom: number) => void
 }
 
 export const useMapStore = create<MapStore>((set) => ({
@@ -37,14 +73,28 @@ export const useMapStore = create<MapStore>((set) => ({
       const module = await import(`../data/countries/${id}.json`)
       set({ countryData: module.default as Country, loading: false })
     } catch {
-      set({ error: `No detailed data available for this country yet.`, loading: false })
+      set({ error: 'No detailed data available for this country yet.', loading: false })
     }
   },
 
-  clearSelection: () =>
-    set({ selectedCountryId: null, countryData: null, error: null }),
+  clearSelection: () => set({ selectedCountryId: null, countryData: null, error: null }),
 
-  // Layers — conflicts and chokepoints on by default, routes off
+  compareCountryId: null,
+  compareData: null,
+  compareLoading: false,
+
+  setCompare: async (id: string) => {
+    set({ compareCountryId: id, compareLoading: true, compareData: null })
+    try {
+      const module = await import(`../data/countries/${id}.json`)
+      set({ compareData: module.default as Country, compareLoading: false })
+    } catch {
+      set({ compareLoading: false })
+    }
+  },
+
+  clearCompare: () => set({ compareCountryId: null, compareData: null }),
+
   showConflicts: true,
   showTradeRoutes: false,
   showChokepoints: false,
@@ -52,8 +102,13 @@ export const useMapStore = create<MapStore>((set) => ({
   toggleTradeRoutes: () => set((s) => ({ showTradeRoutes: !s.showTradeRoutes })),
   toggleChokepoints: () => set((s) => ({ showChokepoints: !s.showChokepoints })),
 
-  // Conflict popup
+  heatmapIndicator: 'none',
+  setHeatmapIndicator: (key) => set({ heatmapIndicator: key }),
+
   selectedConflict: null,
   selectConflict: (conflict) => set({ selectedConflict: conflict, selectedCountryId: null, countryData: null }),
   clearConflict: () => set({ selectedConflict: null }),
+
+  mapZoom: 1,
+  setMapZoom: (zoom) => set({ mapZoom: zoom }),
 }))
