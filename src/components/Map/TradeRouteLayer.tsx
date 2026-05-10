@@ -27,7 +27,7 @@ interface Props { showRoutes: boolean; showChokepoints: boolean; zoom: number }
 export default function TradeRouteLayer({ showRoutes, showChokepoints, zoom }: Props) {
   const [tooltip, setTooltip] = useState<TooltipData | null>(null)
 
-  const cpSize = Math.max(3, 6 / Math.sqrt(zoom))
+  const cpSize = 6 / zoom
 
   // Midpoint between two coords for route label marker
   function midpoint(a: [number, number], b: [number, number]): [number, number] {

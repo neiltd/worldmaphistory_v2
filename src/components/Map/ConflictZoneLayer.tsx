@@ -29,7 +29,7 @@ export default function ConflictZoneLayer({ zoom }: { zoom: number }) {
   const { selectConflict, selectedConflict } = useMapStore()
   const [hoveredZone, setHoveredZone] = useState<string | null>(null)
 
-  const dotSize = Math.max(2.5, 7 / Math.sqrt(zoom))
+  const dotSize = 7 / zoom
 
   function handleZoneClick(id: string) {
     const conflict = conflicts.find(c => c.id === id)
