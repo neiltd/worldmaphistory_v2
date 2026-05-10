@@ -15,7 +15,7 @@ export default function App() {
     <div className="flex flex-col h-screen" style={{ background: '#070B14' }}>
 
       {/* Header */}
-      <header className="flex items-center gap-3 px-4 py-2 border-b flex-shrink-0 z-20"
+      <header className="flex items-center gap-3 px-4 py-2 border-b flex-shrink-0 z-[100]"
         style={{ background: '#0A0F1E', borderColor: '#1E2D4A' }}>
 
         {/* Brand */}
