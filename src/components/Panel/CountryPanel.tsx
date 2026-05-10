@@ -29,6 +29,15 @@ const RELATIONSHIP_COLORS: Record<string, string> = {
 
 type Tab = 'overview' | 'indicators' | 'relationships' | 'perspectives' | 'history' | 'investment'
 
+const TABS: { id: Tab; label: string }[] = [
+  { id: 'overview',      label: 'Overview' },
+  { id: 'indicators',    label: 'Indicators' },
+  { id: 'relationships', label: 'Relations' },
+  { id: 'perspectives',  label: 'Perspectives' },
+  { id: 'history',       label: 'History' },
+  { id: 'investment',    label: 'Investment' },
+]
+
 function flagEmoji(iso2: string) {
   return iso2.toUpperCase().split('').map(c => String.fromCodePoint(0x1f1e6 - 65 + c.charCodeAt(0))).join('')
 }
@@ -39,7 +48,17 @@ function formatPop(n: number) {
   return n.toLocaleString()
 }
 
-// ── CompareSearch (V2 feature, kept) ────────────────────────────────────────
+// ── Section wrapper for consistent spacing ───────────────────────────────────
+function Section({ title, children }: { title?: string; children: React.ReactNode }) {
+  return (
+    <div className="mb-5">
+      {title && <p className="text-xs text-slate-500 mb-2 font-medium">{title}</p>}
+      {children}
+    </div>
+  )
+}
+
+// ── CompareSearch ─────────────────────────────────────────────────────────────
 interface CountryEntry { id: string; iso2: string; name: string; region: string }
 const entries = countryIndex as CountryEntry[]
 const fuse = new Fuse(entries, { keys: ['name'], threshold: 0.3 })
@@ -51,16 +70,16 @@ function CompareSearch() {
 
   if (compareData) {
     return (
-      <div className="flex items-center gap-2 mt-2 px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700">
-        <span>{flagEmoji(compareData.iso2)}</span>
-        <span className="text-xs text-purple-300 flex-1 truncate">{compareData.name}</span>
-        <button onClick={clearCompare} className="text-slate-500 hover:text-white text-lg leading-none">×</button>
+      <div className="flex items-center gap-2 mt-3 px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 min-w-0">
+        <span className="flex-shrink-0">{flagEmoji(compareData.iso2)}</span>
+        <span className="text-xs text-purple-300 flex-1 truncate min-w-0">{compareData.name}</span>
+        <button onClick={clearCompare} className="flex-shrink-0 text-slate-500 hover:text-white text-lg leading-none">×</button>
       </div>
     )
   }
 
   return (
-    <div className="relative mt-2">
+    <div className="relative mt-3">
       <input
         type="text" value={q}
         onChange={e => {
@@ -68,17 +87,17 @@ function CompareSearch() {
           setResults(e.target.value ? fuse.search(e.target.value).slice(0, 6).map(r => r.item) : [])
         }}
         placeholder="Compare with another country..."
-        className="w-full text-xs bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-300 placeholder-slate-600 outline-none"
+        className="w-full text-xs bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-300 placeholder-slate-600 outline-none"
       />
-      {compareLoading && <p className="text-xs text-slate-500 mt-1">Loading...</p>}
+      {compareLoading && <p className="text-xs text-slate-500 mt-1">Loading…</p>}
       {results.length > 0 && (
         <div className="absolute top-full left-0 right-0 mt-1 bg-slate-900 border border-slate-700 rounded-lg overflow-hidden z-20 shadow-2xl">
           {results.map(c => (
             <button key={c.id} onClick={() => { setCompare(c.id); setQ(''); setResults([]) }}
-              className="w-full flex items-center gap-2.5 px-3 py-2 hover:bg-slate-800 text-left">
-              <span>{flagEmoji(c.iso2)}</span>
-              <div>
-                <p className="text-xs text-slate-200">{c.name}</p>
+              className="w-full flex items-center gap-2.5 px-3 py-2 hover:bg-slate-800 text-left min-w-0">
+              <span className="flex-shrink-0">{flagEmoji(c.iso2)}</span>
+              <div className="min-w-0">
+                <p className="text-xs text-slate-200 truncate">{c.name}</p>
                 <p className="text-xs text-slate-500">{c.region}</p>
               </div>
             </button>
@@ -89,17 +108,17 @@ function CompareSearch() {
   )
 }
 
-// ── Main panel ───────────────────────────────────────────────────────────────
+// ── Main panel ────────────────────────────────────────────────────────────────
 export default function CountryPanel() {
   const { countryData, compareData, loading, error, clearSelection } = useMapStore()
   const [tab, setTab] = useState<Tab>('overview')
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-full text-slate-400">
+      <div className="flex items-center justify-center h-full">
         <div className="text-center">
           <div className="animate-spin w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full mx-auto mb-3" />
-          <p className="text-sm">Loading intelligence data...</p>
+          <p className="text-sm text-slate-400">Loading intelligence data…</p>
         </div>
       </div>
     )
@@ -107,39 +126,30 @@ export default function CountryPanel() {
 
   if (error) {
     return (
-      <div className="flex flex-col items-center justify-center h-full text-slate-400 p-6">
-        <div className="text-4xl mb-3">🗺️</div>
-        <p className="text-sm text-center text-slate-500">{error}</p>
-        <button onClick={clearSelection} className="mt-4 text-xs text-blue-400 hover:text-blue-300 underline">
-          Back to map
-        </button>
+      <div className="flex flex-col items-center justify-center h-full p-6 text-center gap-3">
+        <div className="text-4xl">🗺️</div>
+        <p className="text-sm text-slate-500 break-words">{error}</p>
+        <button onClick={clearSelection} className="text-xs text-blue-400 hover:text-blue-300 underline">Back to map</button>
       </div>
     )
   }
 
   if (!countryData) {
     return (
-      <div className="flex flex-col items-center justify-center h-full text-slate-500 p-6 text-center">
-        <div className="text-5xl mb-4">🌍</div>
-        <p className="text-sm font-medium text-slate-400 mb-1">Click any country</p>
-        <p className="text-xs text-slate-600">
-          View historical context, geopolitical relationships, competing perspectives, and investment intelligence.
-        </p>
+      <div className="flex flex-col items-center justify-center h-full p-6 text-center gap-3">
+        <div className="text-5xl">🌍</div>
+        <div>
+          <p className="text-sm font-medium text-slate-400 mb-1">Click any country</p>
+          <p className="text-xs text-slate-600 leading-relaxed">
+            View historical context, geopolitical relationships, competing perspectives, and investment intelligence.
+          </p>
+        </div>
       </div>
     )
   }
 
   const c: Country = countryData
   const cc = compareData
-
-  const tabs: { id: Tab; label: string }[] = [
-    { id: 'overview',      label: 'Overview' },
-    { id: 'indicators',    label: 'Indicators' },
-    { id: 'relationships', label: 'Relations' },
-    { id: 'perspectives',  label: 'Perspectives' },
-    { id: 'history',       label: 'History' },
-    { id: 'investment',    label: 'Investment' },
-  ]
 
   const radarData = Object.keys(INDICATOR_LABELS).map(key => ({
     subject: INDICATOR_LABELS[key].split(' ')[0],
@@ -148,29 +158,41 @@ export default function CountryPanel() {
   }))
 
   return (
-    <div className="flex flex-col h-full overflow-hidden">
+    // Req 1, 9: proper flexbox column, overflow-y only on body
+    <div className="flex flex-col h-full min-h-0">
 
-      {/* Header */}
-      <div className="px-4 pt-4 pb-3 border-b border-slate-800 flex-shrink-0">
-        <div className="flex items-start justify-between">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-2xl">{flagEmoji(c.iso2)}</span>
-              <h2 className="text-lg font-bold text-white">{c.name}</h2>
+      {/* ── HEADER — fixed, never scrolls ── */}
+      {/* Req 7: consistent header padding */}
+      <div className="flex-shrink-0 px-4 pt-4 pb-3 border-b border-slate-800">
+        {/* Req 1, 6: flex layout, break-words prevents text from pushing close button */}
+        <div className="flex items-start justify-between gap-3 min-w-0">
+          <div className="flex items-start gap-2.5 min-w-0 flex-1">
+            <span className="text-2xl flex-shrink-0 leading-none mt-0.5">{flagEmoji(c.iso2)}</span>
+            <div className="min-w-0 flex-1">
+              {/* Req 6: break-words on long country names */}
+              <h2 className="text-base font-bold text-white leading-snug break-words">{c.name}</h2>
+              <p className="text-xs text-slate-500 mt-1 leading-relaxed break-words">{c.subregion} · {c.capital}</p>
+              <p className="text-xs text-slate-600 mt-0.5">Updated {c.lastUpdated}</p>
             </div>
-            <p className="text-xs text-slate-500 mb-0.5">{c.subregion} · {c.capital}</p>
-            <p className="text-xs text-slate-600">Updated {c.lastUpdated}</p>
           </div>
-          <button onClick={clearSelection} className="text-slate-500 hover:text-slate-300 text-xl leading-none p-1" aria-label="Close">×</button>
+          <button
+            onClick={clearSelection}
+            className="flex-shrink-0 text-slate-500 hover:text-slate-300 text-xl leading-none p-1 mt-0.5"
+            aria-label="Close"
+          >×</button>
         </div>
         <CompareSearch />
       </div>
 
-      {/* Tabs */}
-      <div className="flex border-b border-slate-800 flex-shrink-0 overflow-x-auto">
-        {tabs.map(t => (
-          <button key={t.id} onClick={() => setTab(t.id)}
-            className={`px-3 py-2 text-xs font-medium whitespace-nowrap transition-colors border-b-2 ${
+      {/* ── TABS — fixed, never scrolls, never wraps ── */}
+      {/* Req 2, 10: overflow-x-auto prevents wrapping; flex-shrink-0 keeps it stable */}
+      <div className="flex-shrink-0 flex overflow-x-auto border-b border-slate-800 scrollbar-none">
+        {TABS.map(t => (
+          <button
+            key={t.id}
+            onClick={() => setTab(t.id)}
+            // Req 2: flex-shrink-0 + whitespace-nowrap prevents tab text wrapping
+            className={`flex-shrink-0 px-3 py-2.5 text-xs font-medium whitespace-nowrap transition-colors border-b-2 ${
               tab === t.id
                 ? 'text-blue-400 border-blue-400'
                 : 'text-slate-500 hover:text-slate-300 border-transparent'
@@ -179,175 +201,212 @@ export default function CountryPanel() {
         ))}
       </div>
 
-      {/* Tab content */}
-      <div className="flex-1 overflow-y-auto p-4">
+      {/* ── BODY — only this scrolls ── */}
+      {/* Req 9: overflow-y-auto only here; min-h-0 is required for flex children to shrink */}
+      <div className="flex-1 overflow-y-auto min-h-0 p-4">
 
-        {/* ── OVERVIEW ── */}
+        {/* ══ OVERVIEW ══ */}
         {tab === 'overview' && (
-          <div>
-            <p className="text-sm text-slate-300 leading-relaxed mb-4">{c.summary}</p>
-            <div className="grid grid-cols-2 gap-2 text-xs">
-              <div className="bg-slate-800 rounded-lg p-3">
-                <p className="text-slate-500 mb-0.5">Population</p>
-                <p className="text-white font-semibold">{formatPop(c.demographics.population)}</p>
-              </div>
-              <div className="bg-slate-800 rounded-lg p-3">
-                <p className="text-slate-500 mb-0.5">Median Age</p>
-                <p className="text-white font-semibold">{c.demographics.medianAge}</p>
-              </div>
-              <div className="bg-slate-800 rounded-lg p-3">
-                <p className="text-slate-500 mb-0.5">Urbanization</p>
-                <p className="text-white font-semibold">{c.demographics.urbanizationRate}%</p>
-              </div>
-              <div className="bg-slate-800 rounded-lg p-3">
-                <p className="text-slate-500 mb-0.5">Alliances</p>
-                <p className="text-white font-semibold">{c.alliances.length} memberships</p>
-              </div>
-            </div>
-            <div className="mt-4">
-              <p className="text-xs text-slate-500 mb-2">Religion</p>
-              {c.demographics.religions.map(r => (
-                <div key={r.name} className="flex items-center gap-2 mb-2">
-                  <div className="flex-1 h-1.5 bg-slate-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-blue-600 rounded-full" style={{ width: `${r.percent}%` }} />
+          <div className="flex flex-col gap-5">
+
+            {/* Req 4, 6: long summary text won't collapse siblings */}
+            <p className="text-sm text-slate-300 leading-relaxed break-words">{c.summary}</p>
+
+            {/* Req 5: auto-fit grid so cards wrap on narrow panels */}
+            <Section title="Demographics">
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '0.5rem' }}>
+                {[
+                  ['Population',   formatPop(c.demographics.population)],
+                  ['Median Age',   String(c.demographics.medianAge)],
+                  ['Urban',        `${c.demographics.urbanizationRate}%`],
+                  ['Alliances',    `${c.alliances.length} memberships`],
+                ].map(([label, value]) => (
+                  <div key={label} className="bg-slate-800 rounded-lg p-3 min-h-[60px] flex flex-col justify-between">
+                    <p className="text-xs text-slate-500 mb-1">{label}</p>
+                    {/* Req 6: break-words on values */}
+                    <p className="text-sm text-white font-semibold leading-snug break-words">{value}</p>
                   </div>
-                  <span className="text-xs text-slate-400 w-28 text-right">{r.name} {r.percent}%</span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4">
-              <p className="text-xs text-slate-500 mb-2">Alliances & Memberships</p>
-              <div className="flex flex-wrap gap-1.5">
-                {c.alliances.map(a => (
-                  <span key={a} className="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full border border-slate-700">{a}</span>
                 ))}
               </div>
-            </div>
+            </Section>
+
+            {/* Req 3, 7: min-height and consistent spacing for religion section */}
+            <Section title="Religion">
+              <div className="flex flex-col gap-2.5">
+                {c.demographics.religions.map(r => (
+                  // Req 1: flex layout with min-w-0 prevents bar from overflowing
+                  <div key={r.name} className="flex items-center gap-3 min-w-0">
+                    <div className="flex-1 min-w-0 h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                      <div className="h-full bg-blue-600 rounded-full" style={{ width: `${r.percent}%` }} />
+                    </div>
+                    {/* Req 6: fixed min-width label, right-aligned */}
+                    <span
+                      className="flex-shrink-0 text-xs text-slate-400 text-right"
+                      style={{ minWidth: '7.5rem' }}
+                    >{r.name} {r.percent}%</span>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            {/* Req 7: alliance tags section with gap and margin */}
+            <Section title="Alliances & Memberships">
+              {/* Req 2: flex-wrap so tags never overflow */}
+              <div className="flex flex-wrap gap-1.5">
+                {c.alliances.map(a => (
+                  <span key={a} className="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full border border-slate-700 break-words">
+                    {a}
+                  </span>
+                ))}
+              </div>
+            </Section>
           </div>
         )}
 
-        {/* ── INDICATORS ── */}
+        {/* ══ INDICATORS ══ */}
         {tab === 'indicators' && (
-          <div>
-            {/* Radar chart — V2 feature kept */}
-            <div style={{ height: 210 }} className="mb-3">
+          <div className="flex flex-col gap-4">
+            {/* Req 3: min-height on radar chart container */}
+            <div style={{ height: 210, minHeight: 180 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <RadarChart data={radarData} margin={{ top: 8, right: 30, bottom: 8, left: 30 }}>
                   <PolarGrid stroke="#334155" />
                   <PolarAngleAxis dataKey="subject" tick={{ fill: '#64748b', fontSize: 10 }} />
                   <Radar name={c.name} dataKey="A" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.2} dot={{ fill: '#3b82f6', r: 2 }} />
                   {cc && <Radar name={cc.name} dataKey="B" stroke="#a78bfa" fill="#a78bfa" fillOpacity={0.15} dot={{ fill: '#a78bfa', r: 2 }} />}
-                  <RechartTooltip contentStyle={{ background: '#1e293b', border: '1px solid #334155', borderRadius: 6, fontSize: 11 }} labelStyle={{ color: '#94a3b8' }} />
+                  <RechartTooltip
+                    contentStyle={{ background: '#1e293b', border: '1px solid #334155', borderRadius: 6, fontSize: 11 }}
+                    labelStyle={{ color: '#94a3b8' }}
+                  />
                 </RadarChart>
               </ResponsiveContainer>
             </div>
             {cc && (
-              <div className="flex gap-4 mb-3">
-                <div className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-blue-500" /><span className="text-xs text-slate-400">{c.name}</span></div>
-                <div className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-violet-400" /><span className="text-xs text-slate-400">{cc.name}</span></div>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0" /><span className="text-xs text-slate-400 break-words">{c.name}</span></div>
+                <div className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0" /><span className="text-xs text-slate-400 break-words">{cc.name}</span></div>
               </div>
             )}
-            <p className="text-xs text-slate-500 mb-3">Scores 1–10 · Confidence level shown</p>
-            {Object.entries(INDICATOR_LABELS).map(([key, label]) => (
-              <ScoreBar
-                key={key}
-                label={label}
-                indicator={c.indicators[key as keyof typeof c.indicators]}
-              />
-            ))}
+            <p className="text-xs text-slate-500">Scores 1–10 · Confidence level shown</p>
+            <div className="flex flex-col gap-1">
+              {Object.entries(INDICATOR_LABELS).map(([key, label]) => (
+                <ScoreBar
+                  key={key}
+                  label={label}
+                  indicator={c.indicators[key as keyof typeof c.indicators]}
+                />
+              ))}
+            </div>
           </div>
         )}
 
-        {/* ── RELATIONSHIPS ── */}
+        {/* ══ RELATIONSHIPS ══ */}
         {tab === 'relationships' && (
-          <div>
-            <p className="text-xs text-slate-500 mb-3">{c.relationships.length} key relationships</p>
+          <div className="flex flex-col gap-3">
+            <p className="text-xs text-slate-500">{c.relationships.length} key relationships</p>
             {c.relationships.map(r => (
-              <div key={r.countryId} className="mb-3 p-3 bg-slate-800 rounded-lg border border-slate-700">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm font-medium text-white">{r.countryName}</span>
-                  <span className={`text-xs px-2 py-0.5 rounded-full border ${RELATIONSHIP_COLORS[r.type] || RELATIONSHIP_COLORS.neutral}`}>
+              <div key={r.countryId} className="p-3 bg-slate-800 rounded-lg border border-slate-700">
+                {/* Req 1, 6: flex with min-w-0 prevents badge from being pushed off screen */}
+                <div className="flex items-start justify-between gap-2 mb-1.5 min-w-0">
+                  <span className="text-sm font-medium text-white break-words min-w-0 flex-1 leading-snug">{r.countryName}</span>
+                  <span className={`flex-shrink-0 text-xs px-2 py-0.5 rounded-full border whitespace-nowrap ${RELATIONSHIP_COLORS[r.type] || RELATIONSHIP_COLORS.neutral}`}>
                     {r.type.replace(/_/g, ' ')}
                   </span>
                 </div>
-                <p className="text-xs text-slate-400 leading-snug">{r.summary}</p>
+                {/* Req 6: break-words on summary text */}
+                <p className="text-xs text-slate-400 leading-relaxed break-words">{r.summary}</p>
               </div>
             ))}
           </div>
         )}
 
-        {/* ── PERSPECTIVES ── */}
+        {/* ══ PERSPECTIVES ══ */}
         {tab === 'perspectives' && (
-          <div>
-            <p className="text-xs text-slate-500 mb-3">Competing narratives — no single view is endorsed.</p>
+          <div className="flex flex-col gap-5">
+            <p className="text-xs text-slate-500">Competing narratives — no single view is endorsed.</p>
             {c.perspectives.map((p, i) => (
-              <div key={i} className="mb-4 border-l-2 border-blue-700 pl-3">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-xs font-semibold text-blue-300">{p.source}</span>
+              <div key={i} className="border-l-2 border-blue-700 pl-3">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-1.5">
+                  <span className="text-xs font-semibold text-blue-300 break-words">{p.source}</span>
                   <span className="text-xs text-slate-600">· {p.bias}</span>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed">{p.view}</p>
+                {/* Req 4, 6: long perspective text won't collapse siblings */}
+                <p className="text-xs text-slate-300 leading-relaxed break-words">{p.view}</p>
               </div>
             ))}
           </div>
         )}
 
-        {/* ── HISTORY ── */}
+        {/* ══ HISTORY ══ */}
         {tab === 'history' && (
-          <div>
-            <p className="text-sm text-slate-300 leading-relaxed mb-4">{c.historicalContext.summary}</p>
-            <p className="text-xs text-slate-500 mb-2">Key Events</p>
-            <div className="relative">
-              <div className="absolute left-8 top-0 bottom-0 w-px bg-slate-700" />
+          <div className="flex flex-col gap-4">
+            {/* Req 4: leading-relaxed + break-words prevents long summary collapsing timeline */}
+            <p className="text-sm text-slate-300 leading-relaxed break-words">{c.historicalContext.summary}</p>
+            <p className="text-xs text-slate-500">Key Events</p>
+            <div className="relative flex flex-col gap-3">
+              <div className="absolute left-[3.75rem] top-0 bottom-0 w-px bg-slate-700" />
               {c.historicalContext.keyEvents.map((e, i) => (
-                <div key={i} className="flex gap-3 mb-3 relative">
-                  <div className="w-16 flex-shrink-0 text-right">
+                // Req 1: flex with flex-shrink-0 on year/dot, min-w-0 on text
+                <div key={i} className="flex items-start gap-3 relative min-w-0">
+                  <div className="w-14 flex-shrink-0 text-right pt-0.5">
                     <span className="text-xs font-mono text-blue-400">{e.year}</span>
                   </div>
                   <div className="w-2 h-2 rounded-full bg-blue-600 flex-shrink-0 mt-1 relative z-10" />
-                  <p className="text-xs text-slate-300 leading-snug">{e.event}</p>
+                  {/* Req 6: break-words on event text */}
+                  <p className="text-xs text-slate-300 leading-relaxed break-words min-w-0 flex-1">{e.event}</p>
                 </div>
               ))}
             </div>
           </div>
         )}
 
-        {/* ── INVESTMENT ── */}
+        {/* ══ INVESTMENT ══ */}
         {tab === 'investment' && (
-          <div>
-            <div className="mb-4">
-              <p className="text-xs font-semibold text-emerald-400 mb-2">✓ Strengths</p>
-              {c.investmentNotes.strengths.map((s, i) => (
-                <p key={i} className="text-xs text-slate-300 mb-1.5 flex gap-2">
-                  <span className="text-emerald-600 flex-shrink-0">•</span> {s}
-                </p>
-              ))}
-            </div>
-            <div className="mb-4">
-              <p className="text-xs font-semibold text-red-400 mb-2">⚠ Risks</p>
-              {c.investmentNotes.risks.map((r, i) => (
-                <p key={i} className="text-xs text-slate-300 mb-1.5 flex gap-2">
-                  <span className="text-red-600 flex-shrink-0">•</span> {r}
-                </p>
-              ))}
-            </div>
-            <div className="mb-4">
-              <p className="text-xs font-semibold text-blue-400 mb-2">Key Sectors</p>
-              <div className="flex flex-wrap gap-1">
-                {c.investmentNotes.sectors.map(s => (
-                  <span key={s} className="text-xs bg-blue-900 text-blue-300 px-2 py-0.5 rounded border border-blue-800">{s}</span>
+          <div className="flex flex-col gap-5">
+            <Section title="✓ Strengths">
+              <div className="flex flex-col gap-2">
+                {c.investmentNotes.strengths.map((s, i) => (
+                  // Req 4: flex prevents bullet collapsing when text is long
+                  <div key={i} className="flex gap-2 min-w-0">
+                    <span className="text-emerald-600 flex-shrink-0 font-bold">•</span>
+                    <p className="text-xs text-slate-300 leading-relaxed break-words min-w-0">{s}</p>
+                  </div>
                 ))}
               </div>
-            </div>
-            <div>
-              <p className="text-xs font-semibold text-slate-500 mb-2">Sources</p>
-              {c.sources.map((s, i) => (
-                <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
-                  className="text-xs text-blue-400 hover:text-blue-300 block mb-1 underline">
-                  {s.name} ↗
-                </a>
-              ))}
-            </div>
+            </Section>
+
+            <Section title="⚠ Risks">
+              <div className="flex flex-col gap-2">
+                {c.investmentNotes.risks.map((r, i) => (
+                  <div key={i} className="flex gap-2 min-w-0">
+                    <span className="text-red-600 flex-shrink-0 font-bold">•</span>
+                    <p className="text-xs text-slate-300 leading-relaxed break-words min-w-0">{r}</p>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            <Section title="Key Sectors">
+              {/* Req 2: flex-wrap so sector tags never overflow */}
+              <div className="flex flex-wrap gap-1.5">
+                {c.investmentNotes.sectors.map(s => (
+                  <span key={s} className="text-xs bg-blue-900 text-blue-300 px-2 py-0.5 rounded border border-blue-800 break-words">
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </Section>
+
+            <Section title="Sources">
+              <div className="flex flex-col gap-1.5">
+                {c.sources.map((s, i) => (
+                  <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
+                    className="text-xs text-blue-400 hover:text-blue-300 underline break-words leading-relaxed">
+                    {s.name} ↗
+                  </a>
+                ))}
+              </div>
+            </Section>
           </div>
         )}
 
