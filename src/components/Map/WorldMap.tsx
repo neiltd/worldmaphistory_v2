@@ -7,7 +7,7 @@ import ConflictZoneLayer from './ConflictZoneLayer'
 import TradeRouteLayer from './TradeRouteLayer'
 import indicatorsIndex from '../../data/indicators-index.json'
 
-const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
+const GEO_URL = '/worldmaphistory_v2/countries-110m.json'
 
 const NUM_TO_ISO3: Record<string, string> = {
   '004':'AFG','008':'ALB','012':'DZA','024':'AGO','028':'ATG','032':'ARG','036':'AUS',
