@@ -137,12 +137,12 @@ export default function CountryPanel() {
       <div className="px-4 pt-4 pb-3 border-b border-slate-800 flex-shrink-0">
         <div className="flex items-start justify-between">
           <div>
-            <div className="flex items-center gap-2 mb-0.5">
+            <div className="flex items-center gap-2 mb-1.5">
               <span className="text-2xl">{flag(c.iso2)}</span>
               <h2 className="text-lg font-bold text-white">{c.name}</h2>
             </div>
-            <p className="text-xs text-slate-500">{c.subregion} · {c.capital}</p>
-            <p className="text-xs text-slate-700 mt-0.5">Updated {c.lastUpdated}</p>
+            <p className="text-xs text-slate-500 mb-1">{c.subregion} · {c.capital}</p>
+            <p className="text-xs text-slate-700">Updated {c.lastUpdated}</p>
           </div>
           <button onClick={clearSelection} className="text-slate-500 hover:text-slate-300 text-xl leading-none p-1">×</button>
         </div>
@@ -153,7 +153,7 @@ export default function CountryPanel() {
       <div className="flex border-b border-slate-800 flex-shrink-0 overflow-x-auto">
         {TABS.map(t => (
           <button key={t.id} onClick={() => setTab(t.id)}
-            className={`px-3 py-2 text-xs font-medium whitespace-nowrap transition-colors border-b-2 ${
+            className={`px-4 py-3 text-xs font-medium whitespace-nowrap transition-colors border-b-2 ${
               tab === t.id
                 ? 'text-blue-400 border-blue-400'
                 : 'text-slate-500 hover:text-slate-300 border-transparent'
@@ -163,41 +163,41 @@ export default function CountryPanel() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto p-4">
+      <div className="flex-1 overflow-y-auto p-5">
 
         {/* ── OVERVIEW ── */}
         {tab === 'overview' && (
           <div>
             <p className="text-sm text-slate-300 leading-relaxed mb-4">{c.summary}</p>
-            <div className="grid grid-cols-2 gap-2 text-xs mb-4">
+            <div className="grid grid-cols-2 gap-3 text-xs mb-5">
               {[
                 ['Population', fmtPop(c.demographics.population)],
                 ['Median Age', `${c.demographics.medianAge}`],
                 ['Urban', `${c.demographics.urbanizationRate}%`],
                 ['Alliances', `${c.alliances.length} memberships`],
               ].map(([k, v]) => (
-                <div key={k} className="bg-slate-800 rounded-lg p-3">
+                <div key={k} className="bg-slate-800 rounded-lg p-4">
                   <p className="text-slate-500 mb-0.5">{k}</p>
                   <p className="text-white font-semibold">{v}</p>
                 </div>
               ))}
             </div>
-            <div className="mb-4">
-              <p className="text-xs text-slate-500 mb-1.5">Religion</p>
+            <div className="mb-5">
+              <p className="text-xs text-slate-500 mb-3">Religion</p>
               {c.demographics.religions.map(r => (
-                <div key={r.name} className="flex items-center gap-2 mb-1">
+                <div key={r.name} className="flex items-center gap-3 mb-3">
                   <div className="flex-1 h-1.5 bg-slate-700 rounded-full overflow-hidden">
                     <div className="h-full bg-blue-600 rounded-full" style={{ width: `${r.percent}%` }} />
                   </div>
-                  <span className="text-xs text-slate-400 w-28 text-right">{r.name} {r.percent}%</span>
+                  <span className="text-xs text-slate-400 w-32 text-right shrink-0">{r.name} {r.percent}%</span>
                 </div>
               ))}
             </div>
-            <div>
-              <p className="text-xs text-slate-500 mb-1.5">Alliances & Memberships</p>
-              <div className="flex flex-wrap gap-1">
+            <div className="mt-5">
+              <p className="text-xs text-slate-500 mb-3">Alliances & Memberships</p>
+              <div className="flex flex-wrap gap-2">
                 {c.alliances.map(a => (
-                  <span key={a} className="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full border border-slate-700">{a}</span>
+                  <span key={a} className="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700">{a}</span>
                 ))}
               </div>
             </div>
