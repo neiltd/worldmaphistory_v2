@@ -61,7 +61,10 @@ export default function ConflictZoneLayer({ show, labelLayerId }: Props) {
       </Source>
 
       {/* Pulsing dot for each conflict — HTML Marker so it stays fixed screen size */}
-      {conflicts.map(c => {
+      {conflicts.filter(c => {
+        const [lng, lat] = c.coordinates ?? [0, 0]
+        return !isNaN(lng) && !isNaN(lat) && !(lng === 0 && lat === 0)
+      }).map(c => {
         const color = INTENSITY_COLOR[c.intensity] ?? '#ef4444'
         const isSelected = selectedConflict?.id === c.id
 

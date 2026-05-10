@@ -20,23 +20,33 @@ interface Props {
 export default function TradeRouteLayer({ showRoutes, showChokepoints, labelLayerId }: Props) {
   const [cpTooltip, setCpTooltip] = useState<{ cp: Chokepoint; x: number; y: number } | null>(null)
 
+  function validCoord(c: [number, number] | undefined | null): boolean {
+    if (!c) return false
+    const [lng, lat] = c
+    if (isNaN(lng) || isNaN(lat)) return false
+    if (lng === 0 && lat === 0) return false
+    return true
+  }
+
   // Build GeoJSON FeatureCollection for route lines — computed once
   const routesGeo = useMemo(() => ({
     type: 'FeatureCollection' as const,
-    features: routes.map(r => ({
-      type: 'Feature' as const,
-      geometry: { type: 'LineString' as const, coordinates: [r.from.coords, r.to.coords] },
-      properties: {
-        id: r.id,
-        name: r.name,
-        volume: r.volume,
-        riskLevel: r.riskLevel,
-        keyGoods: r.keyGoods.join(', '),
-        annualValue: r.annualValue,
-        fromName: r.from.name,
-        toName: r.to.name,
-      },
-    })),
+    features: routes
+      .filter(r => validCoord(r.from.coords) && validCoord(r.to.coords))
+      .map(r => ({
+        type: 'Feature' as const,
+        geometry: { type: 'LineString' as const, coordinates: [r.from.coords, r.to.coords] },
+        properties: {
+          id: r.id,
+          name: r.name,
+          volume: r.volume,
+          riskLevel: r.riskLevel,
+          keyGoods: r.keyGoods.join(', '),
+          annualValue: r.annualValue,
+          fromName: r.from.name,
+          toName: r.to.name,
+        },
+      })),
   }), [])
 
   return (
@@ -69,7 +79,7 @@ export default function TradeRouteLayer({ showRoutes, showChokepoints, labelLaye
       )}
 
       {/* Chokepoint diamond markers — HTML so they stay fixed size */}
-      {showChokepoints && chokepoints.map(cp => (
+      {showChokepoints && chokepoints.filter(cp => validCoord(cp.coordinates)).map(cp => (
         <Marker
           key={cp.id}
           longitude={cp.coordinates[0]}
