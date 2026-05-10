@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import {
-  ComposableMap, Geographies, Geography, ZoomableGroup,
+  ComposableMap, Geographies, Geography, ZoomableGroup, Sphere, Graticule,
 } from 'react-simple-maps'
 import { useMapStore } from '../../store/useMapStore'
 import ConflictZoneLayer from './ConflictZoneLayer'
@@ -68,7 +68,7 @@ export default function WorldMap() {
   } = useMapStore()
 
   const [position, setPosition] = useState<{ coordinates: [number, number]; zoom: number }>({
-    coordinates: [0, 20], zoom: 1,
+    coordinates: [0, 10], zoom: 1,
   })
   const [tooltip, setTooltip] = useState<{ name: string; x: number; y: number; score?: number } | null>(null)
 
@@ -115,7 +115,7 @@ export default function WorldMap() {
         {[
           { label: '+', action: () => setPosition(p => ({ ...p, zoom: Math.min(p.zoom * 1.6, 10) })) },
           { label: '−', action: () => setPosition(p => ({ ...p, zoom: Math.max(p.zoom / 1.6, 1) })) },
-          { label: '⊙', action: () => { setPosition({ coordinates: [0, 20], zoom: 1 }); setMapZoom(1) } },
+          { label: '⊙', action: () => { setPosition({ coordinates: [0, 10], zoom: 1 }); setMapZoom(1) } },
         ].map(btn => (
           <button
             key={btn.label}
@@ -158,8 +158,10 @@ export default function WorldMap() {
         </div>
       )}
 
-      <ComposableMap projection="geoMercator" style={{ width: '100%', height: '100%' }} projectionConfig={{ scale: 130 }}>
+      <ComposableMap projection="geoNaturalEarth1" style={{ width: '100%', height: '100%' }} projectionConfig={{ scale: 118 }}>
         <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMove}>
+          <Sphere id="rsm-sphere" fill="#0c2340" stroke="#1a3a5c" strokeWidth={0.4} />
+          <Graticule stroke="#1a3555" strokeWidth={0.25} />
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies.map(geo => {

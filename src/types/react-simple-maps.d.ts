@@ -40,11 +40,23 @@ declare module 'react-simple-maps' {
     onClick?: (event: MouseEvent<SVGPathElement>) => void
   }
 
-  export interface MarkerProps {
+  export interface MarkerProps extends SVGProps<SVGGElement> {
     coordinates: [number, number]
-    onClick?: (event: MouseEvent<SVGGElement>) => void
     children?: ReactNode
-    style?: CSSProperties
+  }
+
+  export interface SphereProps extends SVGProps<SVGPathElement> {
+    id?: string
+    fill?: string
+    stroke?: string
+    strokeWidth?: number
+  }
+
+  export interface GraticuleProps extends SVGProps<SVGPathElement> {
+    stroke?: string
+    strokeWidth?: number
+    fill?: string
+    step?: [number, number]
   }
 
   export interface LineProps {
@@ -66,4 +78,6 @@ declare module 'react-simple-maps' {
   export function Geography(props: GeographyProps): JSX.Element
   export function Marker(props: MarkerProps): JSX.Element
   export function Line(props: LineProps): JSX.Element
+  export function Sphere(props: SphereProps): JSX.Element
+  export function Graticule(props: GraticuleProps): JSX.Element
 }
