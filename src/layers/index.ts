@@ -19,7 +19,4 @@ export type * from './infrastructure/types'
 export type * from './utilities/types'
 export type { NewsArticle, IntelligenceEvent, EventType, EventStatus, ImpactTier } from './intelligence/types'
 export type { CountryEnvironmentProfile } from './environment/types'
-export type {
-  InvestmentSignal, CountryInvestmentProfile, InvestmentThesis,
-  RiskOpportunityMatrix, SignalType,
-} from './investment/types'
+export type { InvestmentSignal, InvestmentThesis } from './investment/types'
