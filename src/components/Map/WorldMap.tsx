@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import {
-  ComposableMap, Geographies, Geography, ZoomableGroup, Sphere, Graticule,
+  ComposableMap, Geographies, Geography, ZoomableGroup,
 } from 'react-simple-maps'
 import { useMapStore } from '../../store/useMapStore'
 import ConflictZoneLayer from './ConflictZoneLayer'
@@ -158,10 +158,8 @@ export default function WorldMap() {
         </div>
       )}
 
-      <ComposableMap projection="geoNaturalEarth1" style={{ width: '100%', height: '100%' }} projectionConfig={{ scale: 118 }}>
+      <ComposableMap projection="geoMercator" style={{ width: '100%', height: '100%' }} projectionConfig={{ scale: 130 }}>
         <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMove}>
-          <Sphere id="rsm-sphere" fill="#0c2340" stroke="#1a3a5c" strokeWidth={0.4} />
-          <Graticule stroke="#1a3555" strokeWidth={0.25} />
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies.map(geo => {
