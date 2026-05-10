@@ -131,7 +131,7 @@ export default function CountryPanel() {
   }))
 
   return (
-    <div className="flex flex-col h-full overflow-hidden">
+    <div className="flex flex-col h-full overflow-hidden min-w-0">
 
       {/* Header */}
       <div className="px-4 pt-4 pb-3 border-b border-slate-800 flex-shrink-0">
