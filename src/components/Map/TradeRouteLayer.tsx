@@ -28,14 +28,27 @@ export default function TradeRouteLayer({ showRoutes, showChokepoints, labelLaye
     return true
   }
 
+  // Wrap destination longitude so the route takes the shortest path
+  // and never crosses the antimeridian (which causes diagonal artifacts)
+  function wrapLng(fromLng: number, toLng: number): number {
+    let adjusted = toLng
+    while (adjusted - fromLng > 180) adjusted -= 360
+    while (adjusted - fromLng < -180) adjusted += 360
+    return adjusted
+  }
+
   // Build GeoJSON FeatureCollection for route lines — computed once
   const routesGeo = useMemo(() => ({
     type: 'FeatureCollection' as const,
     features: routes
       .filter(r => validCoord(r.from.coords) && validCoord(r.to.coords))
-      .map(r => ({
+      .map(r => {
+        const fromLng = r.from.coords[0]
+        const toLng = wrapLng(fromLng, r.to.coords[0])
+        const wrappedTo: [number, number] = [toLng, r.to.coords[1]]
+        return {
         type: 'Feature' as const,
-        geometry: { type: 'LineString' as const, coordinates: [r.from.coords, r.to.coords] },
+        geometry: { type: 'LineString' as const, coordinates: [r.from.coords, wrappedTo] },
         properties: {
           id: r.id,
           name: r.name,
@@ -46,7 +59,8 @@ export default function TradeRouteLayer({ showRoutes, showChokepoints, labelLaye
           fromName: r.from.name,
           toName: r.to.name,
         },
-      })),
+      }
+      }),
   }), [])
 
   return (
