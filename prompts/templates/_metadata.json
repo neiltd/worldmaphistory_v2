@@ -1,0 +1,102 @@
+{
+  "airports": {
+    "dataType": "airports",
+    "templateFile": "airports.template.md",
+    "targetTypes": ["country"],
+    "defaultLimit": 10,
+    "requiredSources": 2,
+    "outputSchema": "airport",
+    "rawFolder": "airports",
+    "idPrefix": "IATA code"
+  },
+  "seaports": {
+    "dataType": "seaports",
+    "templateFile": "seaports.template.md",
+    "targetTypes": ["country", "region"],
+    "defaultLimit": 8,
+    "requiredSources": 2,
+    "outputSchema": "port",
+    "rawFolder": "seaports",
+    "idPrefix": "PORT-"
+  },
+  "submarineCables": {
+    "dataType": "submarineCables",
+    "templateFile": "submarine-cables.template.md",
+    "targetTypes": ["region", "country"],
+    "defaultLimit": 6,
+    "requiredSources": 1,
+    "outputSchema": "cable",
+    "rawFolder": "submarine-cables",
+    "idPrefix": "CABLE-"
+  },
+  "powerPlants": {
+    "dataType": "powerPlants",
+    "templateFile": "power-plants.template.md",
+    "targetTypes": ["country"],
+    "defaultLimit": 15,
+    "requiredSources": 1,
+    "outputSchema": "powerplant",
+    "rawFolder": "power-plants",
+    "idPrefix": "PLANT-"
+  },
+  "utilities": {
+    "dataType": "utilities",
+    "templateFile": "utilities.template.md",
+    "targetTypes": ["country"],
+    "defaultLimit": 1,
+    "requiredSources": 2,
+    "outputSchema": "utility",
+    "rawFolder": "utilities",
+    "idPrefix": "countryId+year"
+  },
+  "gdpSectors": {
+    "dataType": "gdpSectors",
+    "templateFile": "gdp-sectors.template.md",
+    "targetTypes": ["country"],
+    "defaultLimit": 1,
+    "requiredSources": 1,
+    "outputSchema": "gdp",
+    "rawFolder": "gdp-sectors",
+    "idPrefix": "countryId+year"
+  },
+  "foodSecurity": {
+    "dataType": "foodSecurity",
+    "templateFile": "food-security.template.md",
+    "targetTypes": ["country"],
+    "defaultLimit": 1,
+    "requiredSources": 2,
+    "outputSchema": "foodsecurity",
+    "rawFolder": "food-security",
+    "idPrefix": "countryId+year"
+  },
+  "aiAdoption": {
+    "dataType": "aiAdoption",
+    "templateFile": "ai-adoption.template.md",
+    "targetTypes": ["country"],
+    "defaultLimit": 1,
+    "requiredSources": 1,
+    "outputSchema": "aiadoption",
+    "rawFolder": "ai-adoption",
+    "idPrefix": "countryId+year"
+  },
+  "datacenters": {
+    "dataType": "datacenters",
+    "templateFile": "datacenters.template.md",
+    "targetTypes": ["country", "region"],
+    "defaultLimit": 10,
+    "requiredSources": 1,
+    "outputSchema": "datacenter",
+    "rawFolder": "datacenters",
+    "idPrefix": "DC-"
+  },
+  "railHubs": {
+    "dataType": "railHubs",
+    "templateFile": "rail-hubs.template.md",
+    "targetTypes": ["country", "region"],
+    "defaultLimit": 8,
+    "requiredSources": 1,
+    "outputSchema": "railhub",
+    "rawFolder": "rail-hubs",
+    "idPrefix": "RAIL-"
+  }
+}

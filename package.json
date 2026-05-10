@@ -10,7 +10,10 @@
     "preview": "vite preview",
     "validate": "tsx scripts/validate.ts",
     "pipeline": "tsx scripts/pipeline.ts",
-    "normalize": "tsx scripts/normalize.ts"
+    "normalize": "tsx scripts/normalize.ts",
+    "generate:prompts": "tsx scripts/generate-gemini-prompts.ts",
+    "validate:data": "tsx scripts/validate-data.ts",
+    "import:data": "tsx scripts/import-data.ts"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
