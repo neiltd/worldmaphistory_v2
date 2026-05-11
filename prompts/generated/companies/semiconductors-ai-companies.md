@@ -1,4 +1,4 @@
-# Gemini Research Task: Company Intelligence Profiles — AI Infrastructure & Datacenters
+# Gemini Research Task: Company Intelligence Profiles — Semiconductors — AI Infrastructure Stack
 Generated: 2026-05-11
 
 ## Your Role
@@ -12,20 +12,20 @@ This IS an AI market position + geopolitical exposure mapping task.
 
 ## Companies to Research
 
-1. **MSFT** — Microsoft Corporation (NASDAQ)
-   *Why it matters: Azure AI — hyperscale datacenter, OpenAI partner, China exit*
+1. **AVGO** — Broadcom Inc. (NASDAQ)
+   *Why it matters: Largest custom AI ASIC designer — builds Google TPU, Meta MTIA, Apple Neural Engine; also AI networking chips (Tomahawk)*
 
-2. **GOOGL** — Alphabet Inc. (Google) (NASDAQ)
-   *Why it matters: Google Cloud, DeepMind — submarine cable owner (Dunant)*
+2. **MRVL** — Marvell Technology Group (NASDAQ)
+   *Why it matters: Custom AI ASICs for Amazon Trainium/Inferentia, Microsoft Maia — pure-play custom silicon*
 
-3. **AMZN** — Amazon.com Inc. (NASDAQ)
-   *Why it matters: AWS — largest cloud, logistics, Red Sea shipping exposure*
+3. **MU** — Micron Technology (NASDAQ)
+   *Why it matters: HBM3e memory — every H100/H200 needs HBM, Micron is only US HBM maker (vs SK Hynix/Samsung)*
 
-4. **META** — Meta Platforms Inc. (NASDAQ)
-   *Why it matters: AI infrastructure — submarine cable owner, data sovereignty*
+4. **SMCI** — Super Micro Computer (NASDAQ)
+   *Why it matters: AI server systems integrator — first to ship H100 servers, liquid cooling leadership*
 
-5. **EQIX** — Equinix Inc. (NASDAQ)
-   *Why it matters: Datacenter REIT — 250 datacenters in 70 markets globally*
+5. **ARM** — Arm Holdings plc (NASDAQ)
+   *Why it matters: CPU architecture licensor — inside every smartphone AI chip, Apple Silicon, AWS Graviton, Qualcomm Oryon*
 
 ---
 
@@ -337,4 +337,4 @@ For each company:
 
 ## Save output to
 
-`src/data/raw/companies/ai-infrastructure-companies.raw.json`
+`src/data/raw/companies/semiconductors-ai-companies.raw.json`

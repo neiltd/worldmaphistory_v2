@@ -1,5 +1,5 @@
 # Gemini Research Task: Company Intelligence Profiles — Energy
-Generated: 2026-05-10
+Generated: 2026-05-11
 
 ## Your Role
 
@@ -51,7 +51,7 @@ For each company above:
 - `flags` must be verifiable — only set `true` if the filing explicitly mentions it
 - `secCik` is the 10-digit Central Index Key from SEC EDGAR
 - `confidence: "high"` requires data from the actual 10-K, not secondary sources
-- `accessedAt` must be today: 2026-05-10
+- `accessedAt` must be today: 2026-05-11
 
 ---
 
@@ -210,12 +210,12 @@ For each company, cite:
           "name": "NVIDIA 10-K FY2024 — Item 1A Risk Factors",
           "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
           "type": "filing",
-          "accessedAt": "2026-05-10",
+          "accessedAt": "2026-05-11",
           "verbatimQuote": "[Copy the exact opening sentence of the most relevant risk factor here]"
         }
       ],
       "confidence": "high",
-      "lastVerified": "2026-05-10",
+      "lastVerified": "2026-05-11",
       "generatedBy": "ai-assisted"
     }
   }

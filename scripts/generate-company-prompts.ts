@@ -13,10 +13,14 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'fs'
 import { join, resolve } from 'path'
 
-const ROOT          = resolve(import.meta.dirname, '..')
-const TEMPLATE_FILE = join(ROOT, 'prompts/templates/company-profile.template.md')
-const TARGETS_FILE  = join(ROOT, 'src/data/config/company-targets.json')
-const OUT_DIR       = join(ROOT, 'prompts/generated/companies')
+const ROOT              = resolve(import.meta.dirname, '..')
+const TEMPLATE_FILE     = join(ROOT, 'prompts/templates/company-profile.template.md')
+const TEMPLATE_FILE_AI  = join(ROOT, 'prompts/templates/company-profile-ai.template.md')
+const TARGETS_FILE      = join(ROOT, 'src/data/config/company-targets.json')
+const OUT_DIR           = join(ROOT, 'prompts/generated/companies')
+
+// Sectors that use the enhanced AI template
+const AI_TEMPLATE_SECTORS = new Set(['semiconductors-ai', 'ai-infrastructure'])
 
 interface CompanyTarget {
   ticker: string
@@ -82,7 +86,13 @@ function main() {
   for (const sector of filtered.sort((a, b) => a.priority - b.priority)) {
     const companyList = buildCompanyList(sector.companies)
 
-    const filled = template
+    // Use AI-enhanced template for AI-specific sectors
+    const useAITemplate = AI_TEMPLATE_SECTORS.has(sector.sectorSlug)
+    const templateSrc   = useAITemplate
+      ? readFileSync(TEMPLATE_FILE_AI, 'utf-8')
+      : template
+
+    const filled = templateSrc
       .replace(/\{\{sectorName\}\}/g,   sector.sectorName)
       .replace(/\{\{sectorSlug\}\}/g,   sector.sectorSlug)
       .replace(/\{\{currentDate\}\}/g,  today())
@@ -90,12 +100,14 @@ function main() {
 
     const outFile = join(OUT_DIR, `${sector.sectorSlug}-companies.md`)
 
+    const templateLabel = useAITemplate ? '[AI template]' : '[standard template]'
+
     if (listOnly) {
-      console.log(`  ○ WOULD GENERATE: prompts/generated/companies/${sector.sectorSlug}-companies.md`)
+      console.log(`  ○ WOULD GENERATE: prompts/generated/companies/${sector.sectorSlug}-companies.md  ${templateLabel}`)
       console.log(`    Companies: ${sector.companies.map(c => c.ticker).join(', ')}`)
     } else {
       writeFileSync(outFile, filled, 'utf-8')
-      console.log(`  ✅ ${sector.sectorName} (Priority ${sector.priority})`)
+      console.log(`  ✅ ${sector.sectorName} (Priority ${sector.priority})  ${templateLabel}`)
       console.log(`     Companies: ${sector.companies.map(c => c.ticker).join(', ')}`)
       console.log(`     → prompts/generated/companies/${sector.sectorSlug}-companies.md`)
     }

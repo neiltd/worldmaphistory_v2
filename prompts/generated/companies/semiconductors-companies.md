@@ -1,5 +1,5 @@
-# Gemini Research Task: Company Intelligence Profiles — Semiconductors
-Generated: 2026-05-10
+# Gemini Research Task: Company Intelligence Profiles — Semiconductors — Core Fab & Equipment
+Generated: 2026-05-11
 
 ## Your Role
 
@@ -13,19 +13,19 @@ This IS a geopolitical exposure mapping task.
 ## Companies to Research
 
 1. **NVDA** — NVIDIA Corporation (NASDAQ)
-   *Why it matters: AI GPU dominant — Taiwan/export control exposure*
+   *Why it matters: AI GPU monopoly — ~80% training market share, Taiwan/export control exposure*
 
 2. **TSM** — Taiwan Semiconductor Manufacturing (TSMC) (NYSE)
-   *Why it matters: World's most critical chip manufacturer — in Taiwan*
+   *Why it matters: Foundry for 90%+ of world advanced AI chips — only one who can make them*
 
 3. **ASML** — ASML Holding NV (NASDAQ)
-   *Why it matters: Sole EUV machine maker — Netherlands export controls*
+   *Why it matters: Sole EUV machine maker — without ASML no one can make advanced AI chips*
 
 4. **AMD** — Advanced Micro Devices (NASDAQ)
-   *Why it matters: GPU/CPU — heavy TSMC dependency, China revenue*
+   *Why it matters: NVIDIA challenger — MI300X GPU, 15-20% AI training market share target*
 
 5. **AMAT** — Applied Materials (NASDAQ)
-   *Why it matters: Chip equipment — China revenue, export controls*
+   *Why it matters: Largest chip equipment maker — China revenue 30%+, export controls key risk*
 
 ---
 
@@ -51,7 +51,7 @@ For each company above:
 - `flags` must be verifiable — only set `true` if the filing explicitly mentions it
 - `secCik` is the 10-digit Central Index Key from SEC EDGAR
 - `confidence: "high"` requires data from the actual 10-K, not secondary sources
-- `accessedAt` must be today: 2026-05-10
+- `accessedAt` must be today: 2026-05-11
 
 ---
 
@@ -210,12 +210,12 @@ For each company, cite:
           "name": "NVIDIA 10-K FY2024 — Item 1A Risk Factors",
           "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
           "type": "filing",
-          "accessedAt": "2026-05-10",
+          "accessedAt": "2026-05-11",
           "verbatimQuote": "[Copy the exact opening sentence of the most relevant risk factor here]"
         }
       ],
       "confidence": "high",
-      "lastVerified": "2026-05-10",
+      "lastVerified": "2026-05-11",
       "generatedBy": "ai-assisted"
     }
   }

@@ -1,5 +1,5 @@
-# Gemini Research Task: Company Intelligence Profiles — AI Infrastructure & Datacenters
-Generated: 2026-05-11
+# Gemini Research Task: Company Intelligence Profiles — {{sectorName}}
+Generated: {{currentDate}}
 
 ## Your Role
 
@@ -12,20 +12,7 @@ This IS an AI market position + geopolitical exposure mapping task.
 
 ## Companies to Research
 
-1. **MSFT** — Microsoft Corporation (NASDAQ)
-   *Why it matters: Azure AI — hyperscale datacenter, OpenAI partner, China exit*
-
-2. **GOOGL** — Alphabet Inc. (Google) (NASDAQ)
-   *Why it matters: Google Cloud, DeepMind — submarine cable owner (Dunant)*
-
-3. **AMZN** — Amazon.com Inc. (NASDAQ)
-   *Why it matters: AWS — largest cloud, logistics, Red Sea shipping exposure*
-
-4. **META** — Meta Platforms Inc. (NASDAQ)
-   *Why it matters: AI infrastructure — submarine cable owner, data sovereignty*
-
-5. **EQIX** — Equinix Inc. (NASDAQ)
-   *Why it matters: Datacenter REIT — 250 datacenters in 70 markets globally*
+{{companyList}}
 
 ---
 
@@ -53,7 +40,7 @@ For each company:
 - `null` for any field you cannot find or verify — never invent numbers
 - Market share estimates: cite the specific analyst report or source
 - `confidence: "high"` = data from 10-K filing; `"medium"` = analyst report; `"low"` = estimate
-- `accessedAt` must be today: 2026-05-11
+- `accessedAt` must be today: {{currentDate}}
 
 ---
 
@@ -294,12 +281,12 @@ For each company:
           "name": "Broadcom 10-K FY2024 — Item 1A Risk Factors",
           "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001730168&type=10-K",
           "type": "filing",
-          "accessedAt": "2026-05-11",
+          "accessedAt": "{{currentDate}}",
           "verbatimQuote": "[Paste exact opening sentence of most relevant risk factor]"
         }
       ],
       "confidence": "high",
-      "lastVerified": "2026-05-11",
+      "lastVerified": "{{currentDate}}",
       "generatedBy": "ai-assisted"
     }
   }
@@ -337,4 +324,4 @@ For each company:
 
 ## Save output to
 
-`src/data/raw/companies/ai-infrastructure-companies.raw.json`
+`src/data/raw/companies/{{sectorSlug}}-companies.raw.json`

@@ -1,15 +1,28 @@
 [
   {
     "sectorId": "sector-semiconductors",
-    "sectorName": "Semiconductors",
+    "sectorName": "Semiconductors — Core Fab & Equipment",
     "sectorSlug": "semiconductors",
     "priority": 1,
     "companies": [
-      { "ticker": "NVDA", "name": "NVIDIA Corporation", "exchange": "NASDAQ", "note": "AI GPU dominant — Taiwan/export control exposure" },
-      { "ticker": "TSM",  "name": "Taiwan Semiconductor Manufacturing (TSMC)", "exchange": "NYSE", "note": "World's most critical chip manufacturer — in Taiwan" },
-      { "ticker": "ASML", "name": "ASML Holding NV", "exchange": "NASDAQ", "note": "Sole EUV machine maker — Netherlands export controls" },
-      { "ticker": "AMD",  "name": "Advanced Micro Devices", "exchange": "NASDAQ", "note": "GPU/CPU — heavy TSMC dependency, China revenue" },
-      { "ticker": "AMAT", "name": "Applied Materials", "exchange": "NASDAQ", "note": "Chip equipment — China revenue, export controls" }
+      { "ticker": "NVDA", "name": "NVIDIA Corporation", "exchange": "NASDAQ", "note": "AI GPU monopoly — ~80% training market share, Taiwan/export control exposure" },
+      { "ticker": "TSM",  "name": "Taiwan Semiconductor Manufacturing (TSMC)", "exchange": "NYSE", "note": "Foundry for 90%+ of world advanced AI chips — only one who can make them" },
+      { "ticker": "ASML", "name": "ASML Holding NV", "exchange": "NASDAQ", "note": "Sole EUV machine maker — without ASML no one can make advanced AI chips" },
+      { "ticker": "AMD",  "name": "Advanced Micro Devices", "exchange": "NASDAQ", "note": "NVIDIA challenger — MI300X GPU, 15-20% AI training market share target" },
+      { "ticker": "AMAT", "name": "Applied Materials", "exchange": "NASDAQ", "note": "Largest chip equipment maker — China revenue 30%+, export controls key risk" }
+    ]
+  },
+  {
+    "sectorId": "sector-semiconductors-ai",
+    "sectorName": "Semiconductors — AI Infrastructure Stack",
+    "sectorSlug": "semiconductors-ai",
+    "priority": 2,
+    "companies": [
+      { "ticker": "AVGO", "name": "Broadcom Inc.", "exchange": "NASDAQ", "note": "Largest custom AI ASIC designer — builds Google TPU, Meta MTIA, Apple Neural Engine; also AI networking chips (Tomahawk)" },
+      { "ticker": "MRVL", "name": "Marvell Technology Group", "exchange": "NASDAQ", "note": "Custom AI ASICs for Amazon Trainium/Inferentia, Microsoft Maia — pure-play custom silicon" },
+      { "ticker": "MU",   "name": "Micron Technology", "exchange": "NASDAQ", "note": "HBM3e memory — every H100/H200 needs HBM, Micron is only US HBM maker (vs SK Hynix/Samsung)" },
+      { "ticker": "SMCI", "name": "Super Micro Computer", "exchange": "NASDAQ", "note": "AI server systems integrator — first to ship H100 servers, liquid cooling leadership" },
+      { "ticker": "ARM",  "name": "Arm Holdings plc", "exchange": "NASDAQ", "note": "CPU architecture licensor — inside every smartphone AI chip, Apple Silicon, AWS Graviton, Qualcomm Oryon" }
     ]
   },
   {
