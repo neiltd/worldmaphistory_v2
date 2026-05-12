@@ -119,6 +119,7 @@ export default function WorldMap() {
   const [countriesGeo, setCountriesGeo] = useState<any>(null)
   const [labelLayerId, setLabelLayerId] = useState<string | undefined>()
   const [tooltip, setTooltip] = useState<TooltipState | null>(null)
+  const [mapReady, setMapReady] = useState(false)
 
   // Fetch + convert topojson → GeoJSON once on mount
   useEffect(() => {
@@ -141,6 +142,7 @@ export default function WorldMap() {
             },
           })),
         })
+        setMapReady(true)
       })
   }, [])
 
@@ -235,6 +237,16 @@ export default function WorldMap() {
 
   return (
     <div className="relative w-full h-full">
+
+      {/* Loading overlay — shown until countries GeoJSON is ready */}
+      {!mapReady && (
+        <div className="absolute inset-0 z-50 flex flex-col items-center justify-center gap-3"
+          style={{ background: '#070B14' }}>
+          <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+          <p className="text-[12px] text-slate-500">Loading intelligence map…</p>
+        </div>
+      )}
+
       <Map
         mapStyle={MAP_STYLE}
         initialViewState={{ longitude: 0, latitude: 10, zoom: 1.5 }}

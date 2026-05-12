@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useMapStore } from './store/useMapStore'
 import WorldMap from './components/Map/WorldMap'
@@ -8,8 +9,19 @@ import LayerToggle from './components/UI/LayerToggle'
 import HeatmapSelector from './components/UI/HeatmapSelector'
 
 export default function App() {
-  const { selectedCountryId, selectedConflict } = useMapStore()
+  const { selectedCountryId, selectedConflict, clearSelection, clearConflict } = useMapStore()
   const showPanel = !!selectedCountryId
+
+  // Escape closes panel or conflict card
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key !== 'Escape') return
+      if (selectedCountryId) clearSelection()
+      else if (selectedConflict) clearConflict()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [selectedCountryId, selectedConflict, clearSelection, clearConflict])
 
   return (
     <div className="flex flex-col h-screen" style={{ background: '#070B14' }}>
