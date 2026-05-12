@@ -92,6 +92,21 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     placeholder: true,
   },
 
+  {
+    id: 'rail-hubs',
+    label: 'Rail Hubs',
+    description: 'Major rail hubs including BRI corridors, border crossings, and freight terminals — land-based supply chain infrastructure.',
+    group: 'infrastructure',
+    defaultEnabled: false,
+    legend: [
+      { color: '#f59e0b', label: 'Freight',         shape: 'circle' },
+      { color: '#60a5fa', label: 'Passenger',       shape: 'circle' },
+      { color: '#f97316', label: 'Border crossing',  shape: 'circle' },
+      { color: '#34d399', label: 'Port interface',   shape: 'circle' },
+      { color: '#22d3ee', label: 'High speed',       shape: 'circle' },
+    ],
+  },
+
   // ── Utilities ────────────────────────────────────────────────────────────────
   {
     id: 'power-plants',
