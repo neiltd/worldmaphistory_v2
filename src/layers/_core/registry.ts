@@ -99,7 +99,14 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'Major energy generation facilities — energy security is a primary driver of geopolitical positioning.',
     group: 'utilities',
     defaultEnabled: false,
-    placeholder: true,
+    legend: [
+      { color: '#a78bfa', label: 'Nuclear',     shape: 'circle' },
+      { color: '#78716c', label: 'Coal',        shape: 'circle' },
+      { color: '#f59e0b', label: 'Gas',         shape: 'circle' },
+      { color: '#0ea5e9', label: 'Hydro',       shape: 'circle' },
+      { color: '#fbbf24', label: 'Solar',       shape: 'circle' },
+      { color: '#34d399', label: 'Wind',        shape: 'circle' },
+    ],
   },
   {
     id: 'energy-mix',
