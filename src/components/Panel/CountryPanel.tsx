@@ -170,6 +170,23 @@ export default function CountryPanel() {
   const { countryData, compareData, loading, error, clearSelection } = useMapStore()
   const [tab, setTab] = useState<Tab>('overview')
 
+  // ── All hooks MUST be called before any early returns (Rules of Hooks) ──
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const infra = useMemo(() => {
+    const id = countryData?.id
+    if (!id) return { airports: [], seaports: [], plants: [], railHubs: [], datacenters: [], foodSecurity: null, aiAdoption: null, utility: null }
+    return {
+      airports:    (airportsRaw    as any[]).filter(d => d.countryId === id),
+      seaports:    (seaportsRaw    as any[]).filter(d => d.countryId === id),
+      plants:      (powerPlantsRaw as any[]).filter(d => d.countryId === id && d.status !== 'decommissioned'),
+      railHubs:    (railHubsRaw    as any[]).filter(d => d.countryId === id),
+      datacenters: (datacentersRaw as any[]).filter(d => d.countryId === id),
+      foodSecurity:(foodSecurityRaw as any[]).find(d => d.countryId === id) ?? null,
+      aiAdoption:  (aiAdoptionRaw  as any[]).find(d => d.countryId === id) ?? null,
+      utility:     (utilitiesRaw   as any[]).find(d => d.countryId === id) ?? null,
+    }
+  }, [countryData?.id])
+
   // ── Loading / error / empty states ──
   if (loading) return (
     <div className="flex items-center justify-center h-full">
@@ -202,22 +219,6 @@ export default function CountryPanel() {
 
   const c: Country = countryData
   const cc = compareData
-
-  // ── Infrastructure data for this country ──
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const infra = useMemo(() => {
-    const id = c.id
-    return {
-      airports:    (airportsRaw    as any[]).filter(d => d.countryId === id),
-      seaports:    (seaportsRaw    as any[]).filter(d => d.countryId === id),
-      plants:      (powerPlantsRaw as any[]).filter(d => d.countryId === id && d.status !== 'decommissioned'),
-      railHubs:    (railHubsRaw    as any[]).filter(d => d.countryId === id),
-      datacenters: (datacentersRaw as any[]).filter(d => d.countryId === id),
-      foodSecurity:(foodSecurityRaw as any[]).find(d => d.countryId === id) ?? null,
-      aiAdoption:  (aiAdoptionRaw  as any[]).find(d => d.countryId === id) ?? null,
-      utility:     (utilitiesRaw   as any[]).find(d => d.countryId === id) ?? null,
-    }
-  }, [c.id])
 
   const infraCount = infra.airports.length + infra.seaports.length + infra.plants.length +
                      infra.railHubs.length + infra.datacenters.length
