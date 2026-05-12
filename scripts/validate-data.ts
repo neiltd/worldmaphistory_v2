@@ -43,7 +43,7 @@ interface FileResult {
   total: number
   passed: number
   failed: number
-  errors: { id: string | null; issues: string[] }[]
+  errors: { id: string | null; issues: string[]; warnings: string[] }[]
 }
 
 function validateFile(filePath: string, entityType: EntityType): FileResult {
@@ -55,7 +55,8 @@ function validateFile(filePath: string, entityType: EntityType): FileResult {
 
   for (const entry of entries as Record<string, unknown>[]) {
     const id = typeof entry?.id === 'string' ? entry.id : null
-    const issues: string[] = []
+    const issues:   string[] = []
+    const warnings: string[] = []
 
     // Zod
     const result = schema.safeParse(entry)
@@ -84,25 +85,26 @@ function validateFile(filePath: string, entityType: EntityType): FileResult {
       issues.push('Missing source attribution')
     }
 
-    // Confidence
+    // Confidence — advisory only, never blocks import
     const conf = attr?.confidence as Record<string, unknown> | undefined
     if (conf) {
       const level = conf.confidence
       const srcCount = sources?.length ?? 0
       if (level === 'high' && srcCount < 2) {
-        issues.push(`confidence "high" but only ${srcCount} source(s) — consider "medium"`)
+        warnings.push(`confidence "high" but only ${srcCount} source(s) — consider "medium"`)
       }
     }
 
-    if (issues.length > 0) errors.push({ id, issues })
+    if (issues.length > 0) errors.push({ id, issues, warnings })
+    else if (warnings.length > 0) errors.push({ id, issues: [], warnings })
   }
 
   return {
     file: filePath.replace(ROOT + '/', ''),
     entityType,
     total: entries.length,
-    passed: entries.length - errors.length,
-    failed: errors.length,
+    passed: entries.length - errors.filter(e => e.issues.length > 0).length,
+    failed: errors.filter(e => e.issues.length > 0).length,
     errors,
   }
 }
@@ -164,10 +166,11 @@ function main() {
       console.log(`\n  ${icon} ${result.file}  [${entityType}]`)
       console.log(`     ${result.passed}/${result.total} records valid`)
 
-      for (const { id, issues } of result.errors) {
-        console.log(`\n     Record: ${id ?? '(no id)'}`)
-        for (const issue of issues) {
-          console.log(`       ERROR: ${issue}`)
+      for (const { id, issues, warnings } of result.errors) {
+        if (issues.length > 0 || warnings.length > 0) {
+          console.log(`\n     Record: ${id ?? '(no id)'}`)
+          for (const issue of issues)   console.log(`       ERROR: ${issue}`)
+          for (const warn of warnings)  console.log(`       WARN:  ${warn}`)
         }
       }
 
