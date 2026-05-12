@@ -11,7 +11,8 @@ import TradeRouteLayer   from '../../layers/economic/TradeRouteLayer'
 import AirportLayer      from '../../layers/infrastructure/AirportLayer'
 import PortLayer         from '../../layers/infrastructure/PortLayer'
 import PowerLayer        from '../../layers/utilities/PowerLayer'
-import RailHubLayer      from '../../layers/infrastructure/RailHubLayer'
+import RailHubLayer         from '../../layers/infrastructure/RailHubLayer'
+import SubmarineCableLayer  from '../../layers/infrastructure/SubmarineCableLayer'
 import { fixFeatureCollection } from '../../utils/geoUtils'
 
 const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
@@ -225,7 +226,8 @@ export default function WorldMap() {
         <AirportLayer visible={isLayerVisible('airports')} />
         <PortLayer    visible={isLayerVisible('seaports')} />
         <PowerLayer   visible={isLayerVisible('power-plants')} />
-        <RailHubLayer visible={isLayerVisible('rail-hubs')} />
+        <RailHubLayer        visible={isLayerVisible('rail-hubs')} />
+        <SubmarineCableLayer visible={isLayerVisible('submarine-cables')} labelLayerId={labelLayerId} />
 
         <NavigationControl position="top-right" showCompass={false} />
       </Map>

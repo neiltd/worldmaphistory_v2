@@ -89,7 +89,11 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'Undersea internet cables carrying 95% of global internet traffic — critical and vulnerable digital infrastructure.',
     group: 'infrastructure',
     defaultEnabled: false,
-    placeholder: true,
+    legend: [
+      { color: '#06b6d4', label: 'Active',       shape: 'line' },
+      { color: '#f59e0b', label: 'Construction', shape: 'line' },
+      { color: '#ef4444', label: 'Damaged',      shape: 'line' },
+    ],
   },
 
   {
