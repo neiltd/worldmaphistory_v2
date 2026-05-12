@@ -84,6 +84,19 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     ],
   },
   {
+    id: 'datacenters',
+    label: 'Datacenters',
+    description: 'Hyperscale and colocation datacenters — the physical infrastructure of AI, cloud, and digital economy sovereignty.',
+    group: 'infrastructure',
+    defaultEnabled: false,
+    legend: [
+      { color: '#a78bfa', label: 'Hyperscale',  shape: 'circle' },
+      { color: '#22d3ee', label: 'Colocation',  shape: 'circle' },
+      { color: '#ef4444', label: 'Government',  shape: 'circle' },
+      { color: '#64748b', label: 'Enterprise',  shape: 'circle' },
+    ],
+  },
+  {
     id: 'submarine-cables',
     label: 'Submarine Cables',
     description: 'Undersea internet cables carrying 95% of global internet traffic — critical and vulnerable digital infrastructure.',

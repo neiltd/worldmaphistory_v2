@@ -13,6 +13,7 @@ import PortLayer         from '../../layers/infrastructure/PortLayer'
 import PowerLayer        from '../../layers/utilities/PowerLayer'
 import RailHubLayer         from '../../layers/infrastructure/RailHubLayer'
 import SubmarineCableLayer  from '../../layers/infrastructure/SubmarineCableLayer'
+import DatacenterLayer      from '../../layers/infrastructure/DatacenterLayer'
 import { fixFeatureCollection } from '../../utils/geoUtils'
 
 const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
@@ -228,6 +229,7 @@ export default function WorldMap() {
         <PowerLayer   visible={isLayerVisible('power-plants')} />
         <RailHubLayer        visible={isLayerVisible('rail-hubs')} />
         <SubmarineCableLayer visible={isLayerVisible('submarine-cables')} labelLayerId={labelLayerId} />
+        <DatacenterLayer     visible={isLayerVisible('datacenters')} />
 
         <NavigationControl position="top-right" showCompass={false} />
       </Map>
