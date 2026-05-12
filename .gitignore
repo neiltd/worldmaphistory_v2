@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 ruvector.db
+
+# Gemini prompts and raw AI output — personal research asset, not for public repo
+src/data/raw/
+src/prompts/
