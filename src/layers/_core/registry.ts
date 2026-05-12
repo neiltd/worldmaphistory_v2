@@ -75,7 +75,13 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'Container and bulk cargo ports — chokepoints in global manufacturing and commodity supply chains.',
     group: 'infrastructure',
     defaultEnabled: false,
-    placeholder: true,
+    legend: [
+      { color: '#06b6d4', label: 'Container', shape: 'circle' },
+      { color: '#f59e0b', label: 'Oil/LNG',   shape: 'circle' },
+      { color: '#8b5cf6', label: 'Bulk',      shape: 'circle' },
+      { color: '#ef4444', label: 'Naval',     shape: 'circle' },
+      { color: '#22c55e', label: 'Mixed',     shape: 'circle' },
+    ],
   },
   {
     id: 'submarine-cables',

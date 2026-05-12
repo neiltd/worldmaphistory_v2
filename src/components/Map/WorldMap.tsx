@@ -9,6 +9,7 @@ import indicatorsIndex from '../../data/indicators-index.json'
 import ConflictZoneLayer from '../../layers/geopolitical/ConflictZoneLayer'
 import TradeRouteLayer   from '../../layers/economic/TradeRouteLayer'
 import AirportLayer      from '../../layers/infrastructure/AirportLayer'
+import PortLayer         from '../../layers/infrastructure/PortLayer'
 import { fixFeatureCollection } from '../../utils/geoUtils'
 
 const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
@@ -220,6 +221,7 @@ export default function WorldMap() {
         <ConflictZoneLayer visible={showConflicts} labelLayerId={labelLayerId} />
         <TradeRouteLayer visible={showTradeRoutes} showChokepoints={showChokepoints} labelLayerId={labelLayerId} />
         <AirportLayer visible={isLayerVisible('airports')} />
+        <PortLayer    visible={isLayerVisible('seaports')} />
 
         <NavigationControl position="top-right" showCompass={false} />
       </Map>

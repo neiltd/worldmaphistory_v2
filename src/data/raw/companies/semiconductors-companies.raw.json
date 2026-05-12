@@ -9,44 +9,36 @@
     "gicsIndustry": "Semiconductors",
     "countryOfIncorporation": "USA",
     "countryOfHQ": "USA",
-    "marketCapUsdBn": 2200.0,
-    "revenueUsdBn": 60.92,
+    "marketCapUsdBn": 3290,
+    "revenueUsdBn": 60.9,
     "fiscalYear": 2024,
-    "description": "NVIDIA Corporation is a global leader in accelerated computing. It specializes in the design of Graphics Processing Units (GPUs) for gaming and professional markets, as well as System on a Chip (SoC) units for the mobile computing and automotive market.",
-    "businessModel": "NVIDIA generates revenue primarily through the sale of high-performance GPUs and AI networking solutions. Its data center segment, driven by AI training and inference, is its largest revenue contributor.",
-    "geopoliticalSummary": "NVIDIA faces significant geopolitical exposure due to its heavy reliance on TSMC in Taiwan for manufacturing and its exposure to U.S. export controls on high-performance chips to China.",
+    "description": "NVIDIA is a leader in accelerated computing, specializing in graphics processing units (GPUs) and AI infrastructure. Its platforms are critical for gaming, data centers, and automotive applications.",
+    "businessModel": "Revenue is primarily generated from the sale of GPUs, compute platforms, and networking solutions to data centers, cloud providers, and gamers.",
+    "geopoliticalSummary": "NVIDIA faces significant geopolitical exposure due to its reliance on TSMC in Taiwan for manufacturing and strict U.S. export controls on its high-end AI chips to China.",
     "revenueByGeography": [
       {
         "region": "United States",
         "countryIds": ["USA"],
-        "percentOfRevenue": 44.3,
-        "revenueUsdBn": 26.97,
+        "percentOfRevenue": 44,
+        "revenueUsdBn": 27.0,
         "year": 2024,
         "note": "Exact segment name from filing: 'United States'"
       },
       {
         "region": "Taiwan",
         "countryIds": ["TWN"],
-        "percentOfRevenue": 22.0,
-        "revenueUsdBn": 13.41,
+        "percentOfRevenue": 22,
+        "revenueUsdBn": 13.4,
         "year": 2024,
         "note": "Exact segment name from filing: 'Taiwan'"
       },
       {
         "region": "China (including Hong Kong)",
         "countryIds": ["CHN"],
-        "percentOfRevenue": 16.9,
-        "revenueUsdBn": 10.31,
+        "percentOfRevenue": 17,
+        "revenueUsdBn": 10.3,
         "year": 2024,
-        "note": "Impacted by U.S. export control requirements."
-      },
-      {
-        "region": "Singapore",
-        "countryIds": ["SGP"],
-        "percentOfRevenue": 11.2,
-        "revenueUsdBn": 6.83,
-        "year": 2024,
-        "note": "Exact segment name from filing: 'Singapore'"
+        "note": "Export control restrictions apply to high-performance GPUs."
       }
     ],
     "keySuppliers": [
@@ -55,9 +47,9 @@
         "name": "TSMC",
         "countryId": "TWN",
         "city": "Hsinchu",
-        "percentOfSupply": 90,
+        "percentOfSupply": null,
         "isConcentrationRisk": true,
-        "strategicNote": "Sole manufacturer of advanced GPUs. Verbatim from 10-K: 'We utilize a single foundry, TSMC, for the manufacturing of all our semiconductor wafers for our GPU and Tegra products.'"
+        "strategicNote": "Sole manufacturer of advanced GPUs. Verbatim from 10-K: 'We rely on a limited number of suppliers... for all manufacturing, assembly, and testing.'"
       }
     ],
     "keyCustomers": [
@@ -66,16 +58,16 @@
         "name": "Microsoft",
         "countryId": "USA",
         "percentOfRevenue": null,
-        "isConcentrationRisk": true,
-        "strategicNote": "Major hyperscale customer for AI infrastructure."
+        "isConcentrationRisk": false,
+        "strategicNote": "Major hyperscaler customer for AI training infrastructure."
       }
     ],
     "manufacturingLocations": [
       {
         "countryId": "TWN",
         "city": "Hsinchu",
-        "percentOfCapacity": 90,
-        "note": "TSMC foundry — advanced node production"
+        "percentOfCapacity": null,
+        "note": "TSMC foundry production"
       }
     ],
     "commodityDependencies": [
@@ -86,23 +78,25 @@
         "primarySupplyCountries": ["TWN"],
         "isHedged": false,
         "geopoliticalRisk": "critical",
-        "note": "CoWoS advanced packaging is sole-sourced from TSMC Taiwan."
+        "note": "Advanced packaging is sole-sourced from TSMC Taiwan."
       }
     ],
     "regionalExposures": [
-      {
-        "region": "China",
-        "countryIds": ["CHN"],
-        "exposureType": "revenue",
-        "magnitude": "high",
-        "note": "Subject to US export controls on high-end GPUs. Verbatim from 10-K: 'The U.S. government announced new and updated licensing requirements for exports to China... of our A100 and H100 integrated circuits.'"
-      },
       {
         "region": "Taiwan",
         "countryIds": ["TWN"],
         "exposureType": "supply-chain",
         "magnitude": "critical",
-        "note": "Manufacturing concentration in Taiwan. Verbatim from 10-K: 'Geopolitical tensions between China and Taiwan... could cause material adverse impacts to our business.'"
+        "note": "Manufacturing concentration in Taiwan creates existential supply chain risk.",
+        "filingRefs": ["Item 1A, Risk Factors"]
+      },
+      {
+        "region": "China",
+        "countryIds": ["CHN"],
+        "exposureType": "revenue",
+        "magnitude": "high",
+        "note": "U.S. export controls significantly restrict sales of high-end GPUs.",
+        "filingRefs": ["Item 1A, Risk Factors"]
       }
     ],
     "infrastructureDependencies": [
@@ -111,11 +105,11 @@
         "entityId": "ROUTE-TRANSPAC-NORTH",
         "name": "Trans-Pacific (North) Shipping Route",
         "importance": "high",
-        "note": "Logistics from Taiwan to global data centers."
+        "note": "Logistics for chip shipments from Taiwan to U.S. markets."
       }
     ],
     "flags": {
-      "chinaRevenuePct": 16.9,
+      "chinaRevenuePct": 17,
       "chinaManufacturingDependent": false,
       "russiaExposed": false,
       "middleEastEnergyDependent": false,
@@ -127,15 +121,15 @@
     },
     "latestFilingId": "FILING-NVDA-10K-2024",
     "secCik": "0001045810",
-    "secEdgarUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001045810&type=10-K",
+    "secEdgarUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
     "attribution": {
       "sources": [
         {
-          "name": "NVIDIA 10-K FY2024",
-          "url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "name": "NVIDIA 10-K FY2024 — Item 1A Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
           "type": "filing",
           "accessedAt": "2026-05-11",
-          "verbatimQuote": "The U.S. government announced new and updated licensing requirements for exports to China and Russia."
+          "verbatimQuote": "In addition, geopolitical tensions, such as those involving Taiwan and China, which comprise a significant portion of our revenue and where we have suppliers, contract manufacturers, and assembly partners who are critical to our supply continuity, could have a material adverse impact on us."
         }
       ],
       "confidence": "high",
@@ -146,43 +140,35 @@
   {
     "id": "COMPANY-TSM",
     "ticker": "TSM",
-    "name": "Taiwan Semiconductor Manufacturing Company Limited",
+    "name": "Taiwan Semiconductor Manufacturing Company (TSMC)",
     "exchange": "NYSE",
     "gicsSector": "Information Technology",
     "gicsIndustryGroup": "Semiconductors & Semiconductor Equipment",
     "gicsIndustry": "Semiconductors",
     "countryOfIncorporation": "TWN",
     "countryOfHQ": "TWN",
-    "marketCapUsdBn": 700.0,
-    "revenueUsdBn": 75.0,
+    "marketCapUsdBn": 1050,
+    "revenueUsdBn": 69.3,
     "fiscalYear": 2024,
-    "description": "TSMC is the world's largest dedicated independent semiconductor foundry. It manufactures chips for global technology leaders using the most advanced process technologies.",
-    "businessModel": "TSMC operates as a pure-play foundry, earning revenue by manufacturing semiconductor wafers for customers based on their proprietary designs.",
-    "geopoliticalSummary": "TSMC is at the heart of global geopolitical competition due to its dominance in advanced chipmaking. It faces extreme exposure to cross-strait tensions and U.S.-China trade conflicts.",
+    "description": "TSMC is the world's largest dedicated semiconductor foundry, manufacturing chips for global tech leaders like Apple and NVIDIA using the most advanced process technologies.",
+    "businessModel": "Foundry revenue model based on processing wafers for customers who design their own chips (fabless companies).",
+    "geopoliticalSummary": "TSMC sits at the center of the U.S.-China technology competition, with its primary manufacturing facilities located in Taiwan, making it highly sensitive to Cross-Strait relations.",
     "revenueByGeography": [
       {
         "region": "North America",
         "countryIds": ["USA", "CAN"],
-        "percentOfRevenue": 68.0,
-        "revenueUsdBn": 51.0,
+        "percentOfRevenue": 65,
+        "revenueUsdBn": 45.0,
         "year": 2024,
-        "note": "Driven by major customers like Apple and NVIDIA."
+        "note": "North America remains the largest customer base."
       },
       {
         "region": "China",
         "countryIds": ["CHN"],
-        "percentOfRevenue": 12.0,
-        "revenueUsdBn": 9.0,
+        "percentOfRevenue": 11,
+        "revenueUsdBn": 7.6,
         "year": 2024,
-        "note": "Impacted by U.S. export controls."
-      },
-      {
-        "region": "Asia Pacific (excl. China/Japan)",
-        "countryIds": [],
-        "percentOfRevenue": 12.0,
-        "revenueUsdBn": 9.0,
-        "year": 2024,
-        "note": "Significant presence in the regional tech ecosystem."
+        "note": "Revenue from China has declined as a percentage of total."
       }
     ],
     "keySuppliers": [
@@ -193,7 +179,7 @@
         "city": "Veldhoven",
         "percentOfSupply": null,
         "isConcentrationRisk": true,
-        "strategicNote": "Sole provider of EUV lithography systems. Verbatim from 20-F: 'We rely on a limited number of suppliers for critical equipment... such as EUV scanners from ASML.'"
+        "strategicNote": "Sole provider of EUV lithography systems."
       }
     ],
     "keyCustomers": [
@@ -201,9 +187,9 @@
         "role": "customer",
         "name": "Apple",
         "countryId": "USA",
-        "percentOfRevenue": 22.0,
+        "percentOfRevenue": 25,
         "isConcentrationRisk": true,
-        "strategicNote": "Largest customer, utilizing most advanced nodes."
+        "strategicNote": "Largest customer, accounting for a significant portion of advanced node revenue."
       }
     ],
     "manufacturingLocations": [
@@ -211,40 +197,41 @@
         "countryId": "TWN",
         "city": "Hsinchu",
         "percentOfCapacity": 90,
-        "note": "Core advanced manufacturing hub."
+        "note": "Core advanced manufacturing fabs located in Taiwan."
       }
     ],
     "commodityDependencies": [
       {
-        "commodity": "EUV Lithography Systems",
+        "commodity": "Neon",
         "role": "input",
         "percentOfCOGS": null,
-        "primarySupplyCountries": ["NLD"],
-        "isHedged": false,
-        "geopoliticalRisk": "critical",
-        "note": "Entirely dependent on ASML for advanced node capability."
+        "primarySupplyCountries": ["UKR", "CHN"],
+        "isHedged": true,
+        "geopoliticalRisk": "medium",
+        "note": "Used in lithography; supply chain diversified after 2022 Ukraine conflict."
       }
     ],
     "regionalExposures": [
       {
         "region": "Taiwan",
         "countryIds": ["TWN"],
-        "exposureType": "operational",
+        "exposureType": "operations",
         "magnitude": "critical",
-        "note": "Verbatim from 20-F: 'Most of our operations, including our manufacturing facilities, are located in Taiwan... cross-strait tensions could adversely affect our business.'"
+        "note": "Primary operations and R&D are based in Taiwan.",
+        "filingRefs": ["Item 3, Key Information — Risk Factors"]
       }
     ],
     "infrastructureDependencies": [
       {
         "type": "utility",
         "entityId": "TAIWAN-POWER",
-        "name": "Taiwan Power Grid",
-        "importance": "critical",
-        "note": "Highly energy-intensive operations dependent on stable power in Taiwan."
+        "name": "Taiwan Power Company",
+        "importance": "high",
+        "note": "High reliance on Taiwan's electrical grid for 24/7 fab operations."
       }
     ],
     "flags": {
-      "chinaRevenuePct": 12.0,
+      "chinaRevenuePct": 11,
       "chinaManufacturingDependent": false,
       "russiaExposed": false,
       "middleEastEnergyDependent": false,
@@ -256,15 +243,15 @@
     },
     "latestFilingId": "FILING-TSM-20F-2024",
     "secCik": "0001046179",
-    "secEdgarUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001046179&type=20-F",
+    "secEdgarUrl": "https://www.sec.gov/Archives/edgar/data/1046179/000162828024016147/tsm-20231231.htm",
     "attribution": {
       "sources": [
         {
-          "name": "TSMC 20-F FY2024",
-          "url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1046179/000104617925000005/tsm-20241231.htm",
+          "name": "TSMC 20-F FY2023 — Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828024016147/tsm-20231231.htm",
           "type": "filing",
           "accessedAt": "2026-05-11",
-          "verbatimQuote": "Any military conflict or significant increase in tensions between China and Taiwan could materially and adversely affect our business."
+          "verbatimQuote": "The People’s Republic of China asserts sovereignty over Taiwan and does not recognize the legitimacy of the Taiwan government."
         }
       ],
       "confidence": "high",
@@ -282,44 +269,28 @@
     "gicsIndustry": "Semiconductor Equipment",
     "countryOfIncorporation": "NLD",
     "countryOfHQ": "NLD",
-    "marketCapUsdBn": 380.0,
-    "revenueUsdBn": 30.6,
+    "marketCapUsdBn": 272,
+    "revenueUsdBn": 29.8,
     "fiscalYear": 2024,
-    "description": "ASML is the world's leading supplier to the semiconductor industry, providing chipmakers with hardware, software, and services to mass produce patterns on silicon through lithography.",
-    "businessModel": "ASML generates revenue by selling advanced lithography systems (EUV and DUV) and providing maintenance and support services to semiconductor manufacturers.",
-    "geopoliticalSummary": "ASML is a critical chokepoint in the global AI supply chain as the sole provider of EUV machines. It is heavily impacted by U.S.-driven export controls on sales and service to China.",
+    "description": "ASML is the sole provider of EUV lithography machines, essential for the production of the world's most advanced microchips.",
+    "businessModel": "Sales and service of advanced lithography systems to semiconductor manufacturers.",
+    "geopoliticalSummary": "ASML is a focal point of U.S.-led export restrictions on China, limiting its ability to sell advanced EUV and DUV systems to the Chinese market.",
     "revenueByGeography": [
       {
         "region": "China",
         "countryIds": ["CHN"],
-        "percentOfRevenue": 36.1,
-        "revenueUsdBn": 11.0,
+        "percentOfRevenue": 33,
+        "revenueUsdBn": 9.8,
         "year": 2024,
-        "note": "Record sales driven by backlog and demand for mature-node equipment."
-      },
-      {
-        "region": "South Korea",
-        "countryIds": ["KOR"],
-        "percentOfRevenue": 22.7,
-        "revenueUsdBn": 6.9,
-        "year": 2024,
-        "note": "Driven by DRAM and logic customers."
-      },
-      {
-        "region": "United States",
-        "countryIds": ["USA"],
-        "percentOfRevenue": 16.0,
-        "revenueUsdBn": 4.9,
-        "year": 2024,
-        "note": "Significant growth from 10% in 2023."
+        "note": "High percentage driven by mature-node equipment demand."
       },
       {
         "region": "Taiwan",
         "countryIds": ["TWN"],
-        "percentOfRevenue": 15.4,
-        "revenueUsdBn": 4.7,
+        "percentOfRevenue": 26,
+        "revenueUsdBn": 7.7,
         "year": 2024,
-        "note": "Historically the largest market; saw a decline in 2024."
+        "note": "Primarily driven by TSMC's advanced node expansion."
       }
     ],
     "keySuppliers": [
@@ -330,7 +301,7 @@
         "city": "Oberkochen",
         "percentOfSupply": null,
         "isConcentrationRisk": true,
-        "strategicNote": "Sole provider of optical columns for EUV systems. Verbatim from 20-F: 'Carl Zeiss SMT is our sole supplier of the optical columns for our systems.'"
+        "strategicNote": "Exclusive supplier of high-precision optical components for EUV systems."
       }
     ],
     "keyCustomers": [
@@ -340,7 +311,7 @@
         "countryId": "TWN",
         "percentOfRevenue": null,
         "isConcentrationRisk": true,
-        "strategicNote": "Primary customer for EUV and High-NA EUV systems."
+        "strategicNote": "Primary user of EUV technology."
       }
     ],
     "manufacturingLocations": [
@@ -348,60 +319,61 @@
         "countryId": "NLD",
         "city": "Veldhoven",
         "percentOfCapacity": 100,
-        "note": "Core assembly and R&D hub."
+        "note": "Main assembly for EUV and DUV systems."
       }
     ],
     "commodityDependencies": [
       {
-        "commodity": "Optical Components",
+        "commodity": "Specialty Gases",
         "role": "input",
         "percentOfCOGS": null,
-        "primarySupplyCountries": ["DEU"],
+        "primarySupplyCountries": ["DEU", "USA"],
         "isHedged": false,
-        "geopoliticalRisk": "high",
-        "note": "Sole-source dependency on Carl Zeiss SMT."
+        "geopoliticalRisk": "low",
+        "note": "Used in laser operations."
       }
     ],
     "regionalExposures": [
       {
         "region": "China",
         "countryIds": ["CHN"],
-        "exposureType": "regulatory",
+        "exposureType": "export-control",
         "magnitude": "high",
-        "note": "Verbatim from 20-F: 'We are subject to export control regulations... and we are currently prohibited from shipping EUV systems to China.'"
+        "note": "Subject to Dutch and U.S. export licensing requirements.",
+        "filingRefs": ["Risk Factors"]
       }
     ],
     "infrastructureDependencies": [
       {
-        "type": "logistics",
-        "entityId": "SPECIAL-CARRIER",
-        "name": "Specialized Air Freight",
+        "type": "port",
+        "entityId": "PORT-ROTTERDAM",
+        "name": "Port of Rotterdam",
         "importance": "high",
-        "note": "Requires specialized transport for sensitive 200-ton machines."
+        "note": "Critical for global shipment of heavy lithography equipment."
       }
     ],
     "flags": {
-      "chinaRevenuePct": 36.1,
+      "chinaRevenuePct": 33,
       "chinaManufacturingDependent": false,
       "russiaExposed": false,
       "middleEastEnergyDependent": false,
       "taiwanSemiconductorDependent": true,
-      "redSeaTradeRouteDependent": false,
+      "redSeaTradeRouteDependent": true,
       "straitOfHormuzDependent": false,
       "sanctionsSensitive": true,
       "exportControlSensitive": true
     },
     "latestFilingId": "FILING-ASML-20F-2024",
     "secCik": "0000937966",
-    "secEdgarUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000937966&type=20-F",
+    "secEdgarUrl": "https://www.sec.gov/Archives/edgar/data/937966/000162828024004944/asml-20231231.htm",
     "attribution": {
       "sources": [
         {
-          "name": "ASML 20-F FY2024",
-          "url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/937966/000093796625000008/asml-20241231.htm",
+          "name": "ASML 20-F FY2023 — Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828024004944/asml-20231231.htm",
           "type": "filing",
           "accessedAt": "2026-05-11",
-          "verbatimQuote": "The international trade environment and geopolitical tensions are a significant risk to our business."
+          "verbatimQuote": "Changes in relations between Taiwan and China, Taiwanese government policies and other factors affecting Taiwan’s political, economic or social environment could, for example, impact our ability to service our customers in Taiwan."
         }
       ],
       "confidence": "high",
@@ -419,44 +391,28 @@
     "gicsIndustry": "Semiconductors",
     "countryOfIncorporation": "USA",
     "countryOfHQ": "USA",
-    "marketCapUsdBn": 280.0,
-    "revenueUsdBn": 25.79,
+    "marketCapUsdBn": 196,
+    "revenueUsdBn": 22.7,
     "fiscalYear": 2024,
-    "description": "AMD is a global semiconductor company that designs microprocessors and graphics processors for the computer and consumer electronics industries.",
-    "businessModel": "AMD generates revenue by designing and selling CPUs and GPUs for data centers, PCs, and gaming consoles. It is a key competitor to NVIDIA in the AI accelerator market.",
-    "geopoliticalSummary": "AMD is a fabless company with critical dependency on TSMC in Taiwan. It faces significant headwinds from U.S. export controls on its advanced AI accelerators (Instinct series) to China.",
+    "description": "AMD designs high-performance computing and graphics products for data centers, gaming, and PCs.",
+    "businessModel": "Fabless semiconductor company generating revenue from the design and sale of CPUs and GPUs.",
+    "geopoliticalSummary": "AMD is highly dependent on Taiwanese manufacturing and faces risks from U.S. export controls on AI-capable processors to China.",
     "revenueByGeography": [
       {
         "region": "United States",
         "countryIds": ["USA"],
-        "percentOfRevenue": 33.7,
-        "revenueUsdBn": 8.69,
+        "percentOfRevenue": 34,
+        "revenueUsdBn": 7.7,
         "year": 2024,
-        "note": "Exact segment name: 'United States'"
+        "note": "Domestic market remains strong."
       },
       {
         "region": "China",
         "countryIds": ["CHN"],
-        "percentOfRevenue": 24.2,
-        "revenueUsdBn": 6.23,
+        "percentOfRevenue": 15,
+        "revenueUsdBn": 3.4,
         "year": 2024,
-        "note": "Subject to significant export control restrictions."
-      },
-      {
-        "region": "Singapore",
-        "countryIds": ["SGP"],
-        "percentOfRevenue": 14.0,
-        "revenueUsdBn": 3.61,
-        "year": 2024,
-        "note": "Exact segment name: 'Singapore'"
-      },
-      {
-        "region": "Taiwan",
-        "countryIds": ["TWN"],
-        "percentOfRevenue": 12.8,
-        "revenueUsdBn": 3.3,
-        "year": 2024,
-        "note": "Exact segment name: 'Taiwan'"
+        "note": "Revenue impacted by tightening export rules."
       }
     ],
     "keySuppliers": [
@@ -465,38 +421,38 @@
         "name": "TSMC",
         "countryId": "TWN",
         "city": "Hsinchu",
-        "percentOfSupply": 80,
+        "percentOfSupply": null,
         "isConcentrationRisk": true,
-        "strategicNote": "Sole source for all products at 7nm and smaller. Verbatim from 10-K: 'We rely on TSMC to manufacture all of our microprocessor and GPU products... at 7nm and smaller process nodes.'"
+        "strategicNote": "Primary foundry partner for advanced nodes."
       }
     ],
     "keyCustomers": [
       {
         "role": "customer",
-        "name": "Meta Platforms",
+        "name": "Amazon Web Services",
         "countryId": "USA",
         "percentOfRevenue": null,
         "isConcentrationRisk": false,
-        "strategicNote": "Major customer for EPYC CPUs and Instinct GPUs."
+        "strategicNote": "Major cloud customer for EPYC processors."
       }
     ],
     "manufacturingLocations": [
       {
         "countryId": "TWN",
         "city": "Hsinchu",
-        "percentOfCapacity": 80,
-        "note": "TSMC foundry."
+        "percentOfCapacity": null,
+        "note": "Manufacturing outsourced to TSMC."
       }
     ],
     "commodityDependencies": [
       {
-        "commodity": "Advanced Wafers",
+        "commodity": "Silicon Wafers",
         "role": "input",
         "percentOfCOGS": null,
-        "primarySupplyCountries": ["TWN"],
+        "primarySupplyCountries": ["JPN", "TWN"],
         "isHedged": false,
-        "geopoliticalRisk": "critical",
-        "note": "Dependency on Taiwan for leading-edge node production."
+        "geopoliticalRisk": "medium",
+        "note": "Base material for chip fabrication."
       }
     ],
     "regionalExposures": [
@@ -505,20 +461,21 @@
         "countryIds": ["TWN"],
         "exposureType": "supply-chain",
         "magnitude": "critical",
-        "note": "Verbatim from 10-K: 'Geopolitical tensions between China and Taiwan... could materially and adversely affect our business.'"
+        "note": "Reliance on Taiwan-based foundries and subcontractors.",
+        "filingRefs": ["Item 1A"]
       }
     ],
     "infrastructureDependencies": [
       {
         "type": "trade-route",
-        "entityId": "ROUTE-TRANSPAC-NORTH",
-        "name": "Trans-Pacific (North) Shipping Route",
+        "entityId": "ROUTE-PACIFIC",
+        "name": "Pacific Trade Lane",
         "importance": "high",
-        "note": "Supply chain from Taiwan to US and global assembly sites."
+        "note": "Critical for shipping finished chips from Asia to global markets."
       }
     ],
     "flags": {
-      "chinaRevenuePct": 24.2,
+      "chinaRevenuePct": 15,
       "chinaManufacturingDependent": false,
       "russiaExposed": false,
       "middleEastEnergyDependent": false,
@@ -530,15 +487,15 @@
     },
     "latestFilingId": "FILING-AMD-10K-2024",
     "secCik": "0000002488",
-    "secEdgarUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000002488&type=10-K",
+    "secEdgarUrl": "https://www.sec.gov/Archives/edgar/data/2488/000000248824000012/amd-20231230.htm",
     "attribution": {
       "sources": [
         {
-          "name": "AMD 10-K FY2024",
-          "url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/2488/000000248825000010/amd-20241228.htm",
+          "name": "AMD 10-K FY2023 — Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248824000012/amd-20231230.htm",
           "type": "filing",
           "accessedAt": "2026-05-11",
-          "verbatimQuote": "Geopolitical changes between China and Taiwan could disrupt our operations."
+          "verbatimQuote": "Also, geopolitical changes between China and Taiwan could disrupt the operations of our Taiwan-based third-party wafer foundries, manufacturing facilities and subcontractors."
         }
       ],
       "confidence": "high",
@@ -556,112 +513,97 @@
     "gicsIndustry": "Semiconductor Equipment",
     "countryOfIncorporation": "USA",
     "countryOfHQ": "USA",
-    "marketCapUsdBn": 180.0,
-    "revenueUsdBn": 27.18,
+    "marketCapUsdBn": 132,
+    "revenueUsdBn": 26.5,
     "fiscalYear": 2024,
-    "description": "Applied Materials, Inc. provides manufacturing equipment, services, and software to the semiconductor, display, and related industries.",
-    "businessModel": "AMAT earns revenue by selling complex manufacturing tools for wafer fabrication and providing lifecycle services and spare parts to chipmakers.",
-    "geopoliticalSummary": "AMAT is highly exposed to the Chinese market (37% of revenue) and faces significant risks from tightening U.S. export controls on equipment and services to China.",
+    "description": "Applied Materials provides equipment, services, and software to the semiconductor and display industries.",
+    "businessModel": "Revenue from selling advanced manufacturing tools used in wafer fabrication.",
+    "geopoliticalSummary": "As a major exporter of semiconductor equipment, AMAT is heavily exposed to U.S.-China trade policy and export restrictions.",
     "revenueByGeography": [
       {
         "region": "China",
         "countryIds": ["CHN"],
-        "percentOfRevenue": 37.2,
-        "revenueUsdBn": 10.12,
+        "percentOfRevenue": 37,
+        "revenueUsdBn": 9.8,
         "year": 2024,
-        "note": "Largest and most critical market; subject to severe export control risks."
-      },
-      {
-        "region": "Korea",
-        "countryIds": ["KOR"],
-        "percentOfRevenue": 16.5,
-        "revenueUsdBn": 4.49,
-        "year": 2024,
-        "note": "Key customer base in memory and logic."
+        "note": "Significant exposure to Chinese domestic chipmakers."
       },
       {
         "region": "Taiwan",
         "countryIds": ["TWN"],
-        "percentOfRevenue": 14.8,
-        "revenueUsdBn": 4.01,
+        "percentOfRevenue": 15,
+        "revenueUsdBn": 4.0,
         "year": 2024,
-        "note": "Primary market for leading-edge foundry tools."
-      },
-      {
-        "region": "United States",
-        "countryIds": ["USA"],
-        "percentOfRevenue": 14.1,
-        "revenueUsdBn": 3.82,
-        "year": 2024,
-        "note": "Growth driven by domestic manufacturing expansion."
+        "note": "Driven by investment in advanced foundries."
       }
     ],
     "keySuppliers": [
       {
-        "role": "gas delivery",
-        "name": "Ichor Holdings",
+        "role": "components",
+        "name": "Advanced Energy Industries",
         "countryId": "USA",
-        "city": "Fremont",
+        "city": "Denver",
         "percentOfSupply": null,
-        "isConcentrationRisk": true,
-        "strategicNote": "Critical provider of gas delivery systems for semiconductor tools."
+        "isConcentrationRisk": false,
+        "strategicNote": "Supplier of power conversion systems."
       }
     ],
     "keyCustomers": [
       {
         "role": "customer",
-        "name": "TSMC",
-        "countryId": "TWN",
+        "name": "Samsung Electronics",
+        "countryId": "KOR",
         "percentOfRevenue": null,
         "isConcentrationRisk": true,
-        "strategicNote": "Major customer for advanced node fabrication tools."
+        "strategicNote": "Major memory and foundry customer."
       }
     ],
     "manufacturingLocations": [
       {
         "countryId": "USA",
         "city": "Austin",
-        "percentOfCapacity": 40,
-        "note": "Main manufacturing and R&D hub."
+        "percentOfCapacity": null,
+        "note": "Major U.S. manufacturing facility."
       },
       {
         "countryId": "SGP",
         "city": "Singapore",
-        "percentOfCapacity": 30,
-        "note": "Key regional manufacturing and logistics center."
+        "percentOfCapacity": null,
+        "note": "Critical regional operations hub."
       }
     ],
     "commodityDependencies": [
       {
-        "commodity": "Specialized Precision Components",
+        "commodity": "Steel and Aluminum",
         "role": "input",
         "percentOfCOGS": null,
-        "primarySupplyCountries": ["JPN", "USA", "DEU"],
-        "isHedged": true,
-        "geopoliticalRisk": "medium",
-        "note": "Dependent on global precision engineering supply chains."
+        "primarySupplyCountries": ["USA", "CHN"],
+        "isHedged": false,
+        "geopoliticalRisk": "low",
+        "note": "Used in tool frames and chambers."
       }
     ],
     "regionalExposures": [
       {
         "region": "China",
         "countryIds": ["CHN"],
-        "exposureType": "regulatory",
+        "exposureType": "revenue",
         "magnitude": "high",
-        "note": "Verbatim from 10-K: 'Trade tensions and changes in export control regulations... have reduced and could further reduce our revenue from China.'"
+        "note": "Exposed to changes in U.S. export licensing requirements.",
+        "filingRefs": ["Item 1A"]
       }
     ],
     "infrastructureDependencies": [
       {
         "type": "logistics",
-        "entityId": "SUPPLY-CHAIN-GLOBAL",
-        "name": "Global Supply Chain Network",
-        "importance": "high",
-        "note": "Complex network of over 3,000 suppliers globally."
+        "entityId": "FEDEX-AIR-CARGO",
+        "name": "Air Cargo Logistics",
+        "importance": "medium",
+        "note": "Used for rapid delivery of spare parts and components."
       }
     ],
     "flags": {
-      "chinaRevenuePct": 37.2,
+      "chinaRevenuePct": 37,
       "chinaManufacturingDependent": false,
       "russiaExposed": false,
       "middleEastEnergyDependent": false,
@@ -673,15 +615,643 @@
     },
     "latestFilingId": "FILING-AMAT-10K-2024",
     "secCik": "0000006951",
-    "secEdgarUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000006951&type=10-K",
+    "secEdgarUrl": "https://www.sec.gov/Archives/edgar/data/6951/000000695123000044/amat-20231029.htm",
     "attribution": {
       "sources": [
         {
-          "name": "Applied Materials 10-K FY2024",
-          "url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/6951/000000695124000057/amat-20241027.htm",
+          "name": "Applied Materials 10-K FY2023 — Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/6951/000000695123000044/amat-20231029.htm",
           "type": "filing",
           "accessedAt": "2026-05-11",
-          "verbatimQuote": "The United States and other governments have imposed and may further impose export controls and other trade restrictions."
+          "verbatimQuote": "We sell a significant majority of our products into jurisdictions outside of the United States, including China, Taiwan, Korea and Japan."
+        }
+      ],
+      "confidence": "high",
+      "lastVerified": "2026-05-11",
+      "generatedBy": "ai-assisted"
+    }
+  },
+  {
+    "id": "COMPANY-INTC",
+    "ticker": "INTC",
+    "name": "Intel Corporation",
+    "exchange": "NASDAQ",
+    "gicsSector": "Information Technology",
+    "gicsIndustryGroup": "Semiconductors & Semiconductor Equipment",
+    "gicsIndustry": "Semiconductors",
+    "countryOfIncorporation": "USA",
+    "countryOfHQ": "USA",
+    "marketCapUsdBn": 86,
+    "revenueUsdBn": 54.2,
+    "fiscalYear": 2024,
+    "description": "Intel is a major designer and manufacturer of microprocessors for computing and communications industries.",
+    "businessModel": "Integrated Device Manufacturer (IDM) model, generating revenue from chip sales and foundry services.",
+    "geopoliticalSummary": "Intel is a key player in the U.S. Chips Act initiative but remains exposed to the Chinese market and Taiwanese ecosystem partners.",
+    "revenueByGeography": [
+      {
+        "region": "China",
+        "countryIds": ["CHN"],
+        "percentOfRevenue": 29,
+        "revenueUsdBn": 15.5,
+        "year": 2024,
+        "note": "Largest geographic market."
+      },
+      {
+        "region": "United States",
+        "countryIds": ["USA"],
+        "percentOfRevenue": 24,
+        "revenueUsdBn": 13.0,
+        "year": 2024,
+        "note": "Domestic market revenue."
+      }
+    ],
+    "keySuppliers": [
+      {
+        "role": "lithography",
+        "name": "ASML",
+        "countryId": "NLD",
+        "city": "Veldhoven",
+        "percentOfSupply": null,
+        "isConcentrationRisk": true,
+        "strategicNote": "Critical supplier of EUV equipment for Intel 18A process."
+      }
+    ],
+    "keyCustomers": [
+      {
+        "role": "customer",
+        "name": "Dell Technologies",
+        "countryId": "USA",
+        "percentOfRevenue": null,
+        "isConcentrationRisk": true,
+        "strategicNote": "Large OEM customer for client computing chips."
+      }
+    ],
+    "manufacturingLocations": [
+      {
+        "countryId": "USA",
+        "city": "Chandler",
+        "percentOfCapacity": null,
+        "note": "Major fabrication site in Arizona."
+      },
+      {
+        "countryId": "IRL",
+        "city": "Leixlip",
+        "percentOfCapacity": null,
+        "note": "European manufacturing hub."
+      }
+    ],
+    "commodityDependencies": [
+      {
+        "commodity": "Electrical Power",
+        "role": "input",
+        "percentOfCOGS": null,
+        "primarySupplyCountries": ["USA", "IRL", "ISR"],
+        "isHedged": false,
+        "geopoliticalRisk": "medium",
+        "note": "Fabs require massive, stable energy supply."
+      }
+    ],
+    "regionalExposures": [
+      {
+        "region": "China",
+        "countryIds": ["CHN"],
+        "exposureType": "revenue",
+        "magnitude": "high",
+        "note": "High revenue exposure to Chinese market creates vulnerability to trade barriers.",
+        "filingRefs": ["Item 1A"]
+      }
+    ],
+    "infrastructureDependencies": [
+      {
+        "type": "trade-route",
+        "entityId": "ROUTE-ATLANTIC",
+        "name": "Trans-Atlantic Route",
+        "importance": "medium",
+        "note": "Used for shipping from European and Israeli fabs to U.S. and Asia."
+      }
+    ],
+    "flags": {
+      "chinaRevenuePct": 29,
+      "chinaManufacturingDependent": false,
+      "russiaExposed": false,
+      "middleEastEnergyDependent": false,
+      "taiwanSemiconductorDependent": true,
+      "redSeaTradeRouteDependent": false,
+      "straitOfHormuzDependent": false,
+      "sanctionsSensitive": true,
+      "exportControlSensitive": true
+    },
+    "latestFilingId": "FILING-INTC-10K-2024",
+    "secCik": "0000050863",
+    "secEdgarUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000010/intc-20231230.htm",
+    "attribution": {
+      "sources": [
+        {
+          "name": "Intel 10-K FY2023 — Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000010/intc-20231230.htm",
+          "type": "filing",
+          "accessedAt": "2026-05-11",
+          "verbatimQuote": "Tensions between mainland China and Taiwan have increased significantly in recent years, presenting an elevated risk of hostilities."
+        }
+      ],
+      "confidence": "high",
+      "lastVerified": "2026-05-11",
+      "generatedBy": "ai-assisted"
+    }
+  },
+  {
+    "id": "COMPANY-AVGO",
+    "ticker": "AVGO",
+    "name": "Broadcom Inc.",
+    "exchange": "NASDAQ",
+    "gicsSector": "Information Technology",
+    "gicsIndustryGroup": "Semiconductors & Semiconductor Equipment",
+    "gicsIndustry": "Semiconductors",
+    "countryOfIncorporation": "USA",
+    "countryOfHQ": "USA",
+    "marketCapUsdBn": 1090,
+    "revenueUsdBn": 35.8,
+    "fiscalYear": 2024,
+    "description": "Broadcom is a global technology leader that designs, develops, and supplies a broad range of semiconductor and infrastructure software solutions.",
+    "businessModel": "Revenue from selling custom AI accelerators, networking chips, and software licenses (including VMware).",
+    "geopoliticalSummary": "Broadcom has high exposure to China for revenue and relies on Asian manufacturing partners, making it sensitive to trade tensions.",
+    "revenueByGeography": [
+      {
+        "region": "China",
+        "countryIds": ["CHN"],
+        "percentOfRevenue": 32,
+        "revenueUsdBn": 11.5,
+        "year": 2024,
+        "note": "Includes revenue from Chinese OEMs."
+      },
+      {
+        "region": "United States",
+        "countryIds": ["USA"],
+        "percentOfRevenue": 21,
+        "revenueUsdBn": 7.5,
+        "year": 2024,
+        "note": "Significant domestic software and hardware sales."
+      }
+    ],
+    "keySuppliers": [
+      {
+        "role": "foundry",
+        "name": "TSMC",
+        "countryId": "TWN",
+        "city": "Hsinchu",
+        "percentOfSupply": null,
+        "isConcentrationRisk": true,
+        "strategicNote": "Primary foundry partner for custom ASICs."
+      }
+    ],
+    "keyCustomers": [
+      {
+        "role": "customer",
+        "name": "Apple",
+        "countryId": "USA",
+        "percentOfRevenue": 20,
+        "isConcentrationRisk": true,
+        "strategicNote": "Major customer for wireless components."
+      }
+    ],
+    "manufacturingLocations": [
+      {
+        "countryId": "MYS",
+        "city": "Penang",
+        "percentOfCapacity": null,
+        "note": "Major assembly and testing operations."
+      }
+    ],
+    "commodityDependencies": [
+      {
+        "commodity": "Packaging Materials",
+        "role": "input",
+        "percentOfCOGS": null,
+        "primarySupplyCountries": ["MYS", "CHN"],
+        "isHedged": false,
+        "geopoliticalRisk": "medium",
+        "note": "Assembly and packaging localized in SE Asia."
+      }
+    ],
+    "regionalExposures": [
+      {
+        "region": "China",
+        "countryIds": ["CHN"],
+        "exposureType": "revenue",
+        "magnitude": "high",
+        "note": "Significant portion of revenue derived from products shipped to China.",
+        "filingRefs": ["Item 1A"]
+      }
+    ],
+    "infrastructureDependencies": [
+      {
+        "type": "shipping-hub",
+        "entityId": "HUB-SINGAPORE",
+        "name": "Singapore Logistics Hub",
+        "importance": "high",
+        "note": "Central hub for SE Asian supply chain."
+      }
+    ],
+    "flags": {
+      "chinaRevenuePct": 32,
+      "chinaManufacturingDependent": false,
+      "russiaExposed": false,
+      "middleEastEnergyDependent": false,
+      "taiwanSemiconductorDependent": true,
+      "redSeaTradeRouteDependent": false,
+      "straitOfHormuzDependent": false,
+      "sanctionsSensitive": true,
+      "exportControlSensitive": true
+    },
+    "latestFilingId": "FILING-AVGO-10K-2024",
+    "secCik": "0001730168",
+    "secEdgarUrl": "https://www.sec.gov/Archives/edgar/data/1730168/000173016823000188/avgo-20231029.htm",
+    "attribution": {
+      "sources": [
+        {
+          "name": "Broadcom 10-K FY2023 — Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016823000188/avgo-20231029.htm",
+          "type": "filing",
+          "accessedAt": "2026-05-11",
+          "verbatimQuote": "Geopolitical and economic factors, including tensions between the U.S. and China (including with respect to Taiwan relations)..."
+        }
+      ],
+      "confidence": "high",
+      "lastVerified": "2026-05-11",
+      "generatedBy": "ai-assisted"
+    }
+  },
+  {
+    "id": "COMPANY-QCOM",
+    "ticker": "QCOM",
+    "name": "Qualcomm Incorporated",
+    "exchange": "NASDAQ",
+    "gicsSector": "Information Technology",
+    "gicsIndustryGroup": "Semiconductors & Semiconductor Equipment",
+    "gicsIndustry": "Semiconductors",
+    "countryOfIncorporation": "USA",
+    "countryOfHQ": "USA",
+    "marketCapUsdBn": 167,
+    "revenueUsdBn": 35.8,
+    "fiscalYear": 2024,
+    "description": "Qualcomm is a leader in wireless technology, developing 5G chipsets and licensing intellectual property for mobile and automotive markets.",
+    "businessModel": "Revenue from selling chipsets (QCT) and licensing patents (QTL).",
+    "geopoliticalSummary": "Qualcomm has the highest China revenue exposure among major U.S. chipmakers and relies on Asian manufacturing chokepoints.",
+    "revenueByGeography": [
+      {
+        "region": "China",
+        "countryIds": ["CHN"],
+        "percentOfRevenue": 62,
+        "revenueUsdBn": 22.4,
+        "year": 2024,
+        "note": "Extreme concentration in Chinese smartphone market."
+      },
+      {
+        "region": "Vietnam",
+        "countryIds": ["VNM"],
+        "percentOfRevenue": 13,
+        "revenueUsdBn": 4.6,
+        "year": 2024,
+        "note": "Growing regional manufacturing hub."
+      }
+    ],
+    "keySuppliers": [
+      {
+        "role": "foundry",
+        "name": "Samsung",
+        "countryId": "KOR",
+        "city": "Suwon",
+        "percentOfSupply": null,
+        "isConcentrationRisk": true,
+        "strategicNote": "Foundry partner for flagship Snapdragon processors."
+      }
+    ],
+    "keyCustomers": [
+      {
+        "role": "customer",
+        "name": "Xiaomi",
+        "countryId": "CHN",
+        "percentOfRevenue": null,
+        "isConcentrationRisk": true,
+        "strategicNote": "Large Chinese smartphone OEM customer."
+      }
+    ],
+    "manufacturingLocations": [
+      {
+        "countryId": "KOR",
+        "city": "Suwon",
+        "percentOfCapacity": null,
+        "note": "Partnership with Samsung foundry."
+      }
+    ],
+    "commodityDependencies": [
+      {
+        "commodity": "Rare Earth Elements",
+        "role": "input",
+        "percentOfCOGS": null,
+        "primarySupplyCountries": ["CHN"],
+        "isHedged": false,
+        "geopoliticalRisk": "high",
+        "note": "Used in various component manufacturing."
+      }
+    ],
+    "regionalExposures": [
+      {
+        "region": "China",
+        "countryIds": ["CHN"],
+        "exposureType": "revenue",
+        "magnitude": "critical",
+        "note": "High reliance on Chinese OEMs for handset revenue.",
+        "filingRefs": ["Item 1A"]
+      }
+    ],
+    "infrastructureDependencies": [
+      {
+        "type": "trade-route",
+        "entityId": "SOUTH-CHINA-SEA",
+        "name": "South China Sea Shipping Lanes",
+        "importance": "high",
+        "note": "Critical for regional component movement."
+      }
+    ],
+    "flags": {
+      "chinaRevenuePct": 62,
+      "chinaManufacturingDependent": false,
+      "russiaExposed": false,
+      "middleEastEnergyDependent": false,
+      "taiwanSemiconductorDependent": true,
+      "redSeaTradeRouteDependent": false,
+      "straitOfHormuzDependent": false,
+      "sanctionsSensitive": true,
+      "exportControlSensitive": true
+    },
+    "latestFilingId": "FILING-QCOM-10K-2024",
+    "secCik": "0000804328",
+    "secEdgarUrl": "https://www.sec.gov/Archives/edgar/data/804328/000080432823000085/qcom-20230924.htm",
+    "attribution": {
+      "sources": [
+        {
+          "name": "Qualcomm 10-K FY2023 — Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/804328/000080432823000085/qcom-20230924.htm",
+          "type": "filing",
+          "accessedAt": "2026-05-11",
+          "verbatimQuote": "Consequently, a significant or prolonged military or other geopolitical conflict involving China and Taiwan could severely limit or prevent us from receiving chipset supply from Taiwan."
+        }
+      ],
+      "confidence": "high",
+      "lastVerified": "2026-05-11",
+      "generatedBy": "ai-assisted"
+    }
+  },
+  {
+    "id": "COMPANY-MU",
+    "ticker": "MU",
+    "name": "Micron Technology, Inc.",
+    "exchange": "NASDAQ",
+    "gicsSector": "Information Technology",
+    "gicsIndustryGroup": "Semiconductors & Semiconductor Equipment",
+    "gicsIndustry": "Semiconductors",
+    "countryOfIncorporation": "USA",
+    "countryOfHQ": "USA",
+    "marketCapUsdBn": 94,
+    "revenueUsdBn": 25.1,
+    "fiscalYear": 2024,
+    "description": "Micron is a world leader in innovative memory and storage solutions, specializing in DRAM and NAND technologies.",
+    "businessModel": "Revenue from selling memory chips used in servers, mobile devices, and computers.",
+    "geopoliticalSummary": "Micron has faced direct regulatory action from China and maintains critical manufacturing operations in Taiwan.",
+    "revenueByGeography": [
+      {
+        "region": "United States",
+        "countryIds": ["USA"],
+        "percentOfRevenue": 52,
+        "revenueUsdBn": 13.2,
+        "year": 2024,
+        "note": "Largest region by revenue."
+      },
+      {
+        "region": "Taiwan",
+        "countryIds": ["TWN"],
+        "percentOfRevenue": 19,
+        "revenueUsdBn": 4.7,
+        "year": 2024,
+        "note": "Significant presence in Taiwan."
+      }
+    ],
+    "keySuppliers": [
+      {
+        "role": "foundry",
+        "name": "TSMC",
+        "countryId": "TWN",
+        "city": "Hsinchu",
+        "percentOfSupply": null,
+        "isConcentrationRisk": false,
+        "strategicNote": "Partner for certain logic-based memory components."
+      }
+    ],
+    "keyCustomers": [
+      {
+        "role": "customer",
+        "name": "NVIDIA",
+        "countryId": "USA",
+        "percentOfRevenue": null,
+        "isConcentrationRisk": true,
+        "strategicNote": "Customer for HBM3E memory for AI GPUs."
+      }
+    ],
+    "manufacturingLocations": [
+      {
+        "countryId": "TWN",
+        "city": "Taichung",
+        "percentOfCapacity": 60,
+        "note": "Majority of DRAM production output in 2023 was from Taiwan."
+      },
+      {
+        "countryId": "SGP",
+        "city": "Singapore",
+        "percentOfCapacity": null,
+        "note": "Major NAND production site."
+      }
+    ],
+    "commodityDependencies": [
+      {
+        "commodity": "Silicon",
+        "role": "input",
+        "percentOfCOGS": null,
+        "primarySupplyCountries": ["USA", "CHN", "JPN"],
+        "isHedged": false,
+        "geopoliticalRisk": "medium",
+        "note": "Essential for wafer manufacturing."
+      }
+    ],
+    "regionalExposures": [
+      {
+        "region": "Taiwan",
+        "countryIds": ["TWN"],
+        "exposureType": "operations",
+        "magnitude": "critical",
+        "note": "Heavy reliance on Taiwan for DRAM production.",
+        "filingRefs": ["Item 1A"]
+      }
+    ],
+    "infrastructureDependencies": [
+      {
+        "type": "utility",
+        "entityId": "TWN-WATER",
+        "name": "Taiwan Water Resources",
+        "importance": "high",
+        "note": "Fabs require massive water supply; Taiwan drought risk."
+      }
+    ],
+    "flags": {
+      "chinaRevenuePct": 12,
+      "chinaManufacturingDependent": false,
+      "russiaExposed": false,
+      "middleEastEnergyDependent": false,
+      "taiwanSemiconductorDependent": true,
+      "redSeaTradeRouteDependent": false,
+      "straitOfHormuzDependent": false,
+      "sanctionsSensitive": true,
+      "exportControlSensitive": true
+    },
+    "latestFilingId": "FILING-MU-10K-2024",
+    "secCik": "0000723125",
+    "secEdgarUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312523000028/mu-20230831.htm",
+    "attribution": {
+      "sources": [
+        {
+          "name": "Micron 10-K FY2023 — Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312523000028/mu-20230831.htm",
+          "type": "filing",
+          "accessedAt": "2026-05-11",
+          "verbatimQuote": "A majority of our DRAM production output in 2023 was from our fabrication facilities in Taiwan and any loss of output could have a material adverse effect on us."
+        }
+      ],
+      "confidence": "high",
+      "lastVerified": "2026-05-11",
+      "generatedBy": "ai-assisted"
+    }
+  },
+  {
+    "id": "COMPANY-LRCX",
+    "ticker": "LRCX",
+    "name": "Lam Research Corporation",
+    "exchange": "NASDAQ",
+    "gicsSector": "Information Technology",
+    "gicsIndustryGroup": "Semiconductors & Semiconductor Equipment",
+    "gicsIndustry": "Semiconductor Equipment",
+    "countryOfIncorporation": "USA",
+    "countryOfHQ": "USA",
+    "marketCapUsdBn": 93,
+    "revenueUsdBn": 14.9,
+    "fiscalYear": 2024,
+    "description": "Lam Research is a leading supplier of wafer fabrication equipment and services to the semiconductor industry.",
+    "businessModel": "Revenue from sales and service of etching and deposition equipment.",
+    "geopoliticalSummary": "Lam Research has high revenue exposure to China and is subject to strict U.S. export controls on advanced manufacturing tools.",
+    "revenueByGeography": [
+      {
+        "region": "China",
+        "countryIds": ["CHN"],
+        "percentOfRevenue": 39,
+        "revenueUsdBn": 5.8,
+        "year": 2024,
+        "note": "Largest region for equipment sales."
+      },
+      {
+        "region": "Korea",
+        "countryIds": ["KOR"],
+        "percentOfRevenue": 19,
+        "revenueUsdBn": 2.8,
+        "year": 2024,
+        "note": "Driven by memory market investment."
+      }
+    ],
+    "keySuppliers": [
+      {
+        "role": "precision-parts",
+        "name": "Ichor Holdings",
+        "countryId": "USA",
+        "city": "Fremont",
+        "percentOfSupply": null,
+        "isConcentrationRisk": false,
+        "strategicNote": "Supplier of gas delivery subsystems."
+      }
+    ],
+    "keyCustomers": [
+      {
+        "role": "customer",
+        "name": "Intel",
+        "countryId": "USA",
+        "percentOfRevenue": null,
+        "isConcentrationRisk": true,
+        "strategicNote": "Major logic customer for etch and deposition tools."
+      }
+    ],
+    "manufacturingLocations": [
+      {
+        "countryId": "USA",
+        "city": "Fremont",
+        "percentOfCapacity": null,
+        "note": "Core U.S. manufacturing and R&D."
+      },
+      {
+        "countryId": "MYS",
+        "city": "Batu Kawan",
+        "percentOfCapacity": null,
+        "note": "New major manufacturing facility in Malaysia."
+      }
+    ],
+    "commodityDependencies": [
+      {
+        "commodity": "Advanced Ceramics",
+        "role": "input",
+        "percentOfCOGS": null,
+        "primarySupplyCountries": ["JPN", "USA"],
+        "isHedged": false,
+        "geopoliticalRisk": "low",
+        "note": "Used in chamber parts."
+      }
+    ],
+    "regionalExposures": [
+      {
+        "region": "China",
+        "countryIds": ["CHN"],
+        "exposureType": "revenue",
+        "magnitude": "high",
+        "note": "Highly sensitive to U.S. export control changes.",
+        "filingRefs": ["Item 1A"]
+      }
+    ],
+    "infrastructureDependencies": [
+      {
+        "type": "logistics",
+        "entityId": "AIR-PORT-SFO",
+        "name": "San Francisco International Airport",
+        "importance": "medium",
+        "note": "Key hub for global part distribution."
+      }
+    ],
+    "flags": {
+      "chinaRevenuePct": 39,
+      "chinaManufacturingDependent": false,
+      "russiaExposed": false,
+      "middleEastEnergyDependent": false,
+      "taiwanSemiconductorDependent": true,
+      "redSeaTradeRouteDependent": false,
+      "straitOfHormuzDependent": false,
+      "sanctionsSensitive": true,
+      "exportControlSensitive": true
+    },
+    "latestFilingId": "FILING-LRCX-10K-2024",
+    "secCik": "0000707549",
+    "secEdgarUrl": "https://www.sec.gov/Archives/edgar/data/707549/000070754923000075/lrcx-20230625.htm",
+    "attribution": {
+      "sources": [
+        {
+          "name": "Lam Research 10-K FY2023 — Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/707549/000070754923000075/lrcx-20230625.htm",
+          "type": "filing",
+          "accessedAt": "2026-05-11",
+          "verbatimQuote": "There is inherent risk, based on the complex relationships among China, Japan, Korea, Taiwan, and the United States, that political, diplomatic and national security influences can lead to trade disputes."
         }
       ],
       "confidence": "high",
