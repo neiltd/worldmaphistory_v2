@@ -62,8 +62,8 @@ export const ISO3Schema = z
 export const YearSchema = z
   .number()
   .int()
-  .min(1900)
-  .max(new Date().getFullYear() + 5)
+  .min(1850)
+  .max(new Date().getFullYear() + 30)  // allow future retirement/planned dates up to 30 yrs
 
 // ─── Percentage (0–100) ───────────────────────────────────────────────────────
 export const PctSchema = z.number().min(0).max(100)

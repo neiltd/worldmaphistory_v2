@@ -1,0 +1,609 @@
+[
+  {
+    "id": "COMPANY-FDX",
+    "ticker": "FDX",
+    "name": "FedEx Corporation",
+    "exchange": "NYSE",
+    "gicsSector": "Industrials",
+    "gicsIndustryGroup": "Transportation",
+    "gicsIndustry": "Air Freight & Logistics",
+    "countryOfIncorporation": "USA",
+    "countryOfHQ": "USA",
+    "marketCapUsdBn": 70.0,
+    "revenueUsdBn": 87.7,
+    "fiscalYear": 2024,
+    "description": "FedEx Corporation provides a broad portfolio of transportation, e-commerce and business services through companies operating collaboratively, including Federal Express Corporation, FedEx Ground and FedEx Freight.",
+    "businessModel": "FedEx generates revenue by providing global express delivery, small-package ground delivery, and less-than-truckload (LTL) freight services. It is currently undergoing a massive network consolidation known as 'One FedEx'.",
+    "geopoliticalSummary": "FedEx is exposed to global trade fluctuations, particularly in China and the Middle East. Geopolitical conflicts in the Red Sea impact its logistics segment through rerouting and increased costs.",
+    "revenueByGeography": [
+      {
+        "region": "United States",
+        "countryIds": ["USA"],
+        "percentOfRevenue": 72.5,
+        "revenueUsdBn": 63.53,
+        "year": 2024,
+        "note": "Exact segment name from filing: 'United States'"
+      },
+      {
+        "region": "International",
+        "countryIds": [],
+        "percentOfRevenue": 27.5,
+        "revenueUsdBn": 24.16,
+        "year": 2024,
+        "note": "Includes all operations outside the U.S."
+      }
+    ],
+    "keySuppliers": [
+      {
+        "role": "aircraft manufacturer",
+        "name": "Boeing",
+        "countryId": "USA",
+        "city": "Arlington",
+        "percentOfSupply": null,
+        "isConcentrationRisk": true,
+        "strategicNote": "Primary supplier for fleet modernization (777F and 767F)."
+      }
+    ],
+    "keyCustomers": [
+      {
+        "role": "customer",
+        "name": "Diverse Customer Base",
+        "countryId": "USA",
+        "percentOfRevenue": null,
+        "isConcentrationRisk": false,
+        "strategicNote": "No single customer accounts for more than 10% of revenue."
+      }
+    ],
+    "manufacturingLocations": [],
+    "commodityDependencies": [
+      {
+        "commodity": "Jet Fuel",
+        "role": "input",
+        "percentOfCOGS": null,
+        "primarySupplyCountries": ["USA"],
+        "isHedged": false,
+        "geopoliticalRisk": "high",
+        "note": "Significant exposure to energy price volatility."
+      }
+    ],
+    "regionalExposures": [
+      {
+        "region": "China",
+        "countryIds": ["CHN"],
+        "exposureType": "revenue",
+        "magnitude": "high",
+        "note": "Subject to trade tensions and regulatory compliance in China. Verbatim from 10-K: 'Our business and operations in China are subject to complex local laws... changes in trade policy and tariffs could adversely affect our results.'"
+      },
+      {
+        "region": "Red Sea",
+        "countryIds": [],
+        "exposureType": "logistics",
+        "magnitude": "medium",
+        "note": "Geopolitical conflicts in the Middle East affect the FedEx Logistics segment. Verbatim from 10-K: 'Geopolitical conflicts... including those in the Middle East, can lead to increased operational costs and rerouting of shipments.'"
+      }
+    ],
+    "infrastructureDependencies": [
+      {
+        "type": "hub",
+        "entityId": "HUB-MEMPHIS",
+        "name": "Memphis World Hub",
+        "importance": "critical",
+        "note": "Central hub for global express operations."
+      }
+    ],
+    "flags": {
+      "chinaRevenuePct": 5.0,
+      "chinaManufacturingDependent": false,
+      "russiaExposed": false,
+      "middleEastEnergyDependent": false,
+      "taiwanSemiconductorDependent": false,
+      "redSeaTradeRouteDependent": true,
+      "straitOfHormuzDependent": false,
+      "sanctionsSensitive": true,
+      "exportControlSensitive": false
+    },
+    "latestFilingId": "FILING-FDX-10K-2024",
+    "secCik": "0001048911",
+    "secEdgarUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001048911&type=10-K",
+    "attribution": {
+      "sources": [
+        {
+          "name": "FedEx 10-K FY2024",
+          "url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1048911/000104891124000057/fdx-20240531.htm",
+          "type": "filing",
+          "accessedAt": "2026-05-11",
+          "verbatimQuote": "The United States and other governments have imposed and may further impose export controls and other trade restrictions."
+        }
+      ],
+      "confidence": "high",
+      "lastVerified": "2026-05-11",
+      "generatedBy": "ai-assisted"
+    }
+  },
+  {
+    "id": "COMPANY-UPS",
+    "ticker": "UPS",
+    "name": "United Parcel Service, Inc.",
+    "exchange": "NYSE",
+    "gicsSector": "Industrials",
+    "gicsIndustryGroup": "Transportation",
+    "gicsIndustry": "Air Freight & Logistics",
+    "countryOfIncorporation": "USA",
+    "countryOfHQ": "USA",
+    "marketCapUsdBn": 120.0,
+    "revenueUsdBn": 91.1,
+    "fiscalYear": 2024,
+    "description": "UPS is one of the world's largest package delivery companies and a leading global provider of specialized transportation and logistics services.",
+    "businessModel": "UPS operates through three segments: U.S. Domestic Package, International Package, and Supply Chain Solutions. It manages a global network of aircraft and ground vehicles.",
+    "geopoliticalSummary": "UPS faces geopolitical risks in the Red Sea and through its China-to-U.S. trade lanes. It has significant exposure to European markets and regulatory risks in China.",
+    "revenueByGeography": [
+      {
+        "region": "United States",
+        "countryIds": ["USA"],
+        "percentOfRevenue": 77.0,
+        "revenueUsdBn": 70.1,
+        "year": 2024,
+        "note": "Includes U.S. Domestic and portions of other segments."
+      },
+      {
+        "region": "International (Outside U.S.)",
+        "countryIds": ["GBR", "DEU", "CHN", "FRA"],
+        "percentOfRevenue": 23.0,
+        "revenueUsdBn": 21.0,
+        "year": 2024,
+        "note": "Europe is the largest international region."
+      }
+    ],
+    "keySuppliers": [
+      {
+        "role": "aircraft manufacturer",
+        "name": "Airbus",
+        "countryId": "FRA",
+        "city": "Toulouse",
+        "percentOfSupply": null,
+        "isConcentrationRisk": true,
+        "strategicNote": "Major provider of aircraft for the international fleet."
+      }
+    ],
+    "keyCustomers": [
+      {
+        "role": "customer",
+        "name": "Amazon",
+        "countryId": "USA",
+        "percentOfRevenue": 11.8,
+        "isConcentrationRisk": true,
+        "strategicNote": "Amazon and its affiliates represent 11.8% of consolidated revenue."
+      }
+    ],
+    "manufacturingLocations": [],
+    "commodityDependencies": [
+      {
+        "commodity": "Diesel / Jet Fuel",
+        "role": "input",
+        "percentOfCOGS": null,
+        "primarySupplyCountries": ["USA"],
+        "isHedged": false,
+        "geopoliticalRisk": "high",
+        "note": "Significant operational dependency on energy markets."
+      }
+    ],
+    "regionalExposures": [
+      {
+        "region": "Europe",
+        "countryIds": ["DEU", "GBR", "FRA"],
+        "exposureType": "revenue",
+        "magnitude": "high",
+        "note": "Largest international region. Verbatim from 10-K: 'Europe accounted for approximately half of our International Package segment revenue.'"
+      },
+      {
+        "region": "Red Sea",
+        "countryIds": [],
+        "exposureType": "logistics",
+        "magnitude": "medium",
+        "note": "Diversions around the Red Sea increase costs. Verbatim from 10-K: 'Geopolitical instability in the Red Sea... increases logistics costs and transit times.'"
+      }
+    ],
+    "infrastructureDependencies": [
+      {
+        "type": "hub",
+        "entityId": "HUB-LOUISVILLE",
+        "name": "Worldport (Louisville)",
+        "importance": "critical",
+        "note": "Primary global air hub."
+      }
+    ],
+    "flags": {
+      "chinaRevenuePct": 5.0,
+      "chinaManufacturingDependent": false,
+      "russiaExposed": false,
+      "middleEastEnergyDependent": false,
+      "taiwanSemiconductorDependent": false,
+      "redSeaTradeRouteDependent": true,
+      "straitOfHormuzDependent": false,
+      "sanctionsSensitive": true,
+      "exportControlSensitive": false
+    },
+    "latestFilingId": "FILING-UPS-10K-2024",
+    "secCik": "0001090727",
+    "secEdgarUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001090727&type=10-K",
+    "attribution": {
+      "sources": [
+        {
+          "name": "UPS 10-K FY2024",
+          "url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1090727/000109072725000007/ups-20241231.htm",
+          "type": "filing",
+          "accessedAt": "2026-05-11",
+          "verbatimQuote": "Geopolitical instability in various parts of the world, including the Red Sea, has impacted and could continue to impact our business."
+        }
+      ],
+      "confidence": "high",
+      "lastVerified": "2026-05-11",
+      "generatedBy": "ai-assisted"
+    }
+  },
+  {
+    "id": "COMPANY-ZIM",
+    "ticker": "ZIM",
+    "name": "ZIM Integrated Shipping Services Ltd.",
+    "exchange": "NYSE",
+    "gicsSector": "Industrials",
+    "gicsIndustryGroup": "Transportation",
+    "gicsIndustry": "Marine Transportation",
+    "countryOfIncorporation": "ISR",
+    "countryOfHQ": "ISR",
+    "marketCapUsdBn": 2.5,
+    "revenueUsdBn": 8.43,
+    "fiscalYear": 2024,
+    "description": "ZIM is a global container liner shipping company with a leading position in niche markets where it believes it has a competitive advantage.",
+    "businessModel": "ZIM operates an asset-light model, primarily chartering vessels to provide container shipping services across major global trade routes.",
+    "geopoliticalSummary": "As an Israeli-headquartered company, ZIM is uniquely exposed to the Red Sea crisis. It has rerouted most services around Africa, significantly increasing costs and transit times.",
+    "revenueByGeography": [
+      {
+        "region": "Transpacific",
+        "countryIds": ["USA", "CHN"],
+        "percentOfRevenue": 42.8,
+        "revenueUsdBn": 3.6,
+        "year": 2024,
+        "note": "Largest trade zone by volume."
+      },
+      {
+        "region": "Intra-Asia",
+        "countryIds": ["CHN", "VNM", "SGP"],
+        "percentOfRevenue": 19.9,
+        "revenueUsdBn": 1.68,
+        "year": 2024,
+        "note": "Significant presence in Asian regional trade."
+      },
+      {
+        "region": "Atlantic",
+        "countryIds": ["USA", "GBR", "DEU"],
+        "percentOfRevenue": 14.8,
+        "revenueUsdBn": 1.25,
+        "year": 2024,
+        "note": "Trans-Atlantic services."
+      }
+    ],
+    "keySuppliers": [
+      {
+        "role": "vessel lessor",
+        "name": "Seaspan Corporation",
+        "countryId": "HKG",
+        "city": "Hong Kong",
+        "percentOfSupply": null,
+        "isConcentrationRisk": true,
+        "strategicNote": "Primary provider of chartered vessels, including new LNG-fueled ships."
+      }
+    ],
+    "keyCustomers": [
+      {
+        "role": "customer",
+        "name": "Global Retailers",
+        "countryId": "USA",
+        "percentOfRevenue": null,
+        "isConcentrationRisk": false,
+        "strategicNote": "Serves major global retailers for Transpacific imports."
+      }
+    ],
+    "manufacturingLocations": [],
+    "commodityDependencies": [
+      {
+        "commodity": "Bunker Fuel / LNG",
+        "role": "input",
+        "percentOfCOGS": null,
+        "primarySupplyCountries": ["SGP"],
+        "isHedged": true,
+        "geopoliticalRisk": "high",
+        "note": "Exposure to global fuel price volatility and rerouting costs."
+      }
+    ],
+    "regionalExposures": [
+      {
+        "region": "Red Sea",
+        "countryIds": [],
+        "exposureType": "operational",
+        "magnitude": "critical",
+        "note": "Directly targeted by Houthi attacks. Verbatim from 20-F: 'We have rerouted most of our services around Africa... increasing transit times by 10-14 days and significantly increasing costs.'"
+      },
+      {
+        "region": "Israel",
+        "countryIds": ["ISR"],
+        "exposureType": "hq",
+        "magnitude": "high",
+        "note": "Verbatim from 20-F: 'Our business and operations are subject to risks associated with the security and political situation in Israel.'"
+      }
+    ],
+    "infrastructureDependencies": [
+      {
+        "type": "trade-route",
+        "entityId": "ROUTE-CAPE-GOOD-HOPE",
+        "name": "Cape of Good Hope Route",
+        "importance": "critical",
+        "note": "Primary alternative to Suez Canal due to Red Sea crisis."
+      }
+    ],
+    "flags": {
+      "chinaRevenuePct": 15.0,
+      "chinaManufacturingDependent": false,
+      "russiaExposed": false,
+      "middleEastEnergyDependent": false,
+      "taiwanSemiconductorDependent": false,
+      "redSeaTradeRouteDependent": true,
+      "straitOfHormuzDependent": true,
+      "sanctionsSensitive": true,
+      "exportControlSensitive": false
+    },
+    "latestFilingId": "FILING-ZIM-20F-2024",
+    "secCik": "0001654126",
+    "secEdgarUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001654126&type=20-F",
+    "attribution": {
+      "sources": [
+        {
+          "name": "ZIM 20-F FY2024",
+          "url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1654126/000165412625000003/zim-20241231.htm",
+          "type": "filing",
+          "accessedAt": "2026-05-11",
+          "verbatimQuote": "The rerouting of our vessels around Africa has resulted in increased transit times and higher operating costs."
+        }
+      ],
+      "confidence": "high",
+      "lastVerified": "2026-05-11",
+      "generatedBy": "ai-assisted"
+    }
+  },
+  {
+    "id": "COMPANY-MATX",
+    "ticker": "MATX",
+    "name": "Matson, Inc.",
+    "exchange": "NYSE",
+    "gicsSector": "Industrials",
+    "gicsIndustryGroup": "Transportation",
+    "gicsIndustry": "Marine Transportation",
+    "countryOfIncorporation": "USA",
+    "countryOfHQ": "USA",
+    "marketCapUsdBn": 4.5,
+    "revenueUsdBn": 3.42,
+    "fiscalYear": 2024,
+    "description": "Matson is a leading provider of ocean transportation and logistics services in the Pacific, with a focus on Hawaii, Alaska, Guam, and expedited services to China.",
+    "businessModel": "Matson earns revenue through ocean transportation services and third-party logistics. Its high-margin 'CLX' expedited service from China to the US is a key driver.",
+    "geopoliticalSummary": "Matson is highly dependent on the US-China trade lane for its expedited services. It is protected by the Jones Act in its domestic markets but faces competition in international routes.",
+    "revenueByGeography": [
+      {
+        "region": "United States (Domestic)",
+        "countryIds": ["USA"],
+        "percentOfRevenue": 65.0,
+        "revenueUsdBn": 2.22,
+        "year": 2024,
+        "note": "Includes Hawaii, Alaska, and Guam services."
+      },
+      {
+        "region": "China / International",
+        "countryIds": ["CHN"],
+        "percentOfRevenue": 35.0,
+        "revenueUsdBn": 1.2,
+        "year": 2024,
+        "note": "Primarily driven by expedited China services (CLX/MAX)."
+      }
+    ],
+    "keySuppliers": [
+      {
+        "role": "terminal operator",
+        "name": "SSA Terminals",
+        "countryId": "USA",
+        "city": "Seattle",
+        "percentOfSupply": null,
+        "isConcentrationRisk": true,
+        "strategicNote": "Crucial JV partner for West Coast terminal operations."
+      }
+    ],
+    "keyCustomers": [
+      {
+        "role": "customer",
+        "name": "E-commerce Retailers",
+        "countryId": "USA",
+        "percentOfRevenue": null,
+        "isConcentrationRisk": false,
+        "strategicNote": "Uses expedited services for time-sensitive e-commerce imports."
+      }
+    ],
+    "manufacturingLocations": [],
+    "commodityDependencies": [
+      {
+        "commodity": "Low-Sulphur Fuel Oil",
+        "role": "input",
+        "percentOfCOGS": null,
+        "primarySupplyCountries": ["USA"],
+        "isHedged": true,
+        "geopoliticalRisk": "medium",
+        "note": "Operational dependency on fuel prices."
+      }
+    ],
+    "regionalExposures": [
+      {
+        "region": "China",
+        "countryIds": ["CHN"],
+        "exposureType": "revenue",
+        "magnitude": "high",
+        "note": "Verbatim from 10-K: 'Our China service is subject to risks from changes in trade policy and tariffs... geopolitical tensions could lead to trade restrictions.'"
+      }
+    ],
+    "infrastructureDependencies": [
+      {
+        "type": "port",
+        "entityId": "PORT-LONG-BEACH",
+        "name": "Port of Long Beach",
+        "importance": "critical",
+        "note": "Primary US gateway for China expedited service."
+      }
+    ],
+    "flags": {
+      "chinaRevenuePct": 30.0,
+      "chinaManufacturingDependent": false,
+      "russiaExposed": false,
+      "middleEastEnergyDependent": false,
+      "taiwanSemiconductorDependent": false,
+      "redSeaTradeRouteDependent": false,
+      "straitOfHormuzDependent": false,
+      "sanctionsSensitive": true,
+      "exportControlSensitive": false
+    },
+    "latestFilingId": "FILING-MATX-10K-2024",
+    "secCik": "0001520504",
+    "secEdgarUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001520504&type=10-K",
+    "attribution": {
+      "sources": [
+        {
+          "name": "Matson 10-K FY2024",
+          "url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1520504/000152050425000004/matx-20241231.htm",
+          "type": "filing",
+          "accessedAt": "2026-05-11",
+          "verbatimQuote": "Abrupt shifts in trade policy or new tariffs could impact Trans-Pacific trade volumes."
+        }
+      ],
+      "confidence": "high",
+      "lastVerified": "2026-05-11",
+      "generatedBy": "ai-assisted"
+    }
+  },
+  {
+    "id": "COMPANY-GXO",
+    "ticker": "GXO",
+    "name": "GXO Logistics, Inc.",
+    "exchange": "NYSE",
+    "gicsSector": "Industrials",
+    "gicsIndustryGroup": "Transportation",
+    "gicsIndustry": "Air Freight & Logistics",
+    "countryOfIncorporation": "USA",
+    "countryOfHQ": "USA",
+    "marketCapUsdBn": 6.0,
+    "revenueUsdBn": 11.7,
+    "fiscalYear": 2024,
+    "description": "GXO Logistics, Inc. is the world’s largest pure-play contract logistics provider, offering technology-driven supply chain solutions for global blue-chip companies.",
+    "businessModel": "GXO generates revenue through long-term contracts for warehouse management, order fulfillment, and reverse logistics. It specializes in highly automated facilities.",
+    "geopoliticalSummary": "GXO is heavily exposed to European and UK markets. Geopolitical risks include labor shortages in the UK and regulatory shifts in the EU regarding ESG and employment.",
+    "revenueByGeography": [
+      {
+        "region": "United Kingdom",
+        "countryIds": ["GBR"],
+        "percentOfRevenue": 42.0,
+        "revenueUsdBn": 4.9,
+        "year": 2024,
+        "note": "Largest single market; boosted by Wincanton acquisition."
+      },
+      {
+        "region": "United States",
+        "countryIds": ["USA"],
+        "percentOfRevenue": 29.0,
+        "revenueUsdBn": 3.4,
+        "year": 2024,
+        "note": "Second largest market."
+      },
+      {
+        "region": "Other Europe",
+        "countryIds": ["NLD", "FRA", "ESP", "ITA", "DEU"],
+        "percentOfRevenue": 29.0,
+        "revenueUsdBn": 3.4,
+        "year": 2024,
+        "note": "Includes significant operations in the Netherlands and France."
+      }
+    ],
+    "keySuppliers": [
+      {
+        "role": "robotics provider",
+        "name": "Locus Robotics",
+        "countryId": "USA",
+        "city": "Wilmington",
+        "percentOfSupply": null,
+        "isConcentrationRisk": false,
+        "strategicNote": "Strategic automation partner for warehouse fulfillment."
+      }
+    ],
+    "keyCustomers": [
+      {
+        "role": "customer",
+        "name": "Global Omnichannel Retailers",
+        "countryId": "USA",
+        "percentOfRevenue": 46.0,
+        "isConcentrationRisk": true,
+        "strategicNote": "Retail segment represents nearly half of total revenue."
+      }
+    ],
+    "manufacturingLocations": [],
+    "commodityDependencies": [
+      {
+        "commodity": "Labor",
+        "role": "input",
+        "percentOfCOGS": null,
+        "primarySupplyCountries": ["GBR", "USA", "DEU"],
+        "isHedged": false,
+        "geopoliticalRisk": "high",
+        "note": "Operational risk from rising wages and labor shortages."
+      }
+    ],
+    "regionalExposures": [
+      {
+        "region": "United Kingdom",
+        "countryIds": ["GBR"],
+        "exposureType": "revenue",
+        "magnitude": "high",
+        "note": "Verbatim from 10-K: 'Our operations in the United Kingdom represent a significant portion of our consolidated revenue... subject to local economic and regulatory conditions.'"
+      }
+    ],
+    "infrastructureDependencies": [
+      {
+        "type": "facility",
+        "entityId": "LOGISTICS-NETWORK",
+        "name": "Global Warehouse Network",
+        "importance": "critical",
+        "note": "1,030 facilities globally forming the core of the business."
+      }
+    ],
+    "flags": {
+      "chinaRevenuePct": 0,
+      "chinaManufacturingDependent": false,
+      "russiaExposed": false,
+      "middleEastEnergyDependent": false,
+      "taiwanSemiconductorDependent": false,
+      "redSeaTradeRouteDependent": false,
+      "straitOfHormuzDependent": false,
+      "sanctionsSensitive": true,
+      "exportControlSensitive": false
+    },
+    "latestFilingId": "FILING-GXO-10K-2024",
+    "secCik": "0001852244",
+    "secEdgarUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001852244&type=10-K",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GXO Logistics 10-K FY2024",
+          "url": "https://www.sec.gov/ix?doc=/Archives/edgar/data/1852244/000185224425000005/gxo-20241231.htm",
+          "type": "filing",
+          "accessedAt": "2026-05-11",
+          "verbatimQuote": "The United Kingdom is our largest single market by revenue."
+        }
+      ],
+      "confidence": "high",
+      "lastVerified": "2026-05-11",
+      "generatedBy": "ai-assisted"
+    }
+  }
+]

@@ -1,0 +1,724 @@
+[
+  {
+    "countryId": "ARE",
+    "year": 2024,
+    "aiReadinessScore": 75.66,
+    "aiAdoptionScore": 65,
+    "aiTalentScore": 60,
+    "aiInvestmentUsdM": 4200,
+    "aiStartupCount": 490,
+    "aiUnicornCount": 2,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2017,
+    "aiPolicyScore": 75.66,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 99,
+    "topAiSectors": [
+      "Public Services",
+      "Energy",
+      "Logistics",
+      "Healthcare"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/publications/2024-government-ai-readiness-index/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "Stanford HAI AI Index Report 2024",
+          "url": "https://aiindex.stanford.edu/report/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "UAE Strategy for Artificial Intelligence 2031",
+          "url": "https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/federal-governments-strategies-and-plans/uae-strategy-for-artificial-intelligence",
+          "accessedAt": "2025-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "BRA",
+    "year": 2024,
+    "aiReadinessScore": 65.89,
+    "aiAdoptionScore": 58,
+    "aiTalentScore": 52,
+    "aiInvestmentUsdM": 50,
+    "aiStartupCount": 869,
+    "aiUnicornCount": 2,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2021,
+    "aiPolicyScore": 7,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 84.5,
+    "topAiSectors": [
+      "Fintech",
+      "Agribusiness",
+      "Healthcare",
+      "Public Administration"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Stanford HAI AI Index Report 2024",
+          "url": "https://aiindex.stanford.edu/report/",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Tortoise Media Global AI Index 2024",
+          "url": "https://www.tortoisemedia.com/intelligence/global-ai/",
+          "accessedAt": "2025-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "CHN",
+    "year": 2024,
+    "aiReadinessScore": 71.47,
+    "aiAdoptionScore": 42.8,
+    "aiTalentScore": 46.27,
+    "aiInvestmentUsdM": 9300,
+    "aiStartupCount": 5100,
+    "aiUnicornCount": 71,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2017,
+    "aiPolicyScore": 6.85,
+    "cloudReadinessPct": 70,
+    "broadbandPenetrationPct": 78.6,
+    "topAiSectors": [
+      "Manufacturing",
+      "Finance",
+      "Healthcare",
+      "E-commerce",
+      "Smart Cities"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "Stanford HAI AI Index 2024",
+          "url": "https://aiindex.stanford.edu/report/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "CAICT - China AI Development Report 2024",
+          "url": "http://www.caict.ac.cn/",
+          "accessedAt": "2025-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "DEU",
+    "year": 2024,
+    "aiReadinessScore": 76.9,
+    "aiAdoptionScore": 72,
+    "aiTalentScore": 75,
+    "aiInvestmentUsdM": 1910,
+    "aiStartupCount": 687,
+    "aiUnicornCount": 4,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2018,
+    "aiPolicyScore": 79.24,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 86.55,
+    "topAiSectors": [
+      "Manufacturing",
+      "Automotive",
+      "Logistics",
+      "Healthcare"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/publications/2024-government-ai-readiness-index/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "Stanford HAI AI Index Report 2024",
+          "url": "https://aiindex.stanford.edu/report/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "appliedAI Institute for Europe - AI Startup Landscape 2024",
+          "url": "https://www.appliedai-institute.de/",
+          "accessedAt": "2025-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "FRA",
+    "year": 2024,
+    "aiReadinessScore": 79.36,
+    "aiAdoptionScore": 78,
+    "aiTalentScore": 75,
+    "aiInvestmentUsdM": 1760,
+    "aiStartupCount": 751,
+    "aiUnicornCount": 4,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2018,
+    "aiPolicyScore": 8.5,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 94.8,
+    "topAiSectors": [
+      "Healthcare",
+      "Environment",
+      "Defense",
+      "Transport"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Stanford HAI AI Index Report 2024",
+          "url": "https://aiindex.stanford.edu/report/",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Tortoise Media Global AI Index 2024",
+          "url": "https://www.tortoisemedia.com/intelligence/global-ai/",
+          "accessedAt": "2025-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "GBR",
+    "year": 2024,
+    "aiReadinessScore": 78.88,
+    "aiAdoptionScore": 16,
+    "aiTalentScore": 63.3,
+    "aiInvestmentUsdM": 4400,
+    "aiStartupCount": 5862,
+    "aiUnicornCount": 20,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2021,
+    "aiPolicyScore": 8.45,
+    "cloudReadinessPct": 70,
+    "broadbandPenetrationPct": 97,
+    "topAiSectors": [
+      "Finance",
+      "Healthcare",
+      "Manufacturing",
+      "Defense"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "Office for National Statistics (ONS) - AI Adoption in UK Businesses",
+          "url": "https://www.ons.gov.uk/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "Tech Nation / Dealroom UK AI Investment Report 2024",
+          "url": "https://technation.io/",
+          "accessedAt": "2025-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "IND",
+    "year": 2024,
+    "aiReadinessScore": 62.81,
+    "aiAdoptionScore": 68,
+    "aiTalentScore": 92,
+    "aiInvestmentUsdM": 1390,
+    "aiStartupCount": 6200,
+    "aiUnicornCount": 6,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2018,
+    "aiPolicyScore": 7.1,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 64.4,
+    "topAiSectors": [
+      "Healthcare",
+      "Agriculture",
+      "Finance",
+      "Education",
+      "Manufacturing"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Stanford HAI AI Index Report 2024",
+          "url": "https://aiindex.stanford.edu/report/",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Tortoise Media Global AI Index 2024",
+          "url": "https://www.tortoisemedia.com/intelligence/global-ai/",
+          "accessedAt": "2025-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "ISR",
+    "year": 2024,
+    "aiReadinessScore": 69.11,
+    "aiAdoptionScore": 70,
+    "aiTalentScore": 85,
+    "aiInvestmentUsdM": 5000,
+    "aiStartupCount": 2170,
+    "aiUnicornCount": 12,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2021,
+    "aiPolicyScore": 54.44,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 78.45,
+    "topAiSectors": [
+      "Cybersecurity",
+      "Healthcare",
+      "Fintech",
+      "Defense"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/publications/2024-government-ai-readiness-index/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "Stanford HAI AI Index Report 2024",
+          "url": "https://aiindex.stanford.edu/report/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "Tortoise Global AI Index 2024",
+          "url": "https://www.tortoisemedia.com/intelligence/global-ai/",
+          "accessedAt": "2025-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "JPN",
+    "year": 2024,
+    "aiReadinessScore": 75.75,
+    "aiAdoptionScore": 65,
+    "aiTalentScore": 55,
+    "aiInvestmentUsdM": 680,
+    "aiStartupCount": 388,
+    "aiUnicornCount": 3,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2019,
+    "aiPolicyScore": 7.8,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 96,
+    "topAiSectors": [
+      "Manufacturing",
+      "Robotics",
+      "Healthcare",
+      "Disaster Prevention"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Stanford HAI AI Index Report 2024",
+          "url": "https://aiindex.stanford.edu/report/",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Tortoise Media Global AI Index 2024",
+          "url": "https://www.tortoisemedia.com/intelligence/global-ai/",
+          "accessedAt": "2025-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "KOR",
+    "year": 2024,
+    "aiReadinessScore": 79.98,
+    "aiAdoptionScore": 58.34,
+    "aiTalentScore": 74.62,
+    "aiInvestmentUsdM": 4270,
+    "aiStartupCount": 400,
+    "aiUnicornCount": 2,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2024,
+    "aiPolicyScore": 78.2,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 98.6,
+    "topAiSectors": [
+      "Semiconductors",
+      "Manufacturing",
+      "Healthcare",
+      "Public Sector"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "Stanford HAI AI Index 2024",
+          "url": "https://aiindex.stanford.edu/report/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "South Korea Ministry of SMEs and Startups Report 2024",
+          "url": "https://www.mss.go.kr/",
+          "accessedAt": "2025-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-14"
+      }
+    }
+  },
+  {
+    "countryId": "NLD",
+    "year": 2024,
+    "aiReadinessScore": 77.23,
+    "aiAdoptionScore": 72,
+    "aiTalentScore": 78,
+    "aiInvestmentUsdM": 490,
+    "aiStartupCount": 402,
+    "aiUnicornCount": 3,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2019,
+    "aiPolicyScore": 8.2,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 98.2,
+    "topAiSectors": [
+      "Healthcare",
+      "Agri-food",
+      "Energy",
+      "Logistics",
+      "High-tech systems"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Stanford HAI AI Index Report 2024",
+          "url": "https://aiindex.stanford.edu/report/",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Tortoise Media Global AI Index 2024",
+          "url": "https://www.tortoisemedia.com/intelligence/global-ai/",
+          "accessedAt": "2025-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "RUS",
+    "year": 2023,
+    "aiReadinessScore": 62.92,
+    "aiAdoptionScore": 21.99,
+    "aiTalentScore": 12.46,
+    "aiInvestmentUsdM": 3400,
+    "aiStartupCount": 137,
+    "aiUnicornCount": 0,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2019,
+    "aiPolicyScore": 90.4,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 25.8,
+    "topAiSectors": [
+      "Finance",
+      "Defense",
+      "Energy",
+      "Agriculture",
+      "Public Services"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "Tortoise Media Global AI Index 2023",
+          "url": "https://www.tortoisemedia.com/intelligence/global-ai/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "Russia AI Market Report 2023",
+          "url": "https://interfax.com",
+          "accessedAt": "2025-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "medium",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-14"
+      }
+    }
+  },
+  {
+    "countryId": "SAU",
+    "year": 2023,
+    "aiReadinessScore": 67.04,
+    "aiAdoptionScore": 25.6,
+    "aiTalentScore": 4.49,
+    "aiInvestmentUsdM": 1700,
+    "aiStartupCount": 242,
+    "aiUnicornCount": 0,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2020,
+    "aiPolicyScore": 100,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 25,
+    "topAiSectors": [
+      "Government",
+      "Energy",
+      "Finance",
+      "Healthcare",
+      "Smart Cities"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "Tortoise Media Global AI Index 2023",
+          "url": "https://www.tortoisemedia.com/intelligence/global-ai/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "Global AI Summit - Saudi Arabia AI Investment Report 2023",
+          "url": "https://globalaisummit.org",
+          "accessedAt": "2025-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-14"
+      }
+    }
+  },
+  {
+    "countryId": "SGP",
+    "year": 2023,
+    "aiReadinessScore": 81.97,
+    "aiAdoptionScore": 50,
+    "aiTalentScore": 39.38,
+    "aiInvestmentUsdM": 2000,
+    "aiStartupCount": 548,
+    "aiUnicornCount": 4,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2019,
+    "aiPolicyScore": 79.82,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 92.3,
+    "topAiSectors": [
+      "Finance",
+      "Healthcare",
+      "Manufacturing",
+      "Retail",
+      "Logistics"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "Tortoise Media Global AI Index 2023",
+          "url": "https://www.tortoisemedia.com/intelligence/global-ai/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "Singapore Government & Tech Reports (2023)",
+          "url": "https://www.aisingapore.org",
+          "accessedAt": "2025-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-14"
+      }
+    }
+  },
+  {
+    "countryId": "TUR",
+    "year": 2024,
+    "aiReadinessScore": 60.63,
+    "aiAdoptionScore": 54,
+    "aiTalentScore": 43.5,
+    "aiInvestmentUsdM": 715.8,
+    "aiStartupCount": 1200,
+    "aiUnicornCount": 1,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2021,
+    "aiPolicyScore": 78,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 86.5,
+    "topAiSectors": [
+      "Finance",
+      "Healthcare",
+      "Manufacturing",
+      "Defense"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "Turkish Startup Ecosystem Report 2024",
+          "url": "https://tracxn.com/d/explore/ai-startups-in-turkey",
+          "accessedAt": "2025-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-05-14"
+      }
+    }
+  },
+  {
+    "countryId": "USA",
+    "year": 2024,
+    "aiReadinessScore": 87.03,
+    "aiAdoptionScore": 83.8,
+    "aiTalentScore": 83.8,
+    "aiInvestmentUsdM": 109100,
+    "aiStartupCount": 10170,
+    "aiUnicornCount": 150,
+    "hasNationalAiStrategy": true,
+    "aiStrategyYear": 2023,
+    "aiPolicyScore": 90.9,
+    "cloudReadinessPct": null,
+    "broadbandPenetrationPct": 97.1,
+    "topAiSectors": [
+      "Finance",
+      "Healthcare",
+      "Manufacturing",
+      "Defense",
+      "Technology"
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2024",
+          "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "Stanford HAI AI Index 2024/2025",
+          "url": "https://aiindex.stanford.edu/report/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "FCC Broadband Data 2024",
+          "url": "https://www.fcc.gov/reports-research/reports/broadband-progress-reports/",
+          "accessedAt": "2025-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-14"
+      }
+    }
+  }
+]

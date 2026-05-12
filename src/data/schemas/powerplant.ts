@@ -1,42 +1,39 @@
 import { z } from 'zod'
 import { CoordSchema, ISO3Schema, AttributionSchema, YearSchema } from './_shared'
 
-export const PlantTypeSchema = z.enum([
-  'coal', 'gas', 'oil', 'nuclear', 'hydro',
-  'solar', 'wind', 'geothermal', 'biomass', 'other',
-])
-export const PlantStatusSchema = z.enum(['operating', 'construction', 'planned', 'decommissioned', 'mothballed'])
+export const PlantTypeSchema   = z.enum(['coal','gas','oil','nuclear','hydro','solar','wind','geothermal','biomass','other'])
+export const PlantStatusSchema = z.enum(['operating','construction','planned','decommissioned','mothballed'])
 
 export const PowerPlantSchema = z.object({
   id:        z.string().min(1).regex(/^PLANT-[A-Z0-9-]+$/, 'ID must start with PLANT-'),
   name:      z.string().min(2),
   countryId: ISO3Schema,
-  city:      z.string().optional(),
+  city:      z.string().nullish(),
 
   coordinates: CoordSchema,
   type:        PlantTypeSchema,
   status:      PlantStatusSchema,
 
-  // ── Capacity ──
-  capacityMW:       z.number().positive().optional(),
-  annualOutputGWh:  z.number().positive().optional(),
+  // ── Capacity — nullish: Gemini returns null for unknown values ──
+  capacityMW:       z.number().positive().nullish(),
+  annualOutputGWh:  z.number().nonnegative().nullish(),
 
   // ── Timeline ──
-  yearCommissioned: YearSchema.optional(),
-  yearRetirement:   YearSchema.optional(),
+  yearCommissioned: YearSchema.nullish(),
+  yearRetirement:   YearSchema.nullish(),
 
   // ── Ownership ──
-  operator:    z.string().optional(),
-  owner:       z.string().optional(),
+  operator: z.string().nullish(),
+  owner:    z.string().nullish(),
 
   // ── Context ──
-  strategicNote: z.string().optional(), // e.g. "Only nuclear plant in region"
-  notes:         z.string().optional(),
+  strategicNote: z.string().nullish(),
+  notes:         z.string().nullish(),
 
   attribution: AttributionSchema,
 })
 .refine(d => {
-  if (d.yearRetirement && d.yearCommissioned) {
+  if (d.yearRetirement != null && d.yearCommissioned != null) {
     return d.yearRetirement > d.yearCommissioned
   }
   return true

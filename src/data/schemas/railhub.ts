@@ -2,13 +2,8 @@ import { z } from 'zod'
 import { CoordSchema, ISO3Schema, StrategicImportanceSchema, AttributionSchema } from './_shared'
 
 export const RailHubTypeSchema = z.enum([
-  'passenger',        // primarily passenger
-  'freight',          // primarily freight/cargo
-  'mixed',            // both
-  'high_speed',       // HSR hub
-  'border_crossing',  // international freight crossing
-  'port_interface',   // rail-port multimodal
-  'military',         // strategic military logistics
+  'passenger','freight','mixed','high_speed',
+  'border_crossing','port_interface','military',
 ])
 
 export const RailHubSchema = z.object({
@@ -20,22 +15,18 @@ export const RailHubSchema = z.object({
   coordinates: CoordSchema,
   type:        RailHubTypeSchema,
 
-  // ── Capacity ──
-  dailyPassengers:      z.number().int().positive().optional(),
-  annualFreightTonnes:  z.number().positive().optional(),
+  dailyPassengers:     z.number().int().positive().nullish(),
+  annualFreightTonnes: z.number().positive().nullish(),
 
-  // ── Connectivity ──
-  connectedCountries: z.array(ISO3Schema).optional(), // for border hubs
-  gaugeType:          z.enum(['standard', 'broad', 'narrow', 'mixed']).optional(),
-  lineCount:          z.number().int().positive().optional(),
+  connectedCountries: z.array(ISO3Schema).nullish(),
+  gaugeType:          z.enum(['standard','broad','narrow','mixed']).nullish(),
+  lineCount:          z.number().int().nonnegative().nullish(),
 
-  // ── Classification ──
   strategicImportance: StrategicImportanceSchema,
-  isPartOfBRI:         z.boolean().optional(), // Belt and Road Initiative
+  isPartOfBRI:         z.boolean().nullish(),
 
-  // ── Annotation ──
-  geopoliticalNotes: z.string().optional(),
-  notes:             z.string().optional(),
+  geopoliticalNotes: z.string().nullish(),
+  notes:             z.string().nullish(),
 
   attribution: AttributionSchema,
 })

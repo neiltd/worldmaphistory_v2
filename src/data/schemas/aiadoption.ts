@@ -5,27 +5,22 @@ export const AiAdoptionSchema = z.object({
   countryId: ISO3Schema,
   year:      YearSchema,
 
-  // ── Composite scores (0–100) ──
-  aiReadinessScore:    z.number().min(0).max(100).optional(), // Oxford Insights AI Readiness Index
-  aiAdoptionScore:     z.number().min(0).max(100).optional(), // composite adoption metric
-  aiTalentScore:       z.number().min(0).max(100).optional(), // talent pool quality
+  aiReadinessScore:    z.number().min(0).max(100).nullish(),
+  aiAdoptionScore:     z.number().min(0).max(100).nullish(),
+  aiTalentScore:       z.number().min(0).max(100).nullish(),
 
-  // ── Investment ──
-  aiInvestmentUsdM:   z.number().nonnegative().optional(), // USD millions invested in AI annually
-  aiStartupCount:     z.number().int().nonnegative().optional(),
-  aiUnicornCount:     z.number().int().nonnegative().optional(),
+  aiInvestmentUsdM:   z.number().nonnegative().nullish(),
+  aiStartupCount:     z.number().int().nonnegative().nullish(),
+  aiUnicornCount:     z.number().int().nonnegative().nullish(),
 
-  // ── Policy ──
-  hasNationalAiStrategy:  z.boolean().optional(),
-  aiStrategyYear:         YearSchema.optional(),
-  aiPolicyScore:          z.number().min(0).max(10).optional(),
+  hasNationalAiStrategy:   z.boolean().nullish(),
+  aiStrategyYear:          YearSchema.nullish(),
+  aiPolicyScore:           z.number().min(0).max(100).nullish(),  // Oxford Insights uses 0-100
 
-  // ── Infrastructure ──
-  cloudReadinessPct:      PctSchema.optional(),
-  broadbandPenetrationPct: PctSchema.optional(),
+  cloudReadinessPct:       PctSchema.nullish(),
+  broadbandPenetrationPct: PctSchema.nullish(),
 
-  // ── Sector adoption ──
-  topAiSectors: z.array(z.string()).optional(), // e.g. ["Finance", "Healthcare", "Defense"]
+  topAiSectors: z.array(z.string()).nullish(),
 
   attribution: AttributionSchema,
 })

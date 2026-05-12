@@ -2,42 +2,38 @@ import { z } from 'zod'
 import { ISO3Schema, PctSchema, YearSchema, AttributionSchema, assertSumsTo100 } from './_shared'
 
 export const EnergyMixSchema = z.object({
-  coal:            PctSchema.optional(),
-  gas:             PctSchema.optional(),
-  oil:             PctSchema.optional(),
-  nuclear:         PctSchema.optional(),
-  hydro:           PctSchema.optional(),
-  solar:           PctSchema.optional(),
-  wind:            PctSchema.optional(),
-  otherRenewables: PctSchema.optional(),
-  other:           PctSchema.optional(),
+  coal:            PctSchema.nullish(),
+  gas:             PctSchema.nullish(),
+  oil:             PctSchema.nullish(),
+  nuclear:         PctSchema.nullish(),
+  hydro:           PctSchema.nullish(),
+  solar:           PctSchema.nullish(),
+  wind:            PctSchema.nullish(),
+  otherRenewables: PctSchema.nullish(),
+  other:           PctSchema.nullish(),
 }).refine(mix => {
-  const vals = Object.values(mix).filter((v): v is number => v !== undefined)
+  const vals = Object.values(mix).filter((v): v is number => v != null)
   if (vals.length === 0) return false
-  return assertSumsTo100(vals, 3)  // allow 3% tolerance for rounding
+  return assertSumsTo100(vals, 5)  // 5% tolerance for rounding
 }, { message: 'Energy mix percentages must sum to approximately 100%' })
 
 export const CountryUtilitySchema = z.object({
   countryId: ISO3Schema,
   year:      YearSchema,
 
-  // ── Electricity ──
-  electricityConsumptionTWh: z.number().positive().optional(),
-  electricityProductionTWh:  z.number().positive().optional(),
+  electricityConsumptionTWh: z.number().positive().nullish(),
+  electricityProductionTWh:  z.number().positive().nullish(),
   electricityMix:            EnergyMixSchema,
-  renewableSharePct:         PctSchema.optional(), // derived but useful to store
+  renewableSharePct:         PctSchema.nullish(),
 
-  // ── Water ──
-  waterStressScore:    z.number().min(0).max(5).optional(),  // Aqueduct 0-5 scale
-  waterWithdrawalPct:  PctSchema.optional(),                 // % of available freshwater
+  waterStressScore:    z.number().min(0).max(5).nullish(),
+  waterWithdrawalPct:  z.number().min(0).nullish(),  // >100 valid (fossil groundwater/desalination use)
 
-  // ── Food ──
-  foodSecurityScore:   z.number().min(0).max(100).optional(), // GFSI 0-100
+  foodSecurityScore:   z.number().min(0).max(100).nullish(),
 
-  // ── Technology ──
-  aiAdoptionScore:     z.number().min(0).max(100).optional(), // composite 0-100
-  internetPenetration: PctSchema.optional(),
-  mobilePenetration:   PctSchema.optional(),
+  aiAdoptionScore:     z.number().min(0).max(100).nullish(),
+  internetPenetration: PctSchema.nullish(),
+  mobilePenetration:   z.number().min(0).max(300).nullish(),  // can exceed 100%
 
   attribution: AttributionSchema,
 })

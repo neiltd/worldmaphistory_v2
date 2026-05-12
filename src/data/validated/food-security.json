@@ -1,0 +1,763 @@
+[
+  {
+    "countryId": "ARG",
+    "year": 2022,
+    "overallScore": 64.8,
+    "availability": 63.4,
+    "access": 62,
+    "utilization": 85.5,
+    "stability": 49.4,
+    "undernourishedPct": 3.2,
+    "foodImportDependencyPct": 4.5,
+    "cerealYieldKgHa": 5070,
+    "climateVulnerability": "medium",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Argentina",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2024-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "BGD",
+    "year": 2022,
+    "overallScore": 54,
+    "availability": 61.5,
+    "access": 52.1,
+    "utilization": 58.4,
+    "stability": 43.9,
+    "undernourishedPct": 11.2,
+    "foodImportDependencyPct": 11.2,
+    "cerealYieldKgHa": 5160,
+    "climateVulnerability": "high",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Bangladesh",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2024-05-22"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2024-05-22"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-22"
+      }
+    }
+  },
+  {
+    "countryId": "CHN",
+    "year": 2022,
+    "overallScore": 74.2,
+    "availability": 74.8,
+    "access": 89.4,
+    "utilization": 73.6,
+    "stability": 51.4,
+    "undernourishedPct": 2.5,
+    "foodImportDependencyPct": 5,
+    "cerealYieldKgHa": 6418,
+    "climateVulnerability": "high",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — China",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/reports-and-resources",
+          "accessedAt": "2025-02-13"
+        },
+        {
+          "name": "FAO FAOSTAT - China",
+          "url": "https://www.fao.org/faostat/en/#country/351",
+          "accessedAt": "2025-02-13"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-13"
+      }
+    }
+  },
+  {
+    "countryId": "DEU",
+    "year": 2022,
+    "overallScore": 77,
+    "availability": 67,
+    "access": 87.9,
+    "utilization": 79.9,
+    "stability": 70.8,
+    "undernourishedPct": 2.5,
+    "foodImportDependencyPct": 10.5,
+    "cerealYieldKgHa": 7126,
+    "climateVulnerability": "low",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Germany",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2024-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "EGY",
+    "year": 2023,
+    "overallScore": 56,
+    "availability": 51.1,
+    "access": 49.3,
+    "utilization": 71.1,
+    "stability": 51.9,
+    "undernourishedPct": 8.5,
+    "foodImportDependencyPct": 44,
+    "cerealYieldKgHa": 7402,
+    "climateVulnerability": "high",
+    "conflictExposure": "medium",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Egypt",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "FAO FAOSTAT — Egypt",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2025-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "ETH",
+    "year": 2022,
+    "overallScore": 44.5,
+    "availability": 51.2,
+    "access": 31.7,
+    "utilization": 48.9,
+    "stability": 51.4,
+    "undernourishedPct": 24.9,
+    "foodImportDependencyPct": 19.9,
+    "cerealYieldKgHa": 2864,
+    "climateVulnerability": "extreme",
+    "conflictExposure": "extreme",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Ethiopia",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WFP Ethiopia",
+          "url": "https://www.wfp.org/countries/ethiopia",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "GBR",
+    "year": 2022,
+    "overallScore": 78.8,
+    "availability": 71.6,
+    "access": 91.5,
+    "utilization": 77.6,
+    "stability": 71.1,
+    "undernourishedPct": 2.5,
+    "foodImportDependencyPct": 18.1,
+    "cerealYieldKgHa": 7720,
+    "climateVulnerability": "medium",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — United Kingdom",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2025-02-13"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2025-02-13"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-13"
+      }
+    }
+  },
+  {
+    "countryId": "IDN",
+    "year": 2022,
+    "overallScore": 60.2,
+    "availability": 50.9,
+    "access": 81.4,
+    "utilization": 56.2,
+    "stability": 46.3,
+    "undernourishedPct": 6.3,
+    "foodImportDependencyPct": 8.5,
+    "cerealYieldKgHa": 5834,
+    "climateVulnerability": "high",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Indonesia",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2024-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "IND",
+    "year": 2022,
+    "overallScore": 58.9,
+    "availability": 62.3,
+    "access": 59.3,
+    "utilization": 62.3,
+    "stability": 51.2,
+    "undernourishedPct": 16.6,
+    "foodImportDependencyPct": 4.8,
+    "cerealYieldKgHa": 3626,
+    "climateVulnerability": "high",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — India",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/reports-and-resources",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/#data/FS",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "World Bank Food Import Dependency",
+          "url": "https://data.worldbank.org/indicator/TM.VAL.FOOD.ZS.UN",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "JPN",
+    "year": 2022,
+    "overallScore": 79.5,
+    "availability": 81.2,
+    "access": 89.8,
+    "utilization": 77.4,
+    "stability": 66.1,
+    "undernourishedPct": 2.5,
+    "foodImportDependencyPct": 72.4,
+    "cerealYieldKgHa": 6273,
+    "climateVulnerability": "medium",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Japan",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2025-02-13"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2025-02-13"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-13"
+      }
+    }
+  },
+  {
+    "countryId": "KAZ",
+    "year": 2022,
+    "overallScore": 72.1,
+    "availability": 67.2,
+    "access": 78,
+    "utilization": 76.3,
+    "stability": 65.4,
+    "undernourishedPct": 2.5,
+    "foodImportDependencyPct": 10.5,
+    "cerealYieldKgHa": 1037,
+    "climateVulnerability": "high",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Kazakhstan",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/reports-and-resources",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/#data/FS",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "World Bank Food Import Dependency",
+          "url": "https://data.worldbank.org/indicator/TM.VAL.FOOD.ZS.UN",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "KEN",
+    "year": 2022,
+    "overallScore": 53,
+    "availability": 55.3,
+    "access": 41.7,
+    "utilization": 60.4,
+    "stability": 61.2,
+    "undernourishedPct": 27.8,
+    "foodImportDependencyPct": 51.3,
+    "cerealYieldKgHa": 1758,
+    "climateVulnerability": "extreme",
+    "conflictExposure": "high",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Kenya",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WFP Kenya",
+          "url": "https://www.wfp.org/countries/kenya",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "KOR",
+    "year": 2022,
+    "overallScore": 70.2,
+    "availability": 71.5,
+    "access": 76.8,
+    "utilization": 71.5,
+    "stability": 58.5,
+    "undernourishedPct": 2.5,
+    "foodImportDependencyPct": 78.5,
+    "cerealYieldKgHa": 6612,
+    "climateVulnerability": "medium",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — South Korea",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2025-02-13"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2025-02-13"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-13"
+      }
+    }
+  },
+  {
+    "countryId": "MEX",
+    "year": 2022,
+    "overallScore": 69.1,
+    "availability": 59.4,
+    "access": 81.4,
+    "utilization": 78.1,
+    "stability": 54.1,
+    "undernourishedPct": 2.7,
+    "foodImportDependencyPct": 35,
+    "cerealYieldKgHa": 4262,
+    "climateVulnerability": "high",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Mexico",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/reports-and-resources",
+          "accessedAt": "2025-02-13"
+        },
+        {
+          "name": "FAO FAOSTAT - Mexico",
+          "url": "https://www.fao.org/faostat/en/#country/138",
+          "accessedAt": "2025-02-13"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-13"
+      }
+    }
+  },
+  {
+    "countryId": "MYS",
+    "year": 2022,
+    "overallScore": 69.9,
+    "availability": 59.5,
+    "access": 87,
+    "utilization": 74.7,
+    "stability": 53.7,
+    "undernourishedPct": 2.5,
+    "foodImportDependencyPct": 37.4,
+    "cerealYieldKgHa": 3524,
+    "climateVulnerability": "medium",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Malaysia",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2024-05-22"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2024-05-22"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-22"
+      }
+    }
+  },
+  {
+    "countryId": "NGA",
+    "year": 2022,
+    "overallScore": 42,
+    "availability": 39.5,
+    "access": 25,
+    "utilization": 55.6,
+    "stability": 53.7,
+    "undernourishedPct": 15.9,
+    "foodImportDependencyPct": 21.7,
+    "cerealYieldKgHa": 1656,
+    "climateVulnerability": "high",
+    "conflictExposure": "high",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Nigeria",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "World Bank Cereal Yield",
+          "url": "https://data.worldbank.org/indicator/AG.YLD.CREL.KG",
+          "accessedAt": "2025-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "PHL",
+    "year": 2022,
+    "overallScore": 59.3,
+    "availability": 55.2,
+    "access": 71.5,
+    "utilization": 65.3,
+    "stability": 41.8,
+    "undernourishedPct": 9.4,
+    "foodImportDependencyPct": 25,
+    "cerealYieldKgHa": 3869,
+    "climateVulnerability": "extreme",
+    "conflictExposure": "medium",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Philippines",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2024-05-22"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2024-05-22"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-22"
+      }
+    }
+  },
+  {
+    "countryId": "POL",
+    "year": 2022,
+    "overallScore": 75.5,
+    "availability": 63.8,
+    "access": 87.4,
+    "utilization": 81.5,
+    "stability": 66.7,
+    "undernourishedPct": 2.5,
+    "foodImportDependencyPct": 0,
+    "cerealYieldKgHa": 4895,
+    "climateVulnerability": "low",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Poland",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/reports-and-resources",
+          "accessedAt": "2025-02-13"
+        },
+        {
+          "name": "FAO FAOSTAT - Poland",
+          "url": "https://www.fao.org/faostat/en/#country/174",
+          "accessedAt": "2025-02-13"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-13"
+      }
+    }
+  },
+  {
+    "countryId": "SAU",
+    "year": 2022,
+    "overallScore": 69.9,
+    "availability": 67.2,
+    "access": 83.2,
+    "utilization": 71.6,
+    "stability": 53.7,
+    "undernourishedPct": 3,
+    "foodImportDependencyPct": 95,
+    "cerealYieldKgHa": 5002,
+    "climateVulnerability": "high",
+    "conflictExposure": "medium",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Saudi Arabia",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "World Bank Cereal Yield",
+          "url": "https://data.worldbank.org/indicator/AG.YLD.CREL.KG",
+          "accessedAt": "2025-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "TUR",
+    "year": 2022,
+    "overallScore": 65.3,
+    "availability": 61.6,
+    "access": 67.6,
+    "utilization": 75.8,
+    "stability": 56.4,
+    "undernourishedPct": 2.5,
+    "foodImportDependencyPct": 6.5,
+    "cerealYieldKgHa": 3659,
+    "climateVulnerability": "high",
+    "conflictExposure": "medium",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Turkey",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/reports-and-resources",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/#data/FS",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "World Bank Food Import Dependency",
+          "url": "https://data.worldbank.org/indicator/TM.VAL.FOOD.ZS.UN",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "VNM",
+    "year": 2022,
+    "overallScore": 67.9,
+    "availability": 60.7,
+    "access": 84,
+    "utilization": 70.2,
+    "stability": 52.2,
+    "undernourishedPct": 5.3,
+    "foodImportDependencyPct": 11.4,
+    "cerealYieldKgHa": 5904,
+    "climateVulnerability": "high",
+    "conflictExposure": "low",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — Vietnam",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "FAO FAOSTAT",
+          "url": "https://www.fao.org/faostat/en/",
+          "accessedAt": "2024-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "ZAF",
+    "year": 2022,
+    "overallScore": 61.7,
+    "availability": 60.1,
+    "access": 63.4,
+    "utilization": 66.1,
+    "stability": 56.9,
+    "undernourishedPct": 8.1,
+    "foodImportDependencyPct": 2.6,
+    "cerealYieldKgHa": 5726,
+    "climateVulnerability": "high",
+    "conflictExposure": "medium",
+    "attribution": {
+      "sources": [
+        {
+          "name": "GFSI 2022 — South Africa",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index/reports-and-resources",
+          "accessedAt": "2025-02-13"
+        },
+        {
+          "name": "FAO FAOSTAT - South Africa",
+          "url": "https://www.fao.org/faostat/en/#country/202",
+          "accessedAt": "2025-02-13"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-13"
+      }
+    }
+  }
+]

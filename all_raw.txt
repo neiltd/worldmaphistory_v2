@@ -47,6 +47,10 @@ airports/UKR-airports
 airports/USA-airports
 airports/VNM-airports
 airports/ZAF-airports
+companies/ai-infrastructure-companies
+companies/banks-companies
+companies/commodities-companies
+companies/defense-companies
 datacenters/ARE-datacenters
 datacenters/BRA-datacenters
 datacenters/CHN-datacenters

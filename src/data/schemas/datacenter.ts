@@ -1,15 +1,9 @@
 import { z } from 'zod'
 import { CoordSchema, ISO3Schema, AttributionSchema, YearSchema } from './_shared'
 
-export const DatacenterTierSchema = z.enum(['1', '2', '3', '4'])
-export const DatacenterStatusSchema = z.enum(['operational', 'construction', 'planned', 'decommissioned'])
-export const DatacenterTypeSchema = z.enum([
-  'hyperscale',   // 100MW+, owned by cloud giants
-  'colocation',   // multi-tenant commercial
-  'enterprise',   // single-org private
-  'government',   // state-owned
-  'edge',         // small regional node
-])
+export const DatacenterTierSchema   = z.enum(['1','2','3','4'])
+export const DatacenterStatusSchema = z.enum(['operational','construction','planned','decommissioned'])
+export const DatacenterTypeSchema   = z.enum(['hyperscale','colocation','enterprise','government','edge'])
 
 export const DatacenterSchema = z.object({
   id:        z.string().min(1).regex(/^DC-[A-Z0-9-]+$/, 'ID must start with DC-'),
@@ -21,24 +15,20 @@ export const DatacenterSchema = z.object({
   type:        DatacenterTypeSchema,
   status:      DatacenterStatusSchema,
 
-  // ── Technical specs ──
-  tierLevel:    DatacenterTierSchema.optional(), // Uptime Institute tier
-  capacityMW:   z.number().positive().optional(),
-  floorSpaceM2: z.number().positive().optional(),
-  pue:          z.number().min(1).max(3).optional(), // Power Usage Effectiveness
+  tierLevel:    DatacenterTierSchema.nullish(),
+  capacityMW:   z.number().positive().nullish(),
+  floorSpaceM2: z.number().positive().nullish(),
+  pue:          z.number().min(1).max(5).nullish(),
 
-  // ── Ownership ──
-  operator: z.string().optional(), // e.g. "Amazon AWS", "Equinix", "Government"
-  owner:    z.string().optional(),
+  operator: z.string().nullish(),
+  owner:    z.string().nullish(),
 
-  // ── Timeline ──
-  yearOpened:   YearSchema.optional(),
-  yearPlanned:  YearSchema.optional(),
+  yearOpened:   YearSchema.nullish(),
+  yearPlanned:  YearSchema.nullish(),
 
-  // ── Context ──
-  cloudRegion:       z.string().optional(),       // e.g. "ap-southeast-1"
-  geopoliticalNotes: z.string().optional(),       // state actor involvement, data sovereignty
-  notes:             z.string().optional(),
+  cloudRegion:       z.string().nullish(),
+  geopoliticalNotes: z.string().nullish(),
+  notes:             z.string().nullish(),
 
   attribution: AttributionSchema,
 })

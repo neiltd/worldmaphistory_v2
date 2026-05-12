@@ -1,0 +1,1126 @@
+[
+  {
+    "id": "quintillion-subsea-cable-network",
+    "name": "Quintillion Subsea Cable Network",
+    "route": [
+      [
+        -165.4,
+        64.5
+      ],
+      [
+        -162.6,
+        66.9
+      ],
+      [
+        -166.7,
+        68.3
+      ],
+      [
+        -160,
+        70.6
+      ],
+      [
+        -156.7,
+        71.3
+      ],
+      [
+        -149.8,
+        70.5
+      ]
+    ],
+    "landingPoints": [
+      {
+        "name": "Nome",
+        "countryId": "USA",
+        "coordinates": [
+          -165.41,
+          64.5
+        ],
+        "city": "Nome"
+      },
+      {
+        "name": "Kotzebue",
+        "countryId": "USA",
+        "coordinates": [
+          -162.6,
+          66.9
+        ],
+        "city": "Kotzebue"
+      },
+      {
+        "name": "Utqiagvik",
+        "countryId": "USA",
+        "coordinates": [
+          -156.78,
+          71.29
+        ],
+        "city": "Utqiagvik"
+      },
+      {
+        "name": "Oliktok Point",
+        "countryId": "USA",
+        "coordinates": [
+          -149.85,
+          70.51
+        ],
+        "city": "Oliktok Point"
+      }
+    ],
+    "status": "active",
+    "lengthKm": 1900,
+    "capacityTbps": 30,
+    "yearLaid": 2017,
+    "yearRepaired": 2023,
+    "owners": [
+      "Quintillion"
+    ],
+    "vulnerabilities": "Extreme environment with sea ice causing potential fiber damage (ice scour). Recently suffered a major break in 2023 due to ice movement.",
+    "geopoliticalNotes": "Critical for US telecommunications and defense infrastructure in the Arctic. First major commercial cable in the region.",
+    "notes": "Experienced a significant outage in June 2023 due to ice-related cable damage.",
+    "attribution": {
+      "sources": [
+        {
+          "name": "TeleGeography SubmarineCableMap",
+          "url": "https://www.submarinecablemap.com/submarine-cable/quintillion-subsea-cable-network",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 1,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "id": "polar-express",
+    "name": "Polar Express",
+    "route": [
+      [
+        35.1,
+        69.1
+      ],
+      [
+        57.5,
+        70.6
+      ],
+      [
+        80,
+        75
+      ],
+      [
+        130,
+        72
+      ],
+      [
+        170,
+        65
+      ]
+    ],
+    "landingPoints": [
+      {
+        "name": "Teriberka",
+        "countryId": "RUS",
+        "coordinates": [
+          35.14,
+          69.16
+        ],
+        "city": "Teriberka"
+      },
+      {
+        "name": "Amderma",
+        "countryId": "RUS",
+        "coordinates": [
+          61.66,
+          69.75
+        ],
+        "city": "Amderma"
+      },
+      {
+        "name": "Dikson",
+        "countryId": "RUS",
+        "coordinates": [
+          80.53,
+          73.51
+        ],
+        "city": "Dikson"
+      },
+      {
+        "name": "Pevek",
+        "countryId": "RUS",
+        "coordinates": [
+          170.33,
+          69.7
+        ],
+        "city": "Pevek"
+      }
+    ],
+    "status": "construction",
+    "lengthKm": 12650,
+    "capacityTbps": 104,
+    "yearLaid": 2021,
+    "yearRepaired": null,
+    "owners": [
+      "Morsviazsputnik"
+    ],
+    "vulnerabilities": "Geopolitically significant as a Russian state-led project to bypass Western-controlled infrastructure. Subject to Arctic environmental risks.",
+    "geopoliticalNotes": "Aimed at providing high-speed internet to Russia's Arctic coast and connecting to East Asia, enhancing Russia's sovereignty over its northern data flows.",
+    "notes": "State-funded project under the 'Digital Economy' program.",
+    "attribution": {
+      "sources": [
+        {
+          "name": "TeleGeography SubmarineCableMap",
+          "url": "https://www.submarinecablemap.com/submarine-cable/polar-express",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 1,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "id": "dunant",
+    "name": "Dunant",
+    "route": [
+      [
+        -76,
+        36.8
+      ],
+      [
+        -50,
+        40
+      ],
+      [
+        -20,
+        45
+      ],
+      [
+        -1.9,
+        46.7
+      ]
+    ],
+    "landingPoints": [
+      {
+        "name": "Virginia Beach",
+        "countryId": "USA",
+        "coordinates": [
+          -75.98,
+          36.85
+        ],
+        "city": "Virginia Beach"
+      },
+      {
+        "name": "Saint-Hilaire-de-Riez",
+        "countryId": "FRA",
+        "coordinates": [
+          -1.94,
+          46.72
+        ],
+        "city": "Saint-Hilaire-de-Riez"
+      }
+    ],
+    "status": "active",
+    "lengthKm": 6400,
+    "capacityTbps": 250,
+    "yearLaid": 2020,
+    "yearRepaired": null,
+    "owners": [
+      "Google",
+      "Orange"
+    ],
+    "vulnerabilities": "High-capacity trans-Atlantic link; damage would significantly impact US-Europe data traffic.",
+    "geopoliticalNotes": "A private cable by Google, highlighting the shift from carrier-owned to content-provider-owned infrastructure.",
+    "notes": "Utilizes Space Division Multiplexing (SDM) technology.",
+    "attribution": {
+      "sources": [
+        {
+          "name": "TeleGeography SubmarineCableMap",
+          "url": "https://www.submarinecablemap.com/submarine-cable/dunant",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 1,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "id": "ellalink",
+    "name": "EllaLink",
+    "route": [
+      [
+        -46.4,
+        -23.9
+      ],
+      [
+        -34.8,
+        -8
+      ],
+      [
+        -25,
+        15
+      ],
+      [
+        -9.4,
+        38.7
+      ]
+    ],
+    "landingPoints": [
+      {
+        "name": "Praia Grande",
+        "countryId": "BRA",
+        "coordinates": [
+          -46.4,
+          -23.99
+        ],
+        "city": "Santos"
+      },
+      {
+        "name": "Fortaleza",
+        "countryId": "BRA",
+        "coordinates": [
+          -38.48,
+          -3.72
+        ],
+        "city": "Fortaleza"
+      },
+      {
+        "name": "Sines",
+        "countryId": "PRT",
+        "coordinates": [
+          -8.87,
+          37.95
+        ],
+        "city": "Sines"
+      }
+    ],
+    "status": "active",
+    "lengthKm": 6000,
+    "capacityTbps": 100,
+    "yearLaid": 2021,
+    "yearRepaired": null,
+    "owners": [
+      "EllaLink"
+    ],
+    "vulnerabilities": "Direct link bypassing the US, providing alternative routing and reducing latency between South America and Europe.",
+    "geopoliticalNotes": "Strategically important for data sovereignty between the EU and South America, reducing reliance on US-centric routing.",
+    "notes": "The first high-capacity direct link between the two continents.",
+    "attribution": {
+      "sources": [
+        {
+          "name": "TeleGeography SubmarineCableMap",
+          "url": "https://www.submarinecablemap.com/submarine-cable/ellalink",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 1,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "id": "peace-cable",
+    "name": "Pakistan & East Africa Connecting Europe (PEACE)",
+    "route": [
+      [
+        67,
+        24.8
+      ],
+      [
+        42.5,
+        11.5
+      ],
+      [
+        32,
+        31
+      ],
+      [
+        5.3,
+        43.3
+      ]
+    ],
+    "landingPoints": [
+      {
+        "name": "Karachi",
+        "countryId": "PAK",
+        "coordinates": [
+          67.01,
+          24.86
+        ],
+        "city": "Karachi"
+      },
+      {
+        "name": "Djibouti City",
+        "countryId": "DJI",
+        "coordinates": [
+          43.14,
+          11.59
+        ],
+        "city": "Djibouti City"
+      },
+      {
+        "name": "Mombasa",
+        "countryId": "KEN",
+        "coordinates": [
+          39.67,
+          -4.04
+        ],
+        "city": "Mombasa"
+      },
+      {
+        "name": "Marseille",
+        "countryId": "FRA",
+        "coordinates": [
+          5.37,
+          43.3
+        ],
+        "city": "Marseille"
+      }
+    ],
+    "status": "active",
+    "lengthKm": 15000,
+    "capacityTbps": 192,
+    "yearLaid": 2022,
+    "yearRepaired": null,
+    "owners": [
+      "PCCW Global",
+      "PEACE Cable International Network Co.",
+      "Cybernet"
+    ],
+    "vulnerabilities": "Crosses the Red Sea and Gulf of Aden, regions with high geopolitical risk and potential for sabotage.",
+    "geopoliticalNotes": "A key part of China's Digital Silk Road initiative, providing a direct link from China/Pakistan to Europe and Africa, bypassing some Western-controlled hubs.",
+    "notes": "Utilizes 200G WDM technology.",
+    "attribution": {
+      "sources": [
+        {
+          "name": "TeleGeography SubmarineCableMap",
+          "url": "https://www.submarinecablemap.com/submarine-cable/pakistan-east-africa-connecting-europe-peace",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 1,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "id": "2africa",
+    "name": "2Africa",
+    "route": [
+      [
+        5,
+        50
+      ],
+      [
+        -15,
+        20
+      ],
+      [
+        18,
+        -34
+      ],
+      [
+        40,
+        -15
+      ],
+      [
+        43,
+        11
+      ],
+      [
+        72,
+        19
+      ]
+    ],
+    "landingPoints": [
+      {
+        "name": "Bude",
+        "countryId": "GBR",
+        "coordinates": [
+          -4.54,
+          50.82
+        ],
+        "city": "Bude"
+      },
+      {
+        "name": "Cape Town",
+        "countryId": "ZAF",
+        "coordinates": [
+          18.42,
+          -33.92
+        ],
+        "city": "Cape Town"
+      },
+      {
+        "name": "Djibouti City",
+        "countryId": "DJI",
+        "coordinates": [
+          43.14,
+          11.59
+        ],
+        "city": "Djibouti City"
+      },
+      {
+        "name": "Mumbai",
+        "countryId": "IND",
+        "coordinates": [
+          72.87,
+          19.07
+        ],
+        "city": "Mumbai"
+      }
+    ],
+    "status": "construction",
+    "lengthKm": 45000,
+    "capacityTbps": 180,
+    "yearLaid": 2023,
+    "yearRepaired": null,
+    "owners": [
+      "Meta",
+      "Orange",
+      "STC",
+      "Telecom Egypt",
+      "Vodafone",
+      "WIOCC"
+    ],
+    "vulnerabilities": "Massive scale makes it a target for state actors; crosses numerous territorial waters.",
+    "geopoliticalNotes": "Will be the longest submarine cable ever deployed, significantly increasing connectivity across Africa, the Middle East, and Asia.",
+    "notes": "Aims to provide connectivity to 3 billion people.",
+    "attribution": {
+      "sources": [
+        {
+          "name": "TeleGeography SubmarineCableMap",
+          "url": "https://www.submarinecablemap.com/submarine-cable/2africa",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 1,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "id": "blue-raman",
+    "name": "Blue-Raman",
+    "route": [
+      [
+        72.8,
+        19.1
+      ],
+      [
+        55,
+        25
+      ],
+      [
+        40,
+        20
+      ],
+      [
+        35,
+        31
+      ],
+      [
+        20,
+        35
+      ],
+      [
+        10,
+        40
+      ],
+      [
+        5,
+        43
+      ]
+    ],
+    "landingPoints": [
+      {
+        "name": "Mumbai",
+        "countryId": "IND",
+        "coordinates": [
+          72.87,
+          19.07
+        ],
+        "city": "Mumbai"
+      },
+      {
+        "name": "Aqaba",
+        "countryId": "JOR",
+        "coordinates": [
+          35,
+          29.53
+        ],
+        "city": "Aqaba"
+      },
+      {
+        "name": "Tel Aviv",
+        "countryId": "ISR",
+        "coordinates": [
+          34.78,
+          32.08
+        ],
+        "city": "Tel Aviv"
+      },
+      {
+        "name": "Genoa",
+        "countryId": "ITA",
+        "coordinates": [
+          8.94,
+          44.41
+        ],
+        "city": "Genoa"
+      }
+    ],
+    "status": "construction",
+    "lengthKm": 8000,
+    "capacityTbps": null,
+    "yearLaid": 2024,
+    "yearRepaired": null,
+    "owners": [
+      "Google",
+      "Telecom Italia Sparkle",
+      "Omantel"
+    ],
+    "vulnerabilities": "Crosses multiple geopolitical flashpoints; relies on overland transit through Jordan.",
+    "geopoliticalNotes": "A landmark project that bypasses Egypt and the Suez Canal, historically a major chokepoint. Represents a significant diplomatic and technical shift in regional connectivity.",
+    "notes": "Divided into two segments: Blue (Europe to Israel) and Raman (Jordan to India).",
+    "attribution": {
+      "sources": [
+        {
+          "name": "TeleGeography SubmarineCableMap",
+          "url": "https://www.submarinecablemap.com/submarine-cable/blue",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 1,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "id": "medusa-submarine-cable-system",
+    "name": "Medusa Submarine Cable System",
+    "route": [
+      [
+        -9,
+        38
+      ],
+      [
+        -2,
+        35
+      ],
+      [
+        5,
+        43
+      ],
+      [
+        12,
+        41
+      ],
+      [
+        23,
+        38
+      ],
+      [
+        33,
+        35
+      ],
+      [
+        32,
+        31
+      ]
+    ],
+    "landingPoints": [
+      {
+        "name": "Sines",
+        "countryId": "PRT",
+        "coordinates": [
+          -8.87,
+          37.95
+        ],
+        "city": "Sines"
+      },
+      {
+        "name": "Marseille",
+        "countryId": "FRA",
+        "coordinates": [
+          5.37,
+          43.3
+        ],
+        "city": "Marseille"
+      },
+      {
+        "name": "Bizerte",
+        "countryId": "TUN",
+        "coordinates": [
+          9.87,
+          37.27
+        ],
+        "city": "Bizerte"
+      },
+      {
+        "name": "Port Said",
+        "countryId": "EGY",
+        "coordinates": [
+          32.3,
+          31.26
+        ],
+        "city": "Port Said"
+      }
+    ],
+    "status": "construction",
+    "lengthKm": 8760,
+    "capacityTbps": 480,
+    "yearLaid": 2024,
+    "yearRepaired": null,
+    "owners": [
+      "AFR-IX telecom"
+    ],
+    "vulnerabilities": "High-density cable system in the Mediterranean; connects multiple North African and European states.",
+    "geopoliticalNotes": "Aims to enhance digital sovereignty for the Mediterranean region and provide a high-capacity link between Southern Europe and North Africa.",
+    "notes": "Will connect 11 landing points across 9 countries.",
+    "attribution": {
+      "sources": [
+        {
+          "name": "TeleGeography SubmarineCableMap",
+          "url": "https://www.submarinecablemap.com/submarine-cable/medusa-submarine-cable-system",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 1,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "id": "hawaiki-nui",
+    "name": "Hawaiki Nui",
+    "route": [
+      [
+        151.2,
+        -33.8
+      ],
+      [
+        174.7,
+        -36.8
+      ],
+      [
+        -170.7,
+        -14.3
+      ],
+      [
+        -157.8,
+        21.3
+      ],
+      [
+        -124,
+        45
+      ]
+    ],
+    "landingPoints": [
+      {
+        "name": "Coogee",
+        "countryId": "AUS",
+        "coordinates": [
+          151.25,
+          -33.92
+        ],
+        "city": "Sydney"
+      },
+      {
+        "name": "Mangawhai",
+        "countryId": "NZL",
+        "coordinates": [
+          174.59,
+          -36.12
+        ],
+        "city": "Mangawhai"
+      },
+      {
+        "name": "Ili'ili",
+        "countryId": "ASM",
+        "coordinates": [
+          -170.73,
+          -14.34
+        ],
+        "city": "Pago Pago"
+      },
+      {
+        "name": "Kapolei",
+        "countryId": "USA",
+        "coordinates": [
+          -158.08,
+          21.33
+        ],
+        "city": "Honolulu"
+      },
+      {
+        "name": "Pacific City",
+        "countryId": "USA",
+        "coordinates": [
+          -124.03,
+          45.16
+        ],
+        "city": "Pacific City"
+      }
+    ],
+    "status": "active",
+    "lengthKm": 15000,
+    "capacityTbps": 67,
+    "yearLaid": 2018,
+    "yearRepaired": null,
+    "owners": [
+      "BW Digital",
+      "Hawaiki Submarine Cable"
+    ],
+    "vulnerabilities": "Extremely long trans-oceanic spans with limited repair facilities in the mid-Pacific.",
+    "geopoliticalNotes": "Provides critical redundancy for Australia and New Zealand, bypassing the more congested Southern Cross routes.",
+    "notes": null,
+    "attribution": {
+      "sources": [
+        {
+          "name": "TeleGeography SubmarineCableMap",
+          "url": "https://www.submarinecablemap.com/submarine-cable/hawaiki",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 1,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "id": "echo",
+    "name": "Echo",
+    "route": [
+      [
+        103.9,
+        1.3
+      ],
+      [
+        106.8,
+        -6.2
+      ],
+      [
+        144.7,
+        13.4
+      ],
+      [
+        -122.4,
+        37.7
+      ]
+    ],
+    "landingPoints": [
+      {
+        "name": "Changi",
+        "countryId": "SGP",
+        "coordinates": [
+          103.98,
+          1.35
+        ],
+        "city": "Singapore"
+      },
+      {
+        "name": "Tanjung Pakis",
+        "countryId": "IDN",
+        "coordinates": [
+          107.2,
+          -5.9
+        ],
+        "city": "Karawang"
+      },
+      {
+        "name": "Agat",
+        "countryId": "GUM",
+        "coordinates": [
+          144.65,
+          13.38
+        ],
+        "city": "Agat"
+      },
+      {
+        "name": "Eureka",
+        "countryId": "USA",
+        "coordinates": [
+          -124.16,
+          40.8
+        ],
+        "city": "Eureka"
+      }
+    ],
+    "status": "construction",
+    "lengthKm": 16200,
+    "capacityTbps": 120,
+    "yearLaid": 2024,
+    "yearRepaired": null,
+    "owners": [
+      "Google",
+      "Meta",
+      "XL Axiata"
+    ],
+    "vulnerabilities": "Bypasses traditional hubs like Hong Kong to avoid geopolitical tensions with China.",
+    "geopoliticalNotes": "First cable to directly connect the US to Singapore and Indonesia, reflecting a strategic shift in trans-Pacific connectivity.",
+    "notes": "Part of a broader effort by US tech giants to build infrastructure independent of Chinese influence.",
+    "attribution": {
+      "sources": [
+        {
+          "name": "TeleGeography SubmarineCableMap",
+          "url": "https://www.submarinecablemap.com/submarine-cable/echo",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 1,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "id": "sea-me-we-5",
+    "name": "South East Asia-Middle East-Western Europe 5",
+    "route": [
+      [
+        103.94,
+        1.35
+      ],
+      [
+        100,
+        5
+      ],
+      [
+        90,
+        15
+      ],
+      [
+        80,
+        6
+      ],
+      [
+        67,
+        24
+      ],
+      [
+        55,
+        20
+      ],
+      [
+        43,
+        12
+      ],
+      [
+        32,
+        30
+      ],
+      [
+        15,
+        35
+      ],
+      [
+        5,
+        43
+      ]
+    ],
+    "landingPoints": [
+      {
+        "name": "Tuas",
+        "countryId": "SGP",
+        "coordinates": [
+          103.62,
+          1.31
+        ],
+        "city": "Singapore"
+      },
+      {
+        "name": "Melaka",
+        "countryId": "MYS",
+        "coordinates": [
+          102.25,
+          2.19
+        ],
+        "city": "Melaka"
+      },
+      {
+        "name": "Batam",
+        "countryId": "IDN",
+        "coordinates": [
+          104.05,
+          1.12
+        ],
+        "city": "Batam"
+      },
+      {
+        "name": "Songkhla",
+        "countryId": "THA",
+        "coordinates": [
+          100.62,
+          7.21
+        ],
+        "city": "Songkhla"
+      },
+      {
+        "name": "Kuakata",
+        "countryId": "BGD",
+        "coordinates": [
+          90.13,
+          21.82
+        ],
+        "city": "Kuakata"
+      }
+    ],
+    "status": "active",
+    "lengthKm": 20000,
+    "capacityTbps": 24,
+    "yearLaid": 2016,
+    "yearRepaired": null,
+    "owners": [
+      "Singtel",
+      "Telkom Indonesia",
+      "Telekom Malaysia",
+      "Tata Communications",
+      "Orange",
+      "TATA",
+      "Telecom Italia Sparkle"
+    ],
+    "vulnerabilities": "Crosses the Strait of Malacca and the Red Sea, both high-traffic and geopolitically sensitive areas.",
+    "geopoliticalNotes": "Critical digital infrastructure linking Southeast Asia directly to Europe, bypassing traditional hubs in some segments.",
+    "notes": null,
+    "attribution": {
+      "sources": [
+        {
+          "name": "TeleGeography SubmarineCableMap",
+          "url": "https://www.submarinecablemap.com/submarine-cable/south-east-asia-middle-east-western-europe-5-sea-me-we-5",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 1,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "id": "asia-america-gateway-aag",
+    "name": "Asia-America Gateway (AAG)",
+    "route": [
+      [
+        103.98,
+        1.35
+      ],
+      [
+        106.7,
+        10.7
+      ],
+      [
+        120.9,
+        14.5
+      ],
+      [
+        144.7,
+        13.4
+      ],
+      [
+        -157.8,
+        21.3
+      ],
+      [
+        -122.4,
+        37.7
+      ]
+    ],
+    "landingPoints": [
+      {
+        "name": "Changi",
+        "countryId": "SGP",
+        "coordinates": [
+          103.98,
+          1.35
+        ],
+        "city": "Singapore"
+      },
+      {
+        "name": "Vung Tau",
+        "countryId": "VNM",
+        "coordinates": [
+          107.08,
+          10.35
+        ],
+        "city": "Vung Tau"
+      },
+      {
+        "name": "La Union",
+        "countryId": "PHL",
+        "coordinates": [
+          120.32,
+          16.61
+        ],
+        "city": "San Fernando"
+      },
+      {
+        "name": "Tanguisson Point",
+        "countryId": "GUM",
+        "coordinates": [
+          144.81,
+          13.55
+        ],
+        "city": "Dededo"
+      },
+      {
+        "name": "San Luis Obispo",
+        "countryId": "USA",
+        "coordinates": [
+          -120.85,
+          35.29
+        ],
+        "city": "San Luis Obispo"
+      }
+    ],
+    "status": "active",
+    "lengthKm": 20000,
+    "capacityTbps": 1.92,
+    "yearLaid": 2009,
+    "yearRepaired": 2024,
+    "owners": [
+      "AT&T",
+      "PLDT",
+      "Singtel",
+      "Telekom Malaysia",
+      "Telstra",
+      "Viettel"
+    ],
+    "vulnerabilities": "Highly prone to cable breaks in the South China Sea due to fishing and anchoring activities.",
+    "geopoliticalNotes": "First major cable system directly linking Southeast Asia to the US Mainland, bypassing Japan.",
+    "notes": "Frequent maintenance and repair issues in the Vietnam segment.",
+    "attribution": {
+      "sources": [
+        {
+          "name": "TeleGeography SubmarineCableMap",
+          "url": "https://www.submarinecablemap.com/submarine-cable/asia-america-gateway-aag",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 1,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  }
+]

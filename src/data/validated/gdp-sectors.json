@@ -1,0 +1,1795 @@
+[
+  {
+    "countryId": "ARE",
+    "year": 2023,
+    "gdpUsdBn": 504.17,
+    "gdpPerCapita": 53916,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 51.5,
+        "notes": "Includes finance, trade, and tourism; financial services grew by 14.3% in 2023."
+      },
+      {
+        "sector": "Oil & Gas",
+        "percentOfGDP": 25.7,
+        "notes": "Hydrocarbon sector remains a significant but decreasing portion of total GDP."
+      },
+      {
+        "sector": "Industry (Non-Oil)",
+        "percentOfGDP": 22,
+        "notes": "Includes manufacturing and construction; construction grew by 8.9% in 2023."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 0.8,
+        "notes": "Minimal contribution to overall GDP."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-03-07"
+        },
+        {
+          "name": "UAE Federal Competitiveness and Statistics Centre (FCSC) 2023",
+          "url": "https://fcsc.gov.ae/",
+          "accessedAt": "2025-03-07"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-03-07"
+      }
+    }
+  },
+  {
+    "countryId": "ARG",
+    "year": 2023,
+    "gdpUsdBn": 640.59,
+    "gdpPerCapita": 13730,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 63.4,
+        "notes": "Normalized from GVA; includes finance, trade, and public administration."
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 29.6,
+        "notes": "Normalized from GVA; includes manufacturing (15.2%), mining, and construction."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 7,
+        "notes": "Normalized from GVA; 2023 share was lower than usual due to severe drought."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-03-07"
+        },
+        {
+          "name": "INDEC (National Institute of Statistics and Censuses of Argentina)",
+          "url": "https://www.indec.gob.ar/",
+          "accessedAt": "2025-03-07"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-03-07"
+      }
+    }
+  },
+  {
+    "countryId": "BGD",
+    "year": 2023,
+    "gdpUsdBn": 437.42,
+    "gdpPerCapita": 2551,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 51.05,
+        "notes": "Wholesale & retail trade is the largest sub-sector."
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 37.65,
+        "notes": "Manufacturing accounts for 24.89%; RMG is dominant."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 11.3,
+        "notes": "Crops & horticulture remain the largest sub-sector."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Bangladesh Bureau of Statistics (BBS) FY2022-23",
+          "url": "http://www.bbs.gov.bd/",
+          "accessedAt": "2025-02-13"
+        },
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-02-13"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-13"
+      }
+    }
+  },
+  {
+    "countryId": "BRA",
+    "year": 2023,
+    "gdpUsdBn": 2190,
+    "gdpPerCapita": 10310,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 67.4,
+        "notes": "Grew by 2.4%, with finance and insurance as key drivers."
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 25.5,
+        "notes": "Includes Mining & Oil (8.7% of GVA) and manufacturing."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 7.1,
+        "notes": "Record soybean and maize harvests drove 15.1% growth in this sector."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "IBGE - Quarterly National Accounts 2023",
+          "url": "https://www.ibge.gov.br/",
+          "accessedAt": "2025-02-11"
+        },
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-02-11"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-11"
+      }
+    }
+  },
+  {
+    "countryId": "CHN",
+    "year": 2023,
+    "gdpUsdBn": 17794.78,
+    "gdpPerCapita": 12614,
+    "sectors": [
+      {
+        "sector": "Tertiary Industry (Services)",
+        "percentOfGDP": 56.3,
+        "notes": "Revised upward in 2024; contributed over 60% of total growth"
+      },
+      {
+        "sector": "Secondary Industry (Industry & Construction)",
+        "percentOfGDP": 36.8,
+        "notes": "Includes manufacturing and construction; 'new three' industries (EVs, solar) are key drivers"
+      },
+      {
+        "sector": "Primary Industry (Agriculture)",
+        "percentOfGDP": 6.9,
+        "notes": "Long-term structural decline as share of GDP"
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "China National Bureau of Statistics (NBS)",
+          "url": "http://www.stats.gov.cn/",
+          "accessedAt": "2025-03-03"
+        },
+        {
+          "name": "World Bank DataBank",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-03-03"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-03-03"
+      }
+    }
+  },
+  {
+    "countryId": "DEU",
+    "year": 2023,
+    "gdpUsdBn": 4456.1,
+    "gdpPerCapita": 52727,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 70.3,
+        "notes": "Includes public services, business services, and information/communication."
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 23,
+        "notes": "Manufacturing, mining, and utilities; excluding construction."
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 5.9,
+        "notes": "Affected by rising interest rates and building costs."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 0.8,
+        "notes": "Includes forestry and fishing."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Destatis (Federal Statistical Office of Germany) / IMF 2023",
+          "url": "https://www.destatis.de",
+          "accessedAt": "2025-02-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-14"
+      }
+    }
+  },
+  {
+    "countryId": "EGY",
+    "year": 2023,
+    "gdpUsdBn": 395.93,
+    "gdpPerCapita": 3512,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 55,
+        "notes": "Includes Wholesale & Retail (14%), Suez Canal (~3%), Tourism (~2.5%)"
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 34,
+        "notes": "Includes Manufacturing (16%), Extraction (Oil & Gas ~7%), and Construction (8%)"
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 11,
+        "notes": "Remains resilient; significant employer"
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "CAPMAS Egypt",
+          "url": "https://www.capmas.gov.eg/",
+          "accessedAt": "2025-03-03"
+        },
+        {
+          "name": "World Bank DataBank",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-03-03"
+        },
+        {
+          "name": "IMF Country Report",
+          "url": "https://www.imf.org/",
+          "accessedAt": "2025-03-03"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-03-03"
+      }
+    }
+  },
+  {
+    "countryId": "ETH",
+    "year": 2023,
+    "gdpUsdBn": 163.7,
+    "gdpPerCapita": 1294,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 40.3,
+        "notes": "Largest sector; driven by trade, transport (Ethiopian Airlines), and telecom."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 32.1,
+        "notes": "Primary employer and source of exports (coffee, oilseeds, pulses)."
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 27.6,
+        "notes": "Construction accounts for over 70% of industrial output; manufacturing ~8%."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-03-07"
+        },
+        {
+          "name": "National Bank of Ethiopia Annual Report 2022/23",
+          "url": "https://nbe.gov.et/",
+          "accessedAt": "2025-03-07"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-03-07"
+      }
+    }
+  },
+  {
+    "countryId": "FRA",
+    "year": 2023,
+    "gdpUsdBn": 3031,
+    "gdpPerCapita": 44461,
+    "sectors": [
+      {
+        "sector": "Market Services",
+        "percentOfGDP": 56.1,
+        "notes": "Includes real estate, business services, and financial activities"
+      },
+      {
+        "sector": "Non-Market Services",
+        "percentOfGDP": 21.7,
+        "notes": "Public administration, education, and health"
+      },
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 15,
+        "notes": "Aerospace, luxury goods, and pharmaceuticals"
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 5.5,
+        "notes": null
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 1.7,
+        "notes": "Leading EU agricultural producer"
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "INSEE National Accounts 2023",
+          "url": "https://www.insee.fr/en/statistiques/8181744",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "World Bank Data 2023",
+          "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=FR",
+          "accessedAt": "2025-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-05-14"
+      }
+    }
+  },
+  {
+    "countryId": "GBR",
+    "year": 2023,
+    "gdpUsdBn": 3370,
+    "gdpPerCapita": 49776,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 81,
+        "notes": "Finance, Real Estate, Retail, Professional Services. Real Estate is 13.1%."
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 18.4,
+        "notes": "Aerospace, Pharmaceuticals, Construction (6%)."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 0.6,
+        "notes": "Livestock, Cereals, Fishing."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Office for National Statistics (ONS) 2023",
+          "url": "https://www.ons.gov.uk/",
+          "accessedAt": "2025-02-13"
+        },
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-02-13"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-13"
+      }
+    }
+  },
+  {
+    "countryId": "IDN",
+    "year": 2023,
+    "gdpUsdBn": 1371.2,
+    "gdpPerCapita": 4920,
+    "sectors": [
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 18.67,
+        "notes": "Largest contributor to GDP"
+      },
+      {
+        "sector": "Trade",
+        "percentOfGDP": 12.94,
+        "notes": "Wholesale and retail; repair of vehicles"
+      },
+      {
+        "sector": "Agriculture, Forestry, & Fisheries",
+        "percentOfGDP": 12.53,
+        "notes": null
+      },
+      {
+        "sector": "Mining & Quarrying",
+        "percentOfGDP": 10.52,
+        "notes": "Significant resource sector"
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 9.92,
+        "notes": null
+      },
+      {
+        "sector": "Transportation & Warehousing",
+        "percentOfGDP": 5.89,
+        "notes": null
+      },
+      {
+        "sector": "Information & Communication",
+        "percentOfGDP": 4.23,
+        "notes": null
+      },
+      {
+        "sector": "Financial & Insurance Services",
+        "percentOfGDP": 4.16,
+        "notes": null
+      },
+      {
+        "sector": "Government Administration",
+        "percentOfGDP": 3.14,
+        "notes": "Includes defense and social security"
+      },
+      {
+        "sector": "Real Estate",
+        "percentOfGDP": 2.4,
+        "notes": null
+      },
+      {
+        "sector": "Other Services",
+        "percentOfGDP": 15.6,
+        "notes": "Residual including education and health"
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "BPS Statistics Indonesia 2023",
+          "url": "https://www.bps.go.id/",
+          "accessedAt": "2024-05-14"
+        },
+        {
+          "name": "World Bank",
+          "url": "https://data.worldbank.org/country/indonesia",
+          "accessedAt": "2024-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-14"
+      }
+    }
+  },
+  {
+    "countryId": "IND",
+    "year": 2023,
+    "gdpUsdBn": 3550,
+    "gdpPerCapita": 2485,
+    "sectors": [
+      {
+        "sector": "Trade, Hotels, Transport, Communication",
+        "percentOfGDP": 18.7,
+        "notes": null
+      },
+      {
+        "sector": "Financial, Real Estate & Professional Services",
+        "percentOfGDP": 21.5,
+        "notes": "Significant IT and business services export component"
+      },
+      {
+        "sector": "Public Administration, Defence & Other Services",
+        "percentOfGDP": 14.5,
+        "notes": null
+      },
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 13.9,
+        "notes": "Supported by PLI schemes"
+      },
+      {
+        "sector": "Agriculture, Forestry & Fishing",
+        "percentOfGDP": 17.7,
+        "notes": "Largest employer in the country"
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 9.1,
+        "notes": "Infrastructure boom"
+      },
+      {
+        "sector": "Mining & Quarrying",
+        "percentOfGDP": 2.3,
+        "notes": null
+      },
+      {
+        "sector": "Electricity, Gas, Water & Utilities",
+        "percentOfGDP": 2.3,
+        "notes": null
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "MOSPI Press Note May 2024",
+          "url": "https://mospi.gov.in/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "World Bank Data 2023",
+          "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=IN",
+          "accessedAt": "2025-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-05-14"
+      }
+    }
+  },
+  {
+    "countryId": "IRN",
+    "year": 2023,
+    "gdpUsdBn": 403,
+    "gdpPerCapita": 4500,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 51,
+        "notes": "Largest sector, led by real estate and professional services."
+      },
+      {
+        "sector": "Oil & Gas",
+        "percentOfGDP": 23,
+        "notes": "Major growth driver in 2023 due to increased exports."
+      },
+      {
+        "sector": "Manufacturing & Mining",
+        "percentOfGDP": 13,
+        "notes": "Includes significant automotive and steel industries."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 10,
+        "notes": "Stagnant due to persistent droughts."
+      },
+      {
+        "sector": "Construction & Utilities",
+        "percentOfGDP": 3,
+        "notes": "Includes energy distribution."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "World Bank Iran Economic Monitor 2023",
+          "url": "https://www.worldbank.org/en/country/iran",
+          "accessedAt": "2025-02-11"
+        },
+        {
+          "name": "Central Bank of Iran 1402 Annual Report",
+          "url": "https://www.cbi.ir/",
+          "accessedAt": "2025-02-11"
+        }
+      ],
+      "confidence": {
+        "confidence": "medium",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-11"
+      }
+    }
+  },
+  {
+    "countryId": "ISR",
+    "year": 2023,
+    "gdpUsdBn": 512.2,
+    "gdpPerCapita": 52004,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 74,
+        "notes": "Includes high-tech services (approx. 18% of GDP) and finance."
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 18.9,
+        "notes": "Includes high-technology manufacturing and utilities."
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 5.8,
+        "notes": "Hardest hit in Q4 2023 due to labor shortages."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 1.3,
+        "notes": "Agri-tech and high-yield produce focus."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "World Bank / Israel Central Bureau of Statistics 2023",
+          "url": "https://data.worldbank.org/",
+          "accessedAt": "2025-02-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-14"
+      }
+    }
+  },
+  {
+    "countryId": "JPN",
+    "year": 2023,
+    "gdpUsdBn": 4210,
+    "gdpPerCapita": 34000,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 70.5,
+        "notes": "Includes wholesale, retail, and real estate."
+      },
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 20.6,
+        "notes": "Core industry, particularly automotive and electronics."
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 5.3,
+        "notes": null
+      },
+      {
+        "sector": "Utilities",
+        "percentOfGDP": 2.7,
+        "notes": "Electricity, gas, and water supply."
+      },
+      {
+        "sector": "Agriculture, Forestry, & Fishing",
+        "percentOfGDP": 0.9,
+        "notes": null
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Statistics Bureau of Japan 2023",
+          "url": "https://www.stat.go.jp/",
+          "accessedAt": "2025-02-11"
+        },
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-02-11"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-11"
+      }
+    }
+  },
+  {
+    "countryId": "KAZ",
+    "year": 2023,
+    "gdpUsdBn": 261,
+    "gdpPerCapita": 13137,
+    "sectors": [
+      {
+        "sector": "Trade (Wholesale & Retail)",
+        "percentOfGDP": 18,
+        "notes": null
+      },
+      {
+        "sector": "Mining & Quarrying",
+        "percentOfGDP": 12.9,
+        "notes": "Dominated by oil and gas production"
+      },
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 12.1,
+        "notes": null
+      },
+      {
+        "sector": "Real Estate Operations",
+        "percentOfGDP": 7.8,
+        "notes": null
+      },
+      {
+        "sector": "Transport & Warehousing",
+        "percentOfGDP": 5.4,
+        "notes": null
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 5.3,
+        "notes": null
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 4.3,
+        "notes": "Affected by drought in 2023"
+      },
+      {
+        "sector": "Other Services",
+        "percentOfGDP": 34.2,
+        "notes": "Includes public administration, health, and finance"
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Bureau of National Statistics Kazakhstan 2023",
+          "url": "https://stat.gov.kz/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "World Bank Kazakhstan Economic Update",
+          "url": "https://www.worldbank.org/en/country/kazakhstan",
+          "accessedAt": "2025-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-05-14"
+      }
+    }
+  },
+  {
+    "countryId": "KEN",
+    "year": 2023,
+    "gdpUsdBn": 107.44,
+    "gdpPerCapita": 1950,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 55.4,
+        "notes": "Largest contributor, includes Real Estate (10.3%), Transport (9.6%), Financial services (9.5%)"
+      },
+      {
+        "sector": "Agriculture, Forestry & Fishing",
+        "percentOfGDP": 21.8,
+        "notes": "Significant rebound in 2023 due to improved weather"
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 16.8,
+        "notes": "Includes Manufacturing (8.2%) and Construction (5.7%)"
+      },
+      {
+        "sector": "Taxes on Products",
+        "percentOfGDP": 6,
+        "notes": "Net of subsidies"
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "KNBS Economic Survey 2024",
+          "url": "https://www.knbs.or.ke/",
+          "accessedAt": "2025-03-03"
+        },
+        {
+          "name": "World Bank DataBank",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-03-03"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-03-03"
+      }
+    }
+  },
+  {
+    "countryId": "KOR",
+    "year": 2023,
+    "gdpUsdBn": 1712.79,
+    "gdpPerCapita": 33121,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 63.8,
+        "notes": "Dominant sector, includes finance, retail, and public administration"
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 34.6,
+        "notes": "Robust high-tech manufacturing base, including semiconductors and automotive"
+      },
+      {
+        "sector": "Agriculture, Forestry & Fishing",
+        "percentOfGDP": 1.6,
+        "notes": "Includes rice, livestock, and fisheries"
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Bank of Korea",
+          "url": "https://www.bok.or.kr/",
+          "accessedAt": "2025-03-03"
+        },
+        {
+          "name": "World Bank DataBank",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-03-03"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-03-03"
+      }
+    }
+  },
+  {
+    "countryId": "MEX",
+    "year": 2023,
+    "gdpUsdBn": 1790,
+    "gdpPerCapita": 13826,
+    "sectors": [
+      {
+        "sector": "Tertiary (Services)",
+        "percentOfGDP": 64.5,
+        "notes": "Commerce, Tourism, Finance, Transport, Real Estate."
+      },
+      {
+        "sector": "Secondary (Industry)",
+        "percentOfGDP": 32,
+        "notes": "Manufacturing (20%), Construction, Mining, Utilities."
+      },
+      {
+        "sector": "Primary (Agriculture)",
+        "percentOfGDP": 3.5,
+        "notes": "Agriculture, livestock, forestry, fishing."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "INEGI (Mexico) 2023",
+          "url": "https://www.inegi.org.mx/",
+          "accessedAt": "2025-02-13"
+        },
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-02-13"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-13"
+      }
+    }
+  },
+  {
+    "countryId": "MYS",
+    "year": 2023,
+    "gdpUsdBn": 399.65,
+    "gdpPerCapita": 11379,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 60.4,
+        "notes": "Wholesale & retail trade, transportation, and tourism recovery. Adjusted to sum to 100% including import duties."
+      },
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 23.4,
+        "notes": "Electrical & Electronics (E&E), petroleum, and chemicals."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 6.4,
+        "notes": "Oil palm, livestock, and fisheries."
+      },
+      {
+        "sector": "Mining & Quarrying",
+        "percentOfGDP": 6.2,
+        "notes": "Natural gas and crude oil production."
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 3.6,
+        "notes": "Civil engineering and specialized construction."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Department of Statistics Malaysia (DOSM) 2023",
+          "url": "https://www.dosm.gov.my/",
+          "accessedAt": "2025-02-13"
+        },
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-02-13"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-13"
+      }
+    }
+  },
+  {
+    "countryId": "NGA",
+    "year": 2023,
+    "gdpUsdBn": 362.81,
+    "gdpPerCapita": 1621,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 56.2,
+        "notes": "Driven by Information & Communication (telecoms), Trade, and Financial services."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 26.1,
+        "notes": "Primarily crop production which accounts for about 90% of the sector."
+      },
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 12.3,
+        "notes": "Includes food, beverages, and tobacco, as well as textile and apparel."
+      },
+      {
+        "sector": "Oil & Gas",
+        "percentOfGDP": 5.4,
+        "notes": "Mining & Quarrying sector; production averaged 1.55 mbpd in Q4 2023."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Nigeria National Bureau of Statistics (NBS) GDP Report Q4 2023",
+          "url": "https://nigerianstat.gov.ng/",
+          "accessedAt": "2025-02-11"
+        },
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-02-11"
+        },
+        {
+          "name": "IMF World Economic Outlook October 2024",
+          "url": "https://www.imf.org/en/Publications/WEO",
+          "accessedAt": "2025-02-11"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-02-11"
+      }
+    }
+  },
+  {
+    "countryId": "NLD",
+    "year": 2023,
+    "gdpUsdBn": 1150,
+    "gdpPerCapita": 66000,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 77.4,
+        "notes": "Strong performance in financial and business services."
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 15,
+        "notes": "Includes manufacturing of machinery and chemicals."
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 5,
+        "notes": null
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 1.6,
+        "notes": "Highly productive greenhouse horticulture."
+      },
+      {
+        "sector": "Mining & Quarrying",
+        "percentOfGDP": 1,
+        "notes": "Declining due to Groningen gas field closure."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Statistics Netherlands (CBS) 2023",
+          "url": "https://www.cbs.nl/",
+          "accessedAt": "2025-02-11"
+        },
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-02-11"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-11"
+      }
+    }
+  },
+  {
+    "countryId": "PAK",
+    "year": 2023,
+    "gdpUsdBn": 338.2,
+    "gdpPerCapita": 1471,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 58.4,
+        "notes": "Dominant sector, includes wholesale/retail trade and transport."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 23.2,
+        "notes": "Recovery constrained by the 2022 floods; includes livestock and crops."
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 18.4,
+        "notes": "Includes large-scale manufacturing (LSM), mining, and construction."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Pakistan Bureau of Statistics (PBS) / IMF 2023",
+          "url": "https://www.pbs.gov.pk/",
+          "accessedAt": "2025-02-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-14"
+      }
+    }
+  },
+  {
+    "countryId": "PHL",
+    "year": 2023,
+    "gdpUsdBn": 437.06,
+    "gdpPerCapita": 3804,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 62.3,
+        "notes": "Main drivers include Wholesale and retail trade, Financial and insurance activities, and BPO."
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 29.1,
+        "notes": "Strong performance in Construction (8.8% growth); Manufacturing moderated due to electronics exports."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 8.6,
+        "notes": "Includes forestry and fishing; sector growth impacted by climate-related disruptions."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Philippine Statistics Authority (PSA) 2023 National Accounts",
+          "url": "https://psa.gov.ph/",
+          "accessedAt": "2025-02-11"
+        },
+        {
+          "name": "World Bank Philippines Economic Update 2023",
+          "url": "https://www.worldbank.org/en/country/philippines",
+          "accessedAt": "2025-02-11"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-11"
+      }
+    }
+  },
+  {
+    "countryId": "POL",
+    "year": 2023,
+    "gdpUsdBn": 811.23,
+    "gdpPerCapita": 22113,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 64.2,
+        "notes": "Largest sector, driven by IT, business process outsourcing (BPO), and logistics."
+      },
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 18.5,
+        "notes": "Core industrial activity; hub for automotive, household appliances, and furniture."
+      },
+      {
+        "sector": "Other Industry",
+        "percentOfGDP": 14.4,
+        "notes": "Includes Mining (coal, copper), Energy, and Construction."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 2.9,
+        "notes": "Major exporter of poultry, apples, and dairy; high nominal growth in 2023."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Statistics Poland (GUS) Preliminary Estimates 2023",
+          "url": "https://stat.gov.pl/en/",
+          "accessedAt": "2025-02-11"
+        },
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-02-11"
+        },
+        {
+          "name": "IMF World Economic Outlook October 2024",
+          "url": "https://www.imf.org/en/Publications/WEO",
+          "accessedAt": "2025-02-11"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2025-02-11"
+      }
+    }
+  },
+  {
+    "countryId": "RUS",
+    "year": 2023,
+    "gdpUsdBn": 2021.4,
+    "gdpPerCapita": 13647.6,
+    "sectors": [
+      {
+        "sector": "Services (Trade, Transport, Finance)",
+        "percentOfGDP": 57,
+        "notes": "Largest sector, driven by domestic consumption and trade pivot to Asia"
+      },
+      {
+        "sector": "Mining (Oil, Gas, Minerals)",
+        "percentOfGDP": 17,
+        "notes": "Includes crude oil, natural gas, and coal extraction"
+      },
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 13,
+        "notes": "Grew in 2023 due to import substitution and defense spending"
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 7,
+        "notes": "Boosted by infrastructure projects and housing boom"
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 3,
+        "notes": "Russia remains a top global wheat exporter despite small GDP share"
+      },
+      {
+        "sector": "Utilities (Electricity, Gas, Water)",
+        "percentOfGDP": 3,
+        "notes": null
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "Rosstat / CEIC Data 2023",
+          "url": "https://www.ceicdata.com/en/indicator/russia/real-gdp-growth",
+          "accessedAt": "2024-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "SAU",
+    "year": 2023,
+    "gdpUsdBn": 1067.6,
+    "gdpPerCapita": 28844.8,
+    "sectors": [
+      {
+        "sector": "Crude Oil & Natural Gas",
+        "percentOfGDP": 17.1,
+        "notes": "Reflects production cuts under OPEC+ agreements"
+      },
+      {
+        "sector": "Government Services",
+        "percentOfGDP": 14,
+        "notes": "Major employer and driver of public investment"
+      },
+      {
+        "sector": "Wholesale & Retail Trade, Restaurants & Hotels",
+        "percentOfGDP": 12.3,
+        "notes": "High growth driven by tourism and domestic demand"
+      },
+      {
+        "sector": "Manufacturing (excl. oil refining)",
+        "percentOfGDP": 11.1,
+        "notes": "Key pillar of Vision 2030 industrial diversification"
+      },
+      {
+        "sector": "Finance, Insurance, Real Estate & Business Services",
+        "percentOfGDP": 11.1,
+        "notes": null
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 8,
+        "notes": "Driven by Giga-projects like NEOM"
+      },
+      {
+        "sector": "Other Activities (Agri, Transport, Refining, Taxes)",
+        "percentOfGDP": 26.4,
+        "notes": "Includes oil refining and taxes on products (VAT)"
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "General Authority for Statistics (GASTAT) Saudi Arabia 2023",
+          "url": "https://www.stats.gov.sa/",
+          "accessedAt": "2024-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "SGP",
+    "year": 2023,
+    "gdpUsdBn": 501.4,
+    "gdpPerCapita": 84734.4,
+    "sectors": [
+      {
+        "sector": "Wholesale Trade",
+        "percentOfGDP": 22.3,
+        "notes": "Largest sector, reflecting Singapore's status as a global trading hub"
+      },
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 18.6,
+        "notes": "Dominated by electronics, chemicals, and precision engineering"
+      },
+      {
+        "sector": "Finance & Insurance",
+        "percentOfGDP": 13.8,
+        "notes": "Major global financial center"
+      },
+      {
+        "sector": "Other Services Industries",
+        "percentOfGDP": 9.6,
+        "notes": "Includes healthcare, education, and arts"
+      },
+      {
+        "sector": "Transportation & Storage",
+        "percentOfGDP": 6.8,
+        "notes": "Hub for maritime and aviation"
+      },
+      {
+        "sector": "Information & Communications",
+        "percentOfGDP": 5.7,
+        "notes": "Driven by digital transformation"
+      },
+      {
+        "sector": "Professional Services",
+        "percentOfGDP": 5.7,
+        "notes": null
+      },
+      {
+        "sector": "Ownership of Dwellings",
+        "percentOfGDP": 3.6,
+        "notes": null
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 3.5,
+        "notes": null
+      },
+      {
+        "sector": "Real Estate",
+        "percentOfGDP": 3.1,
+        "notes": null
+      },
+      {
+        "sector": "Administrative & Support Services",
+        "percentOfGDP": 2.8,
+        "notes": null
+      },
+      {
+        "sector": "Utilities",
+        "percentOfGDP": 1.5,
+        "notes": null
+      },
+      {
+        "sector": "Retail Trade",
+        "percentOfGDP": 1.3,
+        "notes": null
+      },
+      {
+        "sector": "Food & Beverage Services",
+        "percentOfGDP": 0.9,
+        "notes": null
+      },
+      {
+        "sector": "Accommodation",
+        "percentOfGDP": 0.8,
+        "notes": "Strong recovery in 2023 due to tourism"
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "Ministry of Trade and Industry (MTI) Singapore 2023",
+          "url": "https://www.mti.gov.sg/Resources/Economic-Survey-of-Singapore-2023",
+          "accessedAt": "2024-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "THA",
+    "year": 2023,
+    "gdpUsdBn": 514.95,
+    "gdpPerCapita": 7172,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 58.5,
+        "notes": "Heavily driven by tourism, wholesale/retail trade, and financial services."
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 32.9,
+        "notes": "Major regional hub for automotive, electronics, and machinery manufacturing."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 8.6,
+        "notes": "Leading exporter of rice, rubber, and cassava; employs 1/3 of workforce."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2025-03-07"
+        },
+        {
+          "name": "Bank of Thailand / National Economic and Social Development Council",
+          "url": "https://www.nesdc.go.th/",
+          "accessedAt": "2025-03-07"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-03-07"
+      }
+    }
+  },
+  {
+    "countryId": "TUR",
+    "year": 2023,
+    "gdpUsdBn": 1118.6,
+    "gdpPerCapita": 13110,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 59.2,
+        "notes": "Wholesale & retail trade (13.9%), Transport (9.5%), Tourism (~12%)"
+      },
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 19.5,
+        "notes": "Automotive, textiles, and food processing"
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 6.2,
+        "notes": "1st in Europe for agricultural income"
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 6.4,
+        "notes": "Post-earthquake reconstruction drive"
+      },
+      {
+        "sector": "Mining & Utilities",
+        "percentOfGDP": 8.7,
+        "notes": "Includes energy and water supply"
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Turkish Statistical Institute (TÜİK) 2023",
+          "url": "https://www.tuik.gov.tr/",
+          "accessedAt": "2024-05-14"
+        },
+        {
+          "name": "World Bank DataBank 2023",
+          "url": "https://databank.worldbank.org/",
+          "accessedAt": "2024-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-14"
+      }
+    }
+  },
+  {
+    "countryId": "UKR",
+    "year": 2023,
+    "gdpUsdBn": 181.2,
+    "gdpPerCapita": 5140,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 70.9,
+        "notes": "Includes Public Administration and Defense (approx. 22% of GDP)."
+      },
+      {
+        "sector": "Industry",
+        "percentOfGDP": 19.1,
+        "notes": "Significant impact from destruction of heavy industrial sites."
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 10,
+        "notes": "Remains a critical export sector despite logistics challenges."
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "State Statistics Service of Ukraine (SSSU) / World Bank 2023",
+          "url": "https://ukrstat.gov.ua/",
+          "accessedAt": "2025-02-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-02-14"
+      }
+    }
+  },
+  {
+    "countryId": "USA",
+    "year": 2023,
+    "gdpUsdBn": 27360,
+    "gdpPerCapita": 81695,
+    "sectors": [
+      {
+        "sector": "Real Estate, Rental, & Leasing",
+        "percentOfGDP": 13.9,
+        "notes": "Largest single private sector"
+      },
+      {
+        "sector": "Government",
+        "percentOfGDP": 12,
+        "notes": "Federal, State, and Local"
+      },
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 10.4,
+        "notes": "Durable and nondurable goods"
+      },
+      {
+        "sector": "Professional, Scientific, & Tech Services",
+        "percentOfGDP": 8.1,
+        "notes": null
+      },
+      {
+        "sector": "Health Care & Social Assistance",
+        "percentOfGDP": 7.5,
+        "notes": null
+      },
+      {
+        "sector": "Finance & Insurance",
+        "percentOfGDP": 7.4,
+        "notes": null
+      },
+      {
+        "sector": "Retail Trade",
+        "percentOfGDP": 6.5,
+        "notes": null
+      },
+      {
+        "sector": "Wholesale Trade",
+        "percentOfGDP": 6,
+        "notes": null
+      },
+      {
+        "sector": "Information",
+        "percentOfGDP": 5.4,
+        "notes": null
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 4.5,
+        "notes": null
+      },
+      {
+        "sector": "Transportation & Warehousing",
+        "percentOfGDP": 3.4,
+        "notes": null
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 1,
+        "notes": "Farming, forestry, and fishing"
+      },
+      {
+        "sector": "Mining & Utilities",
+        "percentOfGDP": 2.3,
+        "notes": null
+      },
+      {
+        "sector": "Other Services",
+        "percentOfGDP": 11.6,
+        "notes": "Residual including personal services"
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Bureau of Economic Analysis (BEA) 2023",
+          "url": "https://www.bea.gov/",
+          "accessedAt": "2024-05-14"
+        },
+        {
+          "name": "World Bank",
+          "url": "https://data.worldbank.org/country/united-states",
+          "accessedAt": "2024-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-14"
+      }
+    }
+  },
+  {
+    "countryId": "VNM",
+    "year": 2023,
+    "gdpUsdBn": 430,
+    "gdpPerCapita": 4347,
+    "sectors": [
+      {
+        "sector": "Services",
+        "percentOfGDP": 42.54,
+        "notes": "Driven by retail and tourism recovery"
+      },
+      {
+        "sector": "Industry and Construction",
+        "percentOfGDP": 37.12,
+        "notes": "Electronics and garment exports"
+      },
+      {
+        "sector": "Agriculture, Forestry & Fishing",
+        "percentOfGDP": 11.96,
+        "notes": "Stable economic buffer"
+      },
+      {
+        "sector": "Product Taxes less Subsidies",
+        "percentOfGDP": 8.38,
+        "notes": null
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "GSO Vietnam Statistical Data 2023",
+          "url": "https://www.gso.gov.vn/en/homepage/",
+          "accessedAt": "2025-05-14"
+        },
+        {
+          "name": "World Bank Data 2023",
+          "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=VN",
+          "accessedAt": "2025-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2025-05-14"
+      }
+    }
+  },
+  {
+    "countryId": "ZAF",
+    "year": 2023,
+    "gdpUsdBn": 377.7,
+    "gdpPerCapita": 6191,
+    "sectors": [
+      {
+        "sector": "Finance & Business Services",
+        "percentOfGDP": 24,
+        "notes": "Largest single industry sector"
+      },
+      {
+        "sector": "Government Services",
+        "percentOfGDP": 17,
+        "notes": null
+      },
+      {
+        "sector": "Manufacturing",
+        "percentOfGDP": 12,
+        "notes": null
+      },
+      {
+        "sector": "Trade, Catering & Accommodation",
+        "percentOfGDP": 13,
+        "notes": null
+      },
+      {
+        "sector": "Mining & Quarrying",
+        "percentOfGDP": 6.2,
+        "notes": "Key export sector, impacted by logistics"
+      },
+      {
+        "sector": "Transport & Communication",
+        "percentOfGDP": 8,
+        "notes": "Grew by 4.3% in 2023"
+      },
+      {
+        "sector": "Personal Services",
+        "percentOfGDP": 6,
+        "notes": null
+      },
+      {
+        "sector": "Agriculture",
+        "percentOfGDP": 2.6,
+        "notes": "Contracted by 12.2% in 2023"
+      },
+      {
+        "sector": "Construction",
+        "percentOfGDP": 2.5,
+        "notes": "First positive growth since 2016"
+      },
+      {
+        "sector": "Utilities",
+        "percentOfGDP": 8.7,
+        "notes": "Includes Electricity, Gas & Water"
+      }
+    ],
+    "attribution": {
+      "sources": [
+        {
+          "name": "Statistics South Africa (Stats SA) 2023",
+          "url": "https://www.statssa.gov.za/",
+          "accessedAt": "2024-05-14"
+        },
+        {
+          "name": "World Bank",
+          "url": "https://data.worldbank.org/country/south-africa",
+          "accessedAt": "2024-05-14"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 2,
+        "lastVerified": "2024-05-14"
+      }
+    }
+  }
+]

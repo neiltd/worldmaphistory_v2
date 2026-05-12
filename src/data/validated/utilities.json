@@ -1,0 +1,1640 @@
+[
+  {
+    "countryId": "ARE",
+    "year": 2023,
+    "electricityConsumptionTWh": 158,
+    "electricityProductionTWh": 165,
+    "electricityMix": {
+      "gas": 71.1,
+      "nuclear": 19.7,
+      "solar": 8.6,
+      "oil": 0.5,
+      "other": 0.1
+    },
+    "renewableSharePct": 8.6,
+    "waterStressScore": 5,
+    "waterWithdrawalPct": 1510,
+    "foodSecurityScore": 75.2,
+    "aiAdoptionScore": 42,
+    "internetPenetration": 99,
+    "mobilePenetration": 200.9,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA World Energy Balances 2023",
+          "url": "https://www.iea.org/data-and-statistics/data-product/world-energy-balances",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "Ember Global Electricity Review 2024",
+          "url": "https://ember-climate.org/countries-and-regions/countries/united-arab-emirates/",
+          "accessedAt": "2024-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2024-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "ARG",
+    "year": 2023,
+    "electricityConsumptionTWh": 159.9,
+    "electricityProductionTWh": 148.6,
+    "electricityMix": {
+      "gas": 48.9,
+      "hydro": 24.5,
+      "wind": 10.6,
+      "nuclear": 7.3,
+      "oil": 3.6,
+      "solar": 2.6,
+      "otherRenewables": 1.7,
+      "coal": 0.8
+    },
+    "renewableSharePct": 39.4,
+    "waterStressScore": 1.8,
+    "waterWithdrawalPct": 10.46,
+    "foodSecurityScore": 64.8,
+    "aiAdoptionScore": 57.72,
+    "internetPenetration": 87.2,
+    "mobilePenetration": 133.7,
+    "attribution": {
+      "sources": [
+        {
+          "name": "Ember Electricity Data Explorer 2024",
+          "url": "https://ember-energy.org/data/electricity-data-explorer/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "BGD",
+    "year": 2023,
+    "electricityConsumptionTWh": 107.3,
+    "electricityProductionTWh": 100.9,
+    "electricityMix": {
+      "gas": 65.8,
+      "oil": 21.7,
+      "coal": 10.6,
+      "solar": 1.3,
+      "hydro": 0.6
+    },
+    "renewableSharePct": 1.9,
+    "waterStressScore": 0.21,
+    "waterWithdrawalPct": 5.72,
+    "foodSecurityScore": 54,
+    "aiAdoptionScore": 46.04,
+    "internetPenetration": 38.9,
+    "mobilePenetration": 104,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA Bangladesh Profile 2023",
+          "url": "https://www.iea.org/countries/bangladesh",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "World Bank Data: Level of water stress",
+          "url": "https://data.worldbank.org/indicator/ER.H2O.FWST.ZS",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "BRA",
+    "year": 2023,
+    "electricityConsumptionTWh": 608.5,
+    "electricityProductionTWh": 708.1,
+    "electricityMix": {
+      "hydro": 60,
+      "wind": 15,
+      "solar": 10,
+      "otherRenewables": 8.5,
+      "nuclear": 2,
+      "gas": 4.5
+    },
+    "renewableSharePct": 93.5,
+    "waterStressScore": 1,
+    "waterWithdrawalPct": 1.5,
+    "foodSecurityScore": 65.1,
+    "aiAdoptionScore": 63.7,
+    "internetPenetration": 88,
+    "mobilePenetration": 102.4,
+    "attribution": {
+      "sources": [
+        {
+          "name": "Ember Electricity Data Explorer 2024",
+          "url": "https://ember-energy.org/data/electricity-data-explorer/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "CHN",
+    "year": 2023,
+    "electricityConsumptionTWh": 9224,
+    "electricityProductionTWh": 9456,
+    "electricityMix": {
+      "coal": 60.5,
+      "hydro": 13,
+      "wind": 9.5,
+      "solar": 6.5,
+      "nuclear": 5,
+      "gas": 3,
+      "otherRenewables": 2.5
+    },
+    "renewableSharePct": 31.5,
+    "waterStressScore": 3.5,
+    "waterWithdrawalPct": 40,
+    "foodSecurityScore": 74.2,
+    "aiAdoptionScore": 72,
+    "internetPenetration": 77.5,
+    "mobilePenetration": 119.5,
+    "attribution": {
+      "sources": [
+        {
+          "name": "China Electricity Council 2023",
+          "url": "https://english.cec.org.cn/",
+          "accessedAt": "2024-05-24"
+        },
+        {
+          "name": "WRI Aqueduct Water Risk Atlas",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-24"
+        },
+        {
+          "name": "Global Food Security Index 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-24"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2024-05-24"
+      }
+    }
+  },
+  {
+    "countryId": "DEU",
+    "year": 2023,
+    "electricityConsumptionTWh": 457,
+    "electricityProductionTWh": 436.8,
+    "electricityMix": {
+      "wind": 32.5,
+      "coal": 26,
+      "solar": 13.7,
+      "otherRenewables": 11.2,
+      "gas": 10.5,
+      "hydro": 4.5,
+      "nuclear": 1.5,
+      "oil": 0.1
+    },
+    "renewableSharePct": 61.9,
+    "waterStressScore": 2,
+    "waterWithdrawalPct": 31.5,
+    "foodSecurityScore": 77,
+    "aiAdoptionScore": 75.26,
+    "internetPenetration": 93.5,
+    "mobilePenetration": 128,
+    "attribution": {
+      "sources": [
+        {
+          "name": "Fraunhofer ISE Energy Charts 2023",
+          "url": "https://www.energy-charts.info",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "Global Food Security Index 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "Oxford Insights AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com",
+          "accessedAt": "2024-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2024-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "EGY",
+    "year": 2023,
+    "electricityConsumptionTWh": 195,
+    "electricityProductionTWh": 222,
+    "electricityMix": {
+      "gas": 82.5,
+      "oil": 6,
+      "hydro": 6.5,
+      "solar": 2.5,
+      "wind": 2.5
+    },
+    "renewableSharePct": 11.5,
+    "waterStressScore": 5,
+    "waterWithdrawalPct": 100,
+    "foodSecurityScore": 56,
+    "aiAdoptionScore": 52.7,
+    "internetPenetration": 72.2,
+    "mobilePenetration": 93.9,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA World Energy Balances 2023",
+          "url": "https://www.iea.org/data-and-statistics/data-product/world-energy-balances",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "Ember Global Electricity Review 2024",
+          "url": "https://ember-climate.org/countries-and-regions/countries/egypt/",
+          "accessedAt": "2024-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2024-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "ETH",
+    "year": 2023,
+    "electricityConsumptionTWh": 16.5,
+    "electricityProductionTWh": 18.3,
+    "electricityMix": {
+      "hydro": 96.5,
+      "wind": 3.3,
+      "solar": 0.2
+    },
+    "renewableSharePct": 100,
+    "waterStressScore": 0.81,
+    "waterWithdrawalPct": 8.6,
+    "foodSecurityScore": 44.5,
+    "aiAdoptionScore": 31.43,
+    "internetPenetration": 19.4,
+    "mobilePenetration": 60.4,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA World Energy Balances 2024",
+          "url": "https://www.iea.org/data-and-statistics/data-product/world-energy-balances",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "DataReportal Digital 2024: Ethiopia",
+          "url": "https://datareportal.com/reports/digital-2024-ethiopia",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "FRA",
+    "year": 2023,
+    "electricityConsumptionTWh": 445.4,
+    "electricityProductionTWh": 494.7,
+    "electricityMix": {
+      "nuclear": 64.73,
+      "hydro": 11.9,
+      "wind": 10.2,
+      "gas": 6.1,
+      "solar": 4.6,
+      "otherRenewables": 1.9,
+      "oil": 0.4,
+      "coal": 0.17
+    },
+    "renewableSharePct": 28.6,
+    "waterStressScore": 1.6,
+    "waterWithdrawalPct": 16.5,
+    "foodSecurityScore": 80.2,
+    "aiAdoptionScore": 76.07,
+    "internetPenetration": 93.5,
+    "mobilePenetration": 110,
+    "attribution": {
+      "sources": [
+        {
+          "name": "RTE France Electricity Report 2023",
+          "url": "https://www.rte-france.com",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "Global Food Security Index 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "Oxford Insights AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com",
+          "accessedAt": "2024-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2024-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "GBR",
+    "year": 2023,
+    "electricityConsumptionTWh": 259,
+    "electricityProductionTWh": 235,
+    "electricityMix": {
+      "gas": 31,
+      "wind": 29.4,
+      "nuclear": 14.2,
+      "otherRenewables": 5,
+      "solar": 4.9,
+      "hydro": 1.8,
+      "coal": 1,
+      "other": 12.7
+    },
+    "renewableSharePct": 41.1,
+    "waterStressScore": 1.5,
+    "waterWithdrawalPct": 13.8,
+    "foodSecurityScore": 78.8,
+    "aiAdoptionScore": 78.5,
+    "internetPenetration": 97.8,
+    "mobilePenetration": 129.6,
+    "attribution": {
+      "sources": [
+        {
+          "name": "National Grid ESO 2023",
+          "url": "https://www.nationalgrideso.com/news/britains-electricity-explained-2023-review",
+          "accessedAt": "2024-05-24"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-24"
+        },
+        {
+          "name": "Global Food Security Index 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-24"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2024-05-24"
+      }
+    }
+  },
+  {
+    "countryId": "IDN",
+    "year": 2023,
+    "electricityConsumptionTWh": 346,
+    "electricityProductionTWh": 366.5,
+    "electricityMix": {
+      "coal": 65.5,
+      "gas": 13,
+      "oil": 2,
+      "hydro": 6.9,
+      "otherRenewables": 12.1,
+      "solar": 0.5
+    },
+    "renewableSharePct": 19.5,
+    "waterStressScore": 1.65,
+    "waterWithdrawalPct": 29.7,
+    "foodSecurityScore": 60.2,
+    "aiAdoptionScore": 61.03,
+    "internetPenetration": 77,
+    "mobilePenetration": 128,
+    "attribution": {
+      "sources": [
+        {
+          "name": "Ember Electricity Data Explorer 2024",
+          "url": "https://ember-energy.org/data/electricity-data-explorer/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "IND",
+    "year": 2023,
+    "electricityConsumptionTWh": 1623,
+    "electricityProductionTWh": 1919,
+    "electricityMix": {
+      "coal": 74.9,
+      "hydro": 7.8,
+      "solar": 5.9,
+      "wind": 4.3,
+      "nuclear": 2.5,
+      "gas": 1.6,
+      "otherRenewables": 3
+    },
+    "renewableSharePct": 21,
+    "waterStressScore": 4.2,
+    "waterWithdrawalPct": 85,
+    "foodSecurityScore": 58.9,
+    "aiAdoptionScore": 59,
+    "internetPenetration": 55,
+    "mobilePenetration": 77,
+    "attribution": {
+      "sources": [
+        {
+          "name": "Ember India Electricity Review 2023",
+          "url": "https://www.ember-energy.org/data/global-electricity/",
+          "accessedAt": "2024-05-24"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-24"
+        },
+        {
+          "name": "Global Food Security Index 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-24"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2024-05-24"
+      }
+    }
+  },
+  {
+    "countryId": "IRN",
+    "year": 2023,
+    "electricityConsumptionTWh": 335,
+    "electricityProductionTWh": 383,
+    "electricityMix": {
+      "gas": 85,
+      "oil": 12.4,
+      "hydro": 1.8,
+      "solar": 0.5,
+      "nuclear": 0.3
+    },
+    "renewableSharePct": 2.3,
+    "waterStressScore": 4.91,
+    "waterWithdrawalPct": 92,
+    "foodSecurityScore": 51,
+    "aiAdoptionScore": 7,
+    "internetPenetration": 78.6,
+    "mobilePenetration": 142.8,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA World Energy Balances 2023",
+          "url": "https://www.iea.org/data-and-statistics/data-product/world-energy-balances",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "Ember Global Electricity Review 2024",
+          "url": "https://ember-climate.org/countries-and-regions/countries/iran/",
+          "accessedAt": "2024-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "medium",
+        "sourceCount": 3,
+        "lastVerified": "2024-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "ISR",
+    "year": 2023,
+    "electricityConsumptionTWh": 64,
+    "electricityProductionTWh": 74.4,
+    "electricityMix": {
+      "gas": 70.5,
+      "coal": 18,
+      "solar": 11,
+      "wind": 0.5
+    },
+    "renewableSharePct": 11.5,
+    "waterStressScore": 5,
+    "waterWithdrawalPct": 48,
+    "foodSecurityScore": 74.8,
+    "aiAdoptionScore": 65.5,
+    "internetPenetration": 90.3,
+    "mobilePenetration": 116.9,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA World Energy Balances 2023",
+          "url": "https://www.iea.org/data-and-statistics/data-product/world-energy-balances",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "Ember Global Electricity Review 2024",
+          "url": "https://ember-climate.org/countries-and-regions/countries/israel/",
+          "accessedAt": "2024-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2024-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "JPN",
+    "year": 2023,
+    "electricityConsumptionTWh": 981.5,
+    "electricityProductionTWh": 1006.7,
+    "electricityMix": {
+      "gas": 29,
+      "coal": 28.3,
+      "solar": 11.2,
+      "oil": 9.3,
+      "nuclear": 7.7,
+      "hydro": 7.5,
+      "otherRenewables": 5.7,
+      "other": 1.3
+    },
+    "renewableSharePct": 25.7,
+    "waterStressScore": 1.8,
+    "waterWithdrawalPct": 18,
+    "foodSecurityScore": 79.5,
+    "aiAdoptionScore": 75.08,
+    "internetPenetration": 91,
+    "mobilePenetration": 160,
+    "attribution": {
+      "sources": [
+        {
+          "name": "ISEP Japan Energy Mix 2023",
+          "url": "https://www.isep.or.jp",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "Global Food Security Index 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "Oxford Insights AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com",
+          "accessedAt": "2024-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2024-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "KAZ",
+    "year": 2023,
+    "electricityConsumptionTWh": 106.2,
+    "electricityProductionTWh": 112.7,
+    "electricityMix": {
+      "coal": 58.4,
+      "gas": 28.5,
+      "hydro": 7.8,
+      "wind": 3.3,
+      "solar": 1.6,
+      "other": 0.4
+    },
+    "renewableSharePct": 12.7,
+    "waterStressScore": 2.55,
+    "waterWithdrawalPct": 26,
+    "foodSecurityScore": 72.1,
+    "aiAdoptionScore": 51.01,
+    "internetPenetration": 90.9,
+    "mobilePenetration": 130.5,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA Kazakhstan Country Profile 2023",
+          "url": "https://www.iea.org/countries/kazakhstan",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "GFSI 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2025-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2025-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "KEN",
+    "year": 2023,
+    "electricityConsumptionTWh": 10,
+    "electricityProductionTWh": 12.9,
+    "electricityMix": {
+      "hydro": 28.3,
+      "wind": 14,
+      "solar": 3.6,
+      "oil": 8.8,
+      "otherRenewables": 2.1,
+      "other": 43.2
+    },
+    "renewableSharePct": 91.2,
+    "waterStressScore": 0.73,
+    "waterWithdrawalPct": 10.5,
+    "foodSecurityScore": 53,
+    "aiAdoptionScore": 40.19,
+    "internetPenetration": 40.8,
+    "mobilePenetration": 118.7,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA World Energy Balances 2024",
+          "url": "https://www.iea.org/data-and-statistics/data-product/world-energy-balances",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "Kenya EPRA Energy Statistics 2023",
+          "url": "https://www.epra.go.ke/statistics/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "DataReportal Digital 2024: Kenya",
+          "url": "https://datareportal.com/reports/digital-2024-kenya",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 5,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "KOR",
+    "year": 2023,
+    "electricityConsumptionTWh": 575.36,
+    "electricityProductionTWh": 595.05,
+    "electricityMix": {
+      "coal": 32,
+      "nuclear": 30.7,
+      "gas": 27,
+      "solar": 7,
+      "otherRenewables": 2.3,
+      "oil": 1
+    },
+    "renewableSharePct": 9.3,
+    "waterStressScore": 2.7,
+    "waterWithdrawalPct": 27,
+    "foodSecurityScore": 70.2,
+    "aiAdoptionScore": 75.65,
+    "internetPenetration": 97.5,
+    "mobilePenetration": 135,
+    "attribution": {
+      "sources": [
+        {
+          "name": "Ember Global Electricity Review 2024 (South Korea)",
+          "url": "https://ember-energy.org",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "Global Food Security Index 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "Oxford Insights AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com",
+          "accessedAt": "2024-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2024-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "MEX",
+    "year": 2023,
+    "electricityConsumptionTWh": 354.6,
+    "electricityProductionTWh": 351,
+    "electricityMix": {
+      "gas": 59,
+      "coal": 4.5,
+      "oil": 10,
+      "solar": 6,
+      "wind": 7,
+      "hydro": 8.5,
+      "nuclear": 3.5,
+      "otherRenewables": 1.5
+    },
+    "renewableSharePct": 23,
+    "waterStressScore": 4.1,
+    "waterWithdrawalPct": 44.95,
+    "foodSecurityScore": 69.1,
+    "aiAdoptionScore": 50.37,
+    "internetPenetration": 81.2,
+    "mobilePenetration": 96.5,
+    "attribution": {
+      "sources": [
+        {
+          "name": "Ember Electricity Data Explorer 2024",
+          "url": "https://ember-energy.org/data/electricity-data-explorer/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "MYS",
+    "year": 2023,
+    "electricityConsumptionTWh": 152.5,
+    "electricityProductionTWh": 189,
+    "electricityMix": {
+      "coal": 44,
+      "gas": 36,
+      "hydro": 16.5,
+      "solar": 1.7,
+      "oil": 1.1,
+      "otherRenewables": 0.7
+    },
+    "renewableSharePct": 18.9,
+    "waterStressScore": 1.03,
+    "waterWithdrawalPct": 3.44,
+    "foodSecurityScore": 69.9,
+    "aiAdoptionScore": 68.71,
+    "internetPenetration": 96.8,
+    "mobilePenetration": 129.1,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA Malaysia Profile 2023",
+          "url": "https://www.iea.org/countries/malaysia",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "DataReportal Digital 2023: Malaysia",
+          "url": "https://datareportal.com/reports/digital-2023-malaysia",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "NGA",
+    "year": 2023,
+    "electricityConsumptionTWh": 42.5,
+    "electricityProductionTWh": 42.5,
+    "electricityMix": {
+      "gas": 75,
+      "hydro": 24,
+      "solar": 1
+    },
+    "renewableSharePct": 25,
+    "waterStressScore": 3.09,
+    "waterWithdrawalPct": null,
+    "foodSecurityScore": 42,
+    "aiAdoptionScore": 33.58,
+    "internetPenetration": 55.4,
+    "mobilePenetration": 87.7,
+    "attribution": {
+      "sources": [
+        {
+          "name": "Ember Nigeria Energy Profile 2023",
+          "url": "https://ember-energy.org/data/nigeria",
+          "accessedAt": "2024-05-22"
+        },
+        {
+          "name": "WRI Aqueduct 3.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-22"
+        },
+        {
+          "name": "GFSI 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-22"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2024-05-22"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2024-05-22"
+      }
+    }
+  },
+  {
+    "countryId": "NLD",
+    "year": 2023,
+    "electricityConsumptionTWh": 114.3,
+    "electricityProductionTWh": 120,
+    "electricityMix": {
+      "coal": 7.5,
+      "gas": 39,
+      "nuclear": 3.5,
+      "wind": 24.2,
+      "solar": 17.5,
+      "otherRenewables": 5.8,
+      "other": 2.5
+    },
+    "renewableSharePct": 47.5,
+    "waterStressScore": 4,
+    "waterWithdrawalPct": 80,
+    "foodSecurityScore": 80.1,
+    "aiAdoptionScore": 74.47,
+    "internetPenetration": 99,
+    "mobilePenetration": 132.1,
+    "attribution": {
+      "sources": [
+        {
+          "name": "CBS Statistics Netherlands 2023",
+          "url": "https://www.cbs.nl/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "Ember World Electricity Review 2024",
+          "url": "https://ember-energy.org/project/world-electricity-review-2024/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "GFSI 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2025-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2025-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "PAK",
+    "year": 2023,
+    "electricityConsumptionTWh": 145.36,
+    "electricityProductionTWh": 150.98,
+    "electricityMix": {
+      "gas": 27.7,
+      "hydro": 26.8,
+      "nuclear": 17.3,
+      "coal": 12.8,
+      "oil": 11.4,
+      "wind": 2.7,
+      "solar": 0.7,
+      "otherRenewables": 0.6
+    },
+    "renewableSharePct": 30.8,
+    "waterStressScore": 3.79,
+    "waterWithdrawalPct": 80,
+    "foodSecurityScore": 52.2,
+    "aiAdoptionScore": 42.2,
+    "internetPenetration": 36.7,
+    "mobilePenetration": 80.5,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA World Energy Balances 2023",
+          "url": "https://www.iea.org/data-and-statistics/data-product/world-energy-balances",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "WRI Aqueduct 4.0 (2023)",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Economist Impact Global Food Security Index 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2025-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2025-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "PHL",
+    "year": 2023,
+    "electricityConsumptionTWh": 118.4,
+    "electricityProductionTWh": 118.4,
+    "electricityMix": {
+      "coal": 61.9,
+      "gas": 12,
+      "otherRenewables": 12,
+      "hydro": 8.7,
+      "solar": 2.5,
+      "oil": 2.2,
+      "wind": 0.7
+    },
+    "renewableSharePct": 23.9,
+    "waterStressScore": 2.33,
+    "waterWithdrawalPct": null,
+    "foodSecurityScore": 59.3,
+    "aiAdoptionScore": 51.98,
+    "internetPenetration": 73.1,
+    "mobilePenetration": 144.5,
+    "attribution": {
+      "sources": [
+        {
+          "name": "Ember Global Electricity Review 2024",
+          "url": "https://ember-energy.org/data/global-electricity-review-2024/",
+          "accessedAt": "2024-05-22"
+        },
+        {
+          "name": "WRI Aqueduct 3.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-22"
+        },
+        {
+          "name": "GFSI 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-22"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2024-05-22"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2024-05-22"
+      }
+    }
+  },
+  {
+    "countryId": "POL",
+    "year": 2023,
+    "electricityConsumptionTWh": 168,
+    "electricityProductionTWh": 165,
+    "electricityMix": {
+      "coal": 61,
+      "gas": 8.5,
+      "oil": 1.7,
+      "wind": 14.6,
+      "solar": 8.7,
+      "hydro": 1.3,
+      "otherRenewables": 2.4,
+      "other": 1.8
+    },
+    "renewableSharePct": 27,
+    "waterStressScore": 2.05,
+    "waterWithdrawalPct": 15,
+    "foodSecurityScore": 75.5,
+    "aiAdoptionScore": 63.1,
+    "internetPenetration": 88.4,
+    "mobilePenetration": 127.7,
+    "attribution": {
+      "sources": [
+        {
+          "name": "Ember European Electricity Review 2024",
+          "url": "https://ember-energy.org/project/european-electricity-review-2024/",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "GFSI 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2025-05-10"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2025-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2025-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "RUS",
+    "year": 2023,
+    "electricityConsumptionTWh": 1162,
+    "electricityProductionTWh": 1162,
+    "electricityMix": {
+      "gas": 46,
+      "nuclear": 19,
+      "hydro": 18,
+      "coal": 16,
+      "wind": 0.4,
+      "solar": 0.2,
+      "otherRenewables": 0.4
+    },
+    "renewableSharePct": 19,
+    "waterStressScore": 0.91,
+    "waterWithdrawalPct": 4.1,
+    "foodSecurityScore": 61.4,
+    "aiAdoptionScore": 62.9,
+    "internetPenetration": 88.2,
+    "mobilePenetration": 156.9,
+    "attribution": {
+      "sources": [
+        {
+          "name": "Ember Global Electricity Review 2023",
+          "url": "https://www.ember-energy.org/data/global-electricity/",
+          "accessedAt": "2024-05-24"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-24"
+        },
+        {
+          "name": "Global Food Security Index 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-24"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2024-05-24"
+      }
+    }
+  },
+  {
+    "countryId": "SAU",
+    "year": 2023,
+    "electricityConsumptionTWh": 403.3,
+    "electricityProductionTWh": 453,
+    "electricityMix": {
+      "gas": 62,
+      "oil": 37.3,
+      "solar": 0.7
+    },
+    "renewableSharePct": 0.7,
+    "waterStressScore": 5,
+    "waterWithdrawalPct": 300,
+    "foodSecurityScore": 69.9,
+    "aiAdoptionScore": 27.6,
+    "internetPenetration": 99,
+    "mobilePenetration": 115.9,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA World Energy Balances 2023",
+          "url": "https://www.iea.org/data-and-statistics/data-product/world-energy-balances",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-15"
+        },
+        {
+          "name": "GFSI 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2024-05-15"
+      }
+    }
+  },
+  {
+    "countryId": "SGP",
+    "year": 2023,
+    "electricityConsumptionTWh": 57,
+    "electricityProductionTWh": 57,
+    "electricityMix": {
+      "gas": 94.3,
+      "solar": 2,
+      "other": 3.7
+    },
+    "renewableSharePct": 2,
+    "waterStressScore": 5,
+    "waterWithdrawalPct": null,
+    "foodSecurityScore": 73.1,
+    "aiAdoptionScore": 81.97,
+    "internetPenetration": 96.9,
+    "mobilePenetration": 153.8,
+    "attribution": {
+      "sources": [
+        {
+          "name": "EMA Singapore Energy Statistics 2023",
+          "url": "https://www.ema.gov.sg/singapore-energy-statistics",
+          "accessedAt": "2024-05-22"
+        },
+        {
+          "name": "WRI Aqueduct 3.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-22"
+        },
+        {
+          "name": "GFSI 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-22"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2024-05-22"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2024-05-22"
+      }
+    }
+  },
+  {
+    "countryId": "THA",
+    "year": 2023,
+    "electricityConsumptionTWh": 203.88,
+    "electricityProductionTWh": 195.98,
+    "electricityMix": {
+      "gas": 64.2,
+      "coal": 14.6,
+      "hydro": 3,
+      "solar": 1.4,
+      "wind": 0.2,
+      "otherRenewables": 5.8,
+      "other": 10.8
+    },
+    "renewableSharePct": 10.4,
+    "waterStressScore": 1.5,
+    "waterWithdrawalPct": 23.01,
+    "foodSecurityScore": 60.1,
+    "aiAdoptionScore": 63.03,
+    "internetPenetration": 85.3,
+    "mobilePenetration": 141,
+    "attribution": {
+      "sources": [
+        {
+          "name": "EPPO Thailand Energy Statistics 2023",
+          "url": "http://www.eppo.go.th/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "TUR",
+    "year": 2023,
+    "electricityConsumptionTWh": 285.2,
+    "electricityProductionTWh": 319,
+    "electricityMix": {
+      "coal": 37,
+      "gas": 21,
+      "hydro": 20,
+      "wind": 10.5,
+      "solar": 6,
+      "otherRenewables": 5.5
+    },
+    "renewableSharePct": 42,
+    "waterStressScore": 4.27,
+    "waterWithdrawalPct": 85,
+    "foodSecurityScore": 65.3,
+    "aiAdoptionScore": 53.34,
+    "internetPenetration": 85.5,
+    "mobilePenetration": 95,
+    "attribution": {
+      "sources": [
+        {
+          "name": "Ember Electricity Mix Turkey 2023",
+          "url": "https://ember-energy.org",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "Global Food Security Index 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-10"
+        },
+        {
+          "name": "Oxford Insights AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com",
+          "accessedAt": "2024-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2024-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "UKR",
+    "year": 2023,
+    "electricityConsumptionTWh": 93,
+    "electricityProductionTWh": 103,
+    "electricityMix": {
+      "coal": 21.7,
+      "gas": 11,
+      "nuclear": 50.1,
+      "hydro": 11,
+      "solar": 4.4,
+      "wind": 1,
+      "otherRenewables": 0.8
+    },
+    "renewableSharePct": 17.2,
+    "waterStressScore": 2.1,
+    "waterWithdrawalPct": 8.5,
+    "foodSecurityScore": 57.9,
+    "aiAdoptionScore": 53.29,
+    "internetPenetration": 79.2,
+    "mobilePenetration": 148.7,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA World Energy Balances 2023/2024",
+          "url": "https://www.iea.org/data-and-statistics/data-product/world-energy-balances",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "DataReportal Digital 2024: Ukraine",
+          "url": "https://datareportal.com/reports/digital-2024-ukraine",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "USA",
+    "year": 2023,
+    "electricityConsumptionTWh": 4085,
+    "electricityProductionTWh": 4178,
+    "electricityMix": {
+      "gas": 43.1,
+      "nuclear": 18.6,
+      "coal": 16.2,
+      "wind": 10.2,
+      "hydro": 5.7,
+      "solar": 5.6,
+      "otherRenewables": 0.6
+    },
+    "renewableSharePct": 22.1,
+    "waterStressScore": 1.5,
+    "waterWithdrawalPct": 19,
+    "foodSecurityScore": 78,
+    "aiAdoptionScore": 55,
+    "internetPenetration": 91.8,
+    "mobilePenetration": 113.1,
+    "attribution": {
+      "sources": [
+        {
+          "name": "EIA Total Electricity Consumption 2023",
+          "url": "https://www.eia.gov/electricity/annual/",
+          "accessedAt": "2024-05-24"
+        },
+        {
+          "name": "WRI Aqueduct Water Risk Atlas",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2024-05-24"
+        },
+        {
+          "name": "Global Food Security Index 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2024-05-24"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 3,
+        "lastVerified": "2024-05-24"
+      }
+    }
+  },
+  {
+    "countryId": "VNM",
+    "year": 2023,
+    "electricityConsumptionTWh": 251.3,
+    "electricityProductionTWh": 280.6,
+    "electricityMix": {
+      "coal": 46.2,
+      "hydro": 28.8,
+      "gas": 9.4,
+      "solar": 9.2,
+      "wind": 4.1,
+      "oil": 0.5,
+      "otherRenewables": 0.3,
+      "other": 1.5
+    },
+    "renewableSharePct": 42.4,
+    "waterStressScore": 1.5,
+    "waterWithdrawalPct": 18.1,
+    "foodSecurityScore": 67.9,
+    "aiAdoptionScore": 54.5,
+    "internetPenetration": 79.1,
+    "mobilePenetration": 164,
+    "attribution": {
+      "sources": [
+        {
+          "name": "EVN Annual Report 2023",
+          "url": "https://www.evn.com.vn/",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "WRI Aqueduct 4.0",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "GFSI 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2026-05-10"
+        },
+        {
+          "name": "DataReportal Digital 2023: Vietnam",
+          "url": "https://datareportal.com/reports/digital-2023-vietnam",
+          "accessedAt": "2026-05-10"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2026-05-10"
+      }
+    }
+  },
+  {
+    "countryId": "ZAF",
+    "year": 2023,
+    "electricityConsumptionTWh": 206,
+    "electricityProductionTWh": 229.3,
+    "electricityMix": {
+      "coal": 81.8,
+      "wind": 5.1,
+      "nuclear": 3.7,
+      "hydro": 2.9,
+      "solar": 2.3,
+      "other": 4.2
+    },
+    "renewableSharePct": 10.3,
+    "waterStressScore": 4.17,
+    "waterWithdrawalPct": 85,
+    "foodSecurityScore": 61.7,
+    "aiAdoptionScore": 47.28,
+    "internetPenetration": 72.3,
+    "mobilePenetration": 187.4,
+    "attribution": {
+      "sources": [
+        {
+          "name": "IEA World Energy Balances 2023",
+          "url": "https://www.iea.org/data-and-statistics/data-product/world-energy-balances",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "WRI Aqueduct 4.0 (2023)",
+          "url": "https://www.wri.org/aqueduct",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Economist Impact Global Food Security Index 2022",
+          "url": "https://impact.economist.com/sustainability/project/food-security-index",
+          "accessedAt": "2025-05-15"
+        },
+        {
+          "name": "Oxford Insights Government AI Readiness Index 2023",
+          "url": "https://oxfordinsights.com/government-ai-readiness-index-2023/",
+          "accessedAt": "2025-05-15"
+        }
+      ],
+      "confidence": {
+        "confidence": "high",
+        "sourceCount": 4,
+        "lastVerified": "2025-05-15"
+      }
+    }
+  }
+]
