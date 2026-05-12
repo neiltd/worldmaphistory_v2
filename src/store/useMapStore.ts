@@ -4,6 +4,7 @@ import type { Conflict } from '../types/conflict'
 
 export type IndicatorKey =
   | 'none'
+  // ── Geopolitical (1–10 scale, higher = better) ──
   | 'politicalStability'
   | 'economicDirection'
   | 'investmentAttractiveness'
@@ -11,6 +12,13 @@ export type IndicatorKey =
   | 'educationQuality'
   | 'healthcareQuality'
   | 'technologyInvestment'
+  // ── Energy (0–100%, normalised to 0–10) ──
+  | 'renewableShare'      // higher = cleaner grid ↑
+  | 'fossilFuelShare'     // higher = more fossil ↓ (inverted)
+  | 'nuclearShare'        // higher = more nuclear
+  // ── Food & Resources (normalised to 0–10) ──
+  | 'foodSecurityScore'   // GFSI 0–100, higher = more secure ↑
+  | 'waterStressScore'    // Aqueduct 0–5, higher = more stress ↓ (inverted)
 
 export const INDICATOR_LABELS: Record<IndicatorKey, string> = {
   none:                     'No heatmap',
@@ -21,7 +29,22 @@ export const INDICATOR_LABELS: Record<IndicatorKey, string> = {
   educationQuality:         'Education Quality',
   healthcareQuality:        'Healthcare Quality',
   technologyInvestment:     'Technology Investment',
+  renewableShare:           'Renewable Energy %',
+  fossilFuelShare:          'Fossil Fuel % ↓',
+  nuclearShare:             'Nuclear Energy %',
+  foodSecurityScore:        'Food Security (GFSI)',
+  waterStressScore:         'Water Stress ↓',
 }
+
+// Groups for the heatmap selector UI
+export const INDICATOR_GROUPS: { label: string; keys: IndicatorKey[] }[] = [
+  { label: 'Geopolitical', keys: ['politicalStability','economicDirection','investmentAttractiveness','geopoliticalRisk','educationQuality','healthcareQuality','technologyInvestment'] },
+  { label: 'Energy',       keys: ['renewableShare','fossilFuelShare','nuclearShare'] },
+  { label: 'Food & Water', keys: ['foodSecurityScore','waterStressScore'] },
+]
+
+// Indicators where HIGH score = BAD (color scale is inverted — red on top)
+export const INVERTED_INDICATORS = new Set<IndicatorKey>(['fossilFuelShare', 'waterStressScore'])
 
 interface MapStore {
   // Country selection

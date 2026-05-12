@@ -4,8 +4,10 @@ import type { MapMouseEvent, MapEvent } from 'react-map-gl/maplibre'
 import 'maplibre-gl/dist/maplibre-gl.css'
 // @ts-expect-error topojson-client has no bundled types
 import * as topojson from 'topojson-client'
-import { useMapStore } from '../../store/useMapStore'
-import indicatorsIndex from '../../data/indicators-index.json'
+import { useMapStore, INVERTED_INDICATORS } from '../../store/useMapStore'
+import indicatorsIndex  from '../../data/indicators-index.json'
+import utilitiesData    from '../../data/validated/utilities.json'
+import foodSecurityData from '../../data/validated/food-security.json'
 import ConflictZoneLayer from '../../layers/geopolitical/ConflictZoneLayer'
 import TradeRouteLayer   from '../../layers/economic/TradeRouteLayer'
 import AirportLayer      from '../../layers/infrastructure/AirportLayer'
@@ -49,8 +51,37 @@ const NUM_TO_ISO3: Record<string, string> = {
 }
 
 type IndicatorsMap = Record<string, Record<string, number>>
-const allIndicators = indicatorsIndex as IndicatorsMap
 
+// ── Extended heatmap index — merges geopolitical indicators + energy + food ──
+// All values normalised to 0–10 so scoreToColor works uniformly.
+const allIndicators: IndicatorsMap = { ...(indicatorsIndex as IndicatorsMap) }
+
+// Energy mix from utilities.json
+for (const u of utilitiesData as any[]) {
+  const mix = u.electricityMix as Record<string, number | null> | null
+  if (!mix || !u.countryId) continue
+  const renewable = (mix.solar ?? 0) + (mix.wind ?? 0) + (mix.hydro ?? 0) + (mix.otherRenewables ?? 0)
+  const fossil    = (mix.coal  ?? 0) + (mix.gas   ?? 0) + (mix.oil   ?? 0)
+  const nuclear   = mix.nuclear ?? 0
+  allIndicators[u.countryId] = {
+    ...(allIndicators[u.countryId] ?? {}),
+    renewableShare:   renewable / 10,              // 0–100 % → 0–10
+    fossilFuelShare:  fossil    / 10,              // 0–100 % → 0–10 (inverted colour)
+    nuclearShare:     nuclear   / 10,              // 0–100 % → 0–10
+    waterStressScore: (u.waterStressScore ?? 0) * 2, // 0–5 → 0–10 (inverted colour)
+  }
+}
+
+// Food security from food-security.json
+for (const f of foodSecurityData as any[]) {
+  if (!f.countryId || f.overallScore == null) continue
+  allIndicators[f.countryId] = {
+    ...(allIndicators[f.countryId] ?? {}),
+    foodSecurityScore: f.overallScore / 10,        // 0–100 → 0–10
+  }
+}
+
+// scoreToColor: 1–10 scale, red (low) → amber → green (high)
 function scoreToColor(score: number): string {
   const t = (score - 1) / 9
   if (t < 0.5) {
@@ -59,6 +90,13 @@ function scoreToColor(score: number): string {
   }
   const u = (t - 0.5) * 2
   return `rgb(${Math.round(217 + (22 - 217) * u)},${Math.round(119 + (163 - 119) * u)},${Math.round(6 + (74 - 6) * u)})`
+}
+
+// Inverted: high value = bad → flip score so colour stays red=bad green=good
+function toHeatmapColor(key: string, score: number): string {
+  return INVERTED_INDICATORS.has(key as any)
+    ? scoreToColor(Math.max(1, 10 - score + 1))
+    : scoreToColor(Math.max(1, score))
 }
 
 type TooltipState = {
@@ -135,7 +173,7 @@ export default function WorldMap() {
 
         if (heatmapIndicator !== 'none' && iso3) {
           const score = allIndicators[iso3]?.[heatmapIndicator]
-          color = score !== undefined ? scoreToColor(score) : '#1a1f2e'
+          color = score !== undefined ? toHeatmapColor(heatmapIndicator, score) : '#1a1f2e'
         } else if (iso3 === countryData?.id) {
           color = '#2563eb'
         } else if (iso3 === compareData?.id) {
