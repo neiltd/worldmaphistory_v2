@@ -63,7 +63,11 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'International airports by strategic and economic significance — power projection, logistics, and trade hubs.',
     group: 'infrastructure',
     defaultEnabled: false,
-    placeholder: true,
+    legend: [
+      { color: '#f97316', label: 'Critical',  shape: 'circle' },
+      { color: '#3b82f6', label: 'High',       shape: 'circle' },
+      { color: '#64748b', label: 'Medium',     shape: 'circle' },
+    ],
   },
   {
     id: 'seaports',

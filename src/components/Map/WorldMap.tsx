@@ -8,6 +8,7 @@ import { useMapStore } from '../../store/useMapStore'
 import indicatorsIndex from '../../data/indicators-index.json'
 import ConflictZoneLayer from '../../layers/geopolitical/ConflictZoneLayer'
 import TradeRouteLayer   from '../../layers/economic/TradeRouteLayer'
+import AirportLayer      from '../../layers/infrastructure/AirportLayer'
 import { fixFeatureCollection } from '../../utils/geoUtils'
 
 const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
@@ -68,7 +69,7 @@ export default function WorldMap() {
   const {
     countryData, compareData, selectCountry,
     showConflicts, showTradeRoutes, showChokepoints,
-    heatmapIndicator,
+    heatmapIndicator, isLayerVisible,
   } = useMapStore()
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -218,6 +219,7 @@ export default function WorldMap() {
 
         <ConflictZoneLayer visible={showConflicts} labelLayerId={labelLayerId} />
         <TradeRouteLayer visible={showTradeRoutes} showChokepoints={showChokepoints} labelLayerId={labelLayerId} />
+        <AirportLayer visible={isLayerVisible('airports')} />
 
         <NavigationControl position="top-right" showCompass={false} />
       </Map>
