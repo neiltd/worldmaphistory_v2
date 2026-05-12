@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { ISO3Schema, YearSchema, PctSchema, AttributionSchema } from './_shared'
+import { ISO3Schema, YearSchema, AttributionSchema } from './_shared'
 
 export const FoodSecuritySchema = z.object({
   countryId: ISO3Schema,
