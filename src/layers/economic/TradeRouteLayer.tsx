@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import { createPortal } from 'react-dom'
 import { Source, Layer, Marker } from 'react-map-gl/maplibre'
 import tradeData from '../../data/trade-routes.json'
-import type { TradeRoute, Chokepoint } from '../../types/traderoute'
+import type { EconomicTradeRoute as TradeRoute, StrategicChokepoint as Chokepoint } from './types'
 import { isValidCoord, fixGeometry } from '../../utils/geoUtils'
 import type { LayerProps } from '../_core/types'
 
@@ -26,11 +26,19 @@ export default function TradeRouteLayer({ visible, showChokepoints, labelLayerId
       .filter(r => isValidCoord(r.from.coords) && isValidCoord(r.to.coords))
       .map(r => ({
         type: 'Feature' as const,
-        geometry: fixGeometry({ type: 'LineString', coordinates: [r.from.coords, r.to.coords] }),
+        // Use multi-segment waypoints when present; fall back to straight from→to line.
+        // fixGeometry handles antimeridian crossings for both single and multi-segment paths.
+        geometry: fixGeometry({
+          type: 'LineString',
+          coordinates: (r.waypoints && r.waypoints.length >= 2)
+            ? r.waypoints
+            : [r.from.coords, r.to.coords],
+        }),
         properties: {
           id: r.id, name: r.name, volume: r.volume, riskLevel: r.riskLevel,
           keyGoods: r.keyGoods.join(', '), annualValue: r.annualValue,
           fromName: r.from.name, toName: r.to.name,
+          strategicImportance: r.strategicImportance ?? 'medium',
         },
       })),
   }), [])
