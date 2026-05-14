@@ -3,7 +3,7 @@ import {
   ResponsiveContainer, Tooltip as ChartTooltip,
 } from 'recharts'
 import type { Country } from '../../../../types/country'
-import { T, Sec } from '../tokens'
+import { Sec } from '../tokens'
 
 // ── Indicator definitions — order controls radar chart axis order ──────────────
 const INDICATORS = [
