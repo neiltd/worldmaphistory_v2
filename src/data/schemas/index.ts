@@ -8,6 +8,7 @@ export { FoodSecuritySchema }                 from './foodsecurity'
 export { AiAdoptionSchema }                   from './aiadoption'
 export { DatacenterSchema }                   from './datacenter'
 export { RailHubSchema, RailHubTypeSchema }   from './railhub'
+export { CompanyProfileSchema }               from './company'
 export {
   CoordSchema, SourceRefSchema, ConfidenceSchema,
   AttributionSchema, ISO3Schema, PctSchema, YearSchema,
@@ -25,6 +26,7 @@ export type { FoodSecurity }    from './foodsecurity'
 export type { AiAdoption }      from './aiadoption'
 export type { Datacenter }      from './datacenter'
 export type { RailHub }         from './railhub'
+export type { CompanyProfile }  from './company'
 export type { Coord, SourceRef, Confidence, Attribution, StrategicImportance } from './_shared'
 
 import { z } from 'zod'
@@ -38,10 +40,12 @@ import { FoodSecuritySchema }   from './foodsecurity'
 import { AiAdoptionSchema }     from './aiadoption'
 import { DatacenterSchema }     from './datacenter'
 import { RailHubSchema }        from './railhub'
+import { CompanyProfileSchema } from './company'
 
 export type EntityType =
   | 'airport' | 'port' | 'cable' | 'powerplant' | 'utility'
   | 'gdp' | 'foodsecurity' | 'aiadoption' | 'datacenter' | 'railhub'
+  | 'company'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const SCHEMA_MAP: Record<EntityType, z.ZodType<any>> = {
@@ -55,4 +59,5 @@ export const SCHEMA_MAP: Record<EntityType, z.ZodType<any>> = {
   aiadoption:  AiAdoptionSchema,
   datacenter:  DatacenterSchema,
   railhub:     RailHubSchema,
+  company:     CompanyProfileSchema,
 }

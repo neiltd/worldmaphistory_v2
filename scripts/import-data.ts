@@ -32,6 +32,7 @@ const FOLDER_TO_SCHEMA: Record<string, EntityType> = {
   'ai-adoption':     'aiadoption',
   'datacenters':     'datacenter',
   'rail-hubs':       'railhub',
+  'companies':       'company',
 }
 
 const OUTPUT_FILENAME: Record<string, string> = {
@@ -45,6 +46,7 @@ const OUTPUT_FILENAME: Record<string, string> = {
   'ai-adoption':     'ai-adoption.json',
   'datacenters':     'datacenters.json',
   'rail-hubs':       'rail-hubs.json',
+  'companies':       'companies.json',
 }
 
 function getArg(flag: string): string | undefined {

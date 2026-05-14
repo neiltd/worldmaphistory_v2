@@ -30,6 +30,7 @@ const FOLDER_TO_SCHEMA: Record<string, EntityType> = {
   'ai-adoption':     'aiadoption',
   'datacenters':     'datacenter',
   'rail-hubs':       'railhub',
+  'companies':       'company',
 }
 
 function getArg(flag: string): string | undefined {
