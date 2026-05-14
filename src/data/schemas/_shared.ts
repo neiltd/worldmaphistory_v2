@@ -44,8 +44,30 @@ export const AttributionSchema = z.object({
 export type Attribution = z.infer<typeof AttributionSchema>
 
 // ─── Strategic importance scale ───────────────────────────────────────────────
+// This is the infrastructure tiering field used across all spatial entity types.
+// Tier mapping (for future render registry and zoom-aware filtering):
+//   critical → Tier 1: global arteries — always show
+//   high     → Tier 2: regional strategic hubs — show at zoom ≥ 3
+//   medium   → Tier 3: contextual infrastructure — show at zoom ≥ 5
+//   low      → Tier 4: background / noise — show only at high zoom or in thematic view
+//
+// All 7 infrastructure entity types should carry this field.
+// Entities without it cannot participate in tier-based filtering.
 export const StrategicImportanceSchema = z.enum(['low', 'medium', 'high', 'critical'])
 export type StrategicImportance = z.infer<typeof StrategicImportanceSchema>
+
+// ─── Thematic scopes ──────────────────────────────────────────────────────────
+// Used in LayerMeta (registry) and optionally on individual entities.
+// A thematic scope groups layers and entities by geopolitical relevance domain.
+// Future: UI lets analyst switch to a thematic view that activates relevant layers.
+export const ThematicScopeSchema = z.enum([
+  'energy-security',
+  'logistics-fragility',
+  'digital-sovereignty',
+  'semiconductor-supply-chain',
+  'maritime-chokepoints',
+])
+export type ThematicScope = z.infer<typeof ThematicScopeSchema>
 
 // ─── Risk level ───────────────────────────────────────────────────────────────
 export const RiskLevelSchema = z.enum(['low', 'medium', 'high', 'extreme'])

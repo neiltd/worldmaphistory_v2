@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { CoordSchema, ISO3Schema, AttributionSchema, YearSchema } from './_shared'
+import { CoordSchema, ISO3Schema, AttributionSchema, YearSchema, StrategicImportanceSchema } from './_shared'
 
 export const DatacenterTierSchema   = z.enum(['1','2','3','4'])
 export const DatacenterStatusSchema = z.enum(['operational','construction','planned','decommissioned'])
@@ -25,6 +25,15 @@ export const DatacenterSchema = z.object({
 
   yearOpened:   YearSchema.nullish(),
   yearPlanned:  YearSchema.nullish(),
+
+  // ── Importance — for tier-based rendering and digital sovereignty scope ──
+  // Note: DatacenterTierSchema (Uptime Institute I-IV redundancy rating) is separate —
+  // strategicImportance is about geopolitical/intelligence significance, not facility spec.
+  // Tier 1 (critical): hyperscale DCs serving national cloud infrastructure, military
+  // Tier 2 (high): major hyperscale / major colocation, cloud region anchors
+  // Tier 3 (medium): significant colocation, enterprise-scale
+  // Tier 4 (low): small enterprise / edge nodes
+  strategicImportance: StrategicImportanceSchema.nullish(),
 
   cloudRegion:       z.string().nullish(),
   geopoliticalNotes: z.string().nullish(),

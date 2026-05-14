@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { CoordSchema, ISO3Schema, AttributionSchema } from './_shared'
+import { CoordSchema, ISO3Schema, AttributionSchema, StrategicImportanceSchema } from './_shared'
 
 export const CableStatusSchema = z.enum(['active','planned','construction','damaged','decommissioned','unknown'])
 export type CableStatus = z.infer<typeof CableStatusSchema>
@@ -27,6 +27,13 @@ export const SubmarineCableSchema = z.object({
 
   owners:    z.array(z.string()).nullish(),
   operators: z.array(z.string()).nullish(),
+
+  // ── Importance — for digital sovereignty thematic scope ──
+  // Tier 1 (critical): transoceanic cables carrying >20% of intercontinental traffic
+  // Tier 2 (high): major regional cables, alternative transoceanic routes
+  // Tier 3 (medium): regional connectivity cables
+  // Tier 4 (low): short coastal cables, redundant backups
+  strategicImportance: StrategicImportanceSchema.nullish(),
 
   vulnerabilities:   z.string().nullish(),
   geopoliticalNotes: z.string().nullish(),

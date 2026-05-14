@@ -46,6 +46,7 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'Major shipping lanes, pipelines, and rail corridors — disruptions directly impact global supply chains.',
     group: 'economic',
     defaultEnabled: false,
+    themes: ['logistics-fragility', 'maritime-chokepoints', 'energy-security', 'semiconductor-supply-chain'],
     legend: [
       { color: '#06b6d4', label: 'Critical volume',   shape: 'line' },
       { color: '#3b82f6', label: 'High volume',       shape: 'line' },
@@ -59,6 +60,7 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'Maritime passages where a small number of vessels control a disproportionate share of global trade.',
     group: 'economic',
     defaultEnabled: false,
+    themes: ['maritime-chokepoints', 'logistics-fragility', 'energy-security'],
     legend: [
       { color: '#22c55e', label: 'Low risk',    shape: 'diamond' },
       { color: '#f59e0b', label: 'Medium risk', shape: 'diamond' },
@@ -73,6 +75,7 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'International airports by strategic and economic significance — power projection, logistics, and trade hubs.',
     group: 'infrastructure',
     defaultEnabled: false,
+    themes: ['logistics-fragility', 'semiconductor-supply-chain'],
     legend: [
       { color: '#f97316', label: 'Critical',  shape: 'circle' },
       { color: '#3b82f6', label: 'High',       shape: 'circle' },
@@ -85,6 +88,7 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'Container and bulk cargo ports — chokepoints in global manufacturing and commodity supply chains.',
     group: 'infrastructure',
     defaultEnabled: false,
+    themes: ['logistics-fragility', 'maritime-chokepoints', 'semiconductor-supply-chain'],
     legend: [
       { color: '#06b6d4', label: 'Container', shape: 'circle' },
       { color: '#f59e0b', label: 'Oil/LNG',   shape: 'circle' },
@@ -99,6 +103,7 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'Hyperscale and colocation datacenters — the physical infrastructure of AI, cloud, and digital economy sovereignty.',
     group: 'infrastructure',
     defaultEnabled: false,
+    themes: ['digital-sovereignty'],
     legend: [
       { color: '#a78bfa', label: 'Hyperscale',  shape: 'circle' },
       { color: '#22d3ee', label: 'Colocation',  shape: 'circle' },
@@ -112,6 +117,7 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'Undersea internet cables carrying 95% of global internet traffic — critical and vulnerable digital infrastructure.',
     group: 'infrastructure',
     defaultEnabled: false,
+    themes: ['digital-sovereignty'],
     legend: [
       { color: '#06b6d4', label: 'Active',       shape: 'line' },
       { color: '#f59e0b', label: 'Construction', shape: 'line' },
@@ -125,6 +131,7 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'Major rail hubs including BRI corridors, border crossings, and freight terminals — land-based supply chain infrastructure.',
     group: 'infrastructure',
     defaultEnabled: false,
+    themes: ['logistics-fragility'],
     legend: [
       { color: '#f59e0b', label: 'Freight',         shape: 'circle' },
       { color: '#60a5fa', label: 'Passenger',       shape: 'circle' },
@@ -141,6 +148,7 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'Major energy generation facilities — energy security is a primary driver of geopolitical positioning.',
     group: 'utilities',
     defaultEnabled: false,
+    themes: ['energy-security'],
     legend: [
       { color: '#a78bfa', label: 'Nuclear',     shape: 'circle' },
       { color: '#78716c', label: 'Coal',        shape: 'circle' },
