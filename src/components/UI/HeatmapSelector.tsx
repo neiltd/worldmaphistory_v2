@@ -1,4 +1,5 @@
-import { useMapStore, INDICATOR_GROUPS, INDICATOR_LABELS, INVERTED_INDICATORS, type IndicatorKey } from '../../store/useMapStore'
+import { useMapStore, INDICATOR_GROUPS, INDICATOR_LABELS, type IndicatorKey } from '../../store/useMapStore'
+import { INVERTED_INDICATORS } from '../../lib/geo/indicators'
 
 export default function HeatmapSelector() {
   const { heatmapIndicator, setHeatmapIndicator } = useMapStore()

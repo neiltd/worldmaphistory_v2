@@ -1,50 +1,25 @@
 import { create } from 'zustand'
 import type { Country } from '../types/country'
 import type { Conflict } from '../types/conflict'
+import { LAYER_REGISTRY } from '../layers/_core/registry'
+import type { IndicatorKey } from '../lib/geo/indicators'
 
-export type IndicatorKey =
-  | 'none'
-  // ── Geopolitical (1–10 scale, higher = better) ──
-  | 'politicalStability'
-  | 'economicDirection'
-  | 'investmentAttractiveness'
-  | 'geopoliticalRisk'
-  | 'educationQuality'
-  | 'healthcareQuality'
-  | 'technologyInvestment'
-  // ── Energy (0–100%, normalised to 0–10) ──
-  | 'renewableShare'      // higher = cleaner grid ↑
-  | 'fossilFuelShare'     // higher = more fossil ↓ (inverted)
-  | 'nuclearShare'        // higher = more nuclear
-  // ── Food & Resources (normalised to 0–10) ──
-  | 'foodSecurityScore'   // GFSI 0–100, higher = more secure ↑
-  | 'waterStressScore'    // Aqueduct 0–5, higher = more stress ↓ (inverted)
+// IndicatorKey, INDICATOR_LABELS, INDICATOR_GROUPS live in lib/geo/indicators.ts.
+// Re-exported here for backward compatibility with any future code that
+// instinctively imports indicator constants from the store.
+export type { IndicatorKey } from '../lib/geo/indicators'
+export { INDICATOR_LABELS, INDICATOR_GROUPS } from '../lib/geo/indicators'
 
-export const INDICATOR_LABELS: Record<IndicatorKey, string> = {
-  none:                     'No heatmap',
-  politicalStability:       'Political Stability',
-  economicDirection:        'Economic Direction',
-  investmentAttractiveness: 'Investment Attractiveness',
-  geopoliticalRisk:         'Geopolitical Risk',
-  educationQuality:         'Education Quality',
-  healthcareQuality:        'Healthcare Quality',
-  technologyInvestment:     'Technology Investment',
-  renewableShare:           'Renewable Energy %',
-  fossilFuelShare:          'Fossil Fuel % ↓',
-  nuclearShare:             'Nuclear Energy %',
-  foodSecurityScore:        'Food Security (GFSI)',
-  waterStressScore:         'Water Stress ↓',
-}
+// Build default visibility from the registry so every layer has one source of truth.
+// Adding a new layer to registry.ts automatically gives it the correct initial state here.
+// Future: when AI agents push real-time layer data, they will toggle visibility through
+// this same map rather than hardcoded booleans — keeping the interface stable.
+const DEFAULT_LAYER_VISIBILITY: Record<string, boolean> = Object.fromEntries(
+  LAYER_REGISTRY.map(l => [l.id, l.defaultEnabled])
+)
 
-// Groups for the heatmap selector UI
-export const INDICATOR_GROUPS: { label: string; keys: IndicatorKey[] }[] = [
-  { label: 'Geopolitical', keys: ['politicalStability','economicDirection','investmentAttractiveness','geopoliticalRisk','educationQuality','healthcareQuality','technologyInvestment'] },
-  { label: 'Energy',       keys: ['renewableShare','fossilFuelShare','nuclearShare'] },
-  { label: 'Food & Water', keys: ['foodSecurityScore','waterStressScore'] },
-]
-
-// Indicators where HIGH score = BAD (color scale is inverted — red on top)
-export const INVERTED_INDICATORS = new Set<IndicatorKey>(['fossilFuelShare', 'waterStressScore'])
+// Note: INVERTED_INDICATORS also lives in lib/geo/indicators.ts — pure domain
+// knowledge, not UI state. Import it from there, not from the store.
 
 interface MapStore {
   // Country selection
@@ -62,14 +37,6 @@ interface MapStore {
   setCompare: (id: string) => Promise<void>
   clearCompare: () => void
 
-  // Layer toggles
-  showConflicts: boolean
-  showTradeRoutes: boolean
-  showChokepoints: boolean
-  toggleConflicts: () => void
-  toggleTradeRoutes: () => void
-  toggleChokepoints: () => void
-
   // Heatmap
   heatmapIndicator: IndicatorKey
   setHeatmapIndicator: (key: IndicatorKey) => void
@@ -78,10 +45,6 @@ interface MapStore {
   selectedConflict: Conflict | null
   selectConflict: (conflict: Conflict) => void
   clearConflict: () => void
-
-  // Map zoom (for scaling markers)
-  mapZoom: number
-  setMapZoom: (zoom: number) => void
 
   // Extensible layer visibility for future layers (keyed by layer registry ID)
   layerVisibility: Record<string, boolean>
@@ -124,13 +87,6 @@ export const useMapStore = create<MapStore>((set) => ({
 
   clearCompare: () => set({ compareCountryId: null, compareData: null }),
 
-  showConflicts: true,
-  showTradeRoutes: false,
-  showChokepoints: false,
-  toggleConflicts:   () => set((s) => ({ showConflicts: !s.showConflicts })),
-  toggleTradeRoutes: () => set((s) => ({ showTradeRoutes: !s.showTradeRoutes })),
-  toggleChokepoints: () => set((s) => ({ showChokepoints: !s.showChokepoints })),
-
   heatmapIndicator: 'none',
   setHeatmapIndicator: (key) => set({ heatmapIndicator: key }),
 
@@ -138,19 +94,14 @@ export const useMapStore = create<MapStore>((set) => ({
   selectConflict: (conflict) => set({ selectedConflict: conflict, selectedCountryId: null, countryData: null }),
   clearConflict: () => set({ selectedConflict: null }),
 
-  mapZoom: 1,
-  setMapZoom: (zoom) => set({ mapZoom: zoom }),
-
-  layerVisibility: {},
+  // All layers initialized from registry defaults — no special cases needed.
+  // To add a new layer: register it in layers/_core/registry.ts with defaultEnabled.
+  layerVisibility: DEFAULT_LAYER_VISIBILITY,
   setLayerVisible: (id, visible) =>
     set(s => ({ layerVisibility: { ...s.layerVisibility, [id]: visible } })),
   toggleLayerById: (id) =>
     set(s => ({ layerVisibility: { ...s.layerVisibility, [id]: !s.layerVisibility[id] } })),
   isLayerVisible: (id: string): boolean => {
-    const s = useMapStore.getState()
-    if (id === 'conflicts' || id === 'conflict-zones') return s.showConflicts
-    if (id === 'trade-routes') return s.showTradeRoutes
-    if (id === 'chokepoints')  return s.showChokepoints
-    return s.layerVisibility[id] ?? false
+    return useMapStore.getState().layerVisibility[id] ?? false
   },
 }))

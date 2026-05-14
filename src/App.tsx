@@ -1,16 +1,23 @@
 import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useMapStore } from './store/useMapStore'
+import { useIntelligenceStore } from './store/useIntelligenceStore'
 import WorldMap from './components/Map/WorldMap'
 import CountryPanel from './components/Panel/CountryPanel'
 import ConflictCard from './components/Panel/ConflictCard'
 import SearchBar from './components/UI/SearchBar'
 import LayerToggle from './components/UI/LayerToggle'
 import HeatmapSelector from './components/UI/HeatmapSelector'
+import ImportStatus from './components/UI/ImportStatus'
+import { ErrorBoundary } from './components/UI/ErrorBoundary'
 
 export default function App() {
   const { selectedCountryId, selectedConflict, clearSelection, clearConflict } = useMapStore()
+  const loadImports = useIntelligenceStore(s => s.loadImports)
   const showPanel = !!selectedCountryId
+
+  // Load hub imports once on startup — non-blocking, fails gracefully
+  useEffect(() => { loadImports() }, [loadImports])
 
   // Escape closes panel or conflict card
   useEffect(() => {
@@ -60,6 +67,11 @@ export default function App() {
 
         <div className="flex-1" />
 
+        {/* Hub import status — read-only, no ingestion in this project */}
+        <ImportStatus />
+
+        <div className="w-px h-5 mx-1 hidden sm:block" style={{ background: '#1E2D4A' }} />
+
         <a href="https://github.com/neiltd/worldmaphistory_v2" target="_blank" rel="noopener noreferrer"
           className="text-xs hover:text-slate-300 transition-colors hidden sm:block" style={{ color: '#334155' }}>
           GitHub ↗
@@ -71,7 +83,9 @@ export default function App() {
 
         {/* Map fills available space */}
         <div className="flex-1 relative">
-          <WorldMap />
+          <ErrorBoundary label="WorldMap">
+            <WorldMap />
+          </ErrorBoundary>
 
           {/* Conflict card — bottom left over map */}
           <AnimatePresence>
@@ -111,7 +125,9 @@ export default function App() {
               className="w-[400px] xl:w-[460px] min-w-[360px] flex-shrink-0 flex flex-col overflow-hidden border-l"
               style={{ background: '#0A0F1E', borderColor: '#1E2D4A' }}
             >
-              <CountryPanel />
+              <ErrorBoundary label="CountryPanel">
+                <CountryPanel />
+              </ErrorBoundary>
             </motion.div>
           )}
         </AnimatePresence>

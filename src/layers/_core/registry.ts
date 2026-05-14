@@ -8,6 +8,15 @@ import type { LayerMeta } from './types'
 export const LAYER_REGISTRY: LayerMeta[] = [
 
   // ── Geopolitical ────────────────────────────────────────────────────────────
+
+  // COUPLING NOTE — 'conflicts' and 'conflict-zones' are intentionally ganged:
+  // Both are rendered by ConflictZoneLayer, which receives a single `visible` prop
+  // driven by isLayerVisible('conflicts'). The 'conflict-zones' key exists in the
+  // registry so the toggle UI can list it as a separate named layer, but WorldMap
+  // does NOT independently read isLayerVisible('conflict-zones') — the zones always
+  // follow the conflict markers. If you want to decouple them in the future, change
+  // WorldMap.tsx line: <ConflictZoneLayer visible={isLayerVisible('conflicts')} ...>
+  // to pass isLayerVisible('conflict-zones') for zone visibility independently.
   {
     id: 'conflicts',
     label: 'Active Conflicts',
@@ -27,6 +36,7 @@ export const LAYER_REGISTRY: LayerMeta[] = [
     description: 'Geographic footprint of active conflict areas — indicates territorial control and displacement risk.',
     group: 'geopolitical',
     defaultEnabled: true,
+    // Visibility is controlled by the 'conflicts' key, not this one — see COUPLING NOTE above.
   },
 
   // ── Economic ─────────────────────────────────────────────────────────────────
@@ -160,10 +170,16 @@ export const LAYER_REGISTRY: LayerMeta[] = [
   {
     id: 'intelligence-events',
     label: 'Intelligence Events',
-    description: 'Clustered geopolitical events scored by economic impact, population impact, and opportunity.',
+    description: 'Hub-imported geopolitical events — conflicts, sanctions, diplomatic shifts, and energy disruptions.',
     group: 'intelligence',
-    defaultEnabled: false,
-    placeholder: true,
+    defaultEnabled: true,
+    legend: [
+      { color: '#ef4444', label: 'Conflict',    shape: 'diamond' },
+      { color: '#06b6d4', label: 'Diplomatic',  shape: 'diamond' },
+      { color: '#f59e0b', label: 'Economic',    shape: 'diamond' },
+      { color: '#f97316', label: 'Energy',      shape: 'diamond' },
+      { color: '#8b5cf6', label: 'Political',   shape: 'diamond' },
+    ],
   },
 
   // ── Environment ──────────────────────────────────────────────────────────────

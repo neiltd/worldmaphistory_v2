@@ -102,12 +102,7 @@ export default function LayerToggle() {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
-  const {
-    showConflicts, toggleConflicts,
-    showTradeRoutes, toggleTradeRoutes,
-    showChokepoints, toggleChokepoints,
-    layerVisibility, toggleLayerById,
-  } = useMapStore()
+  const { layerVisibility, toggleLayerById } = useMapStore()
 
   // Close on outside click
   useEffect(() => {
@@ -128,21 +123,19 @@ export default function LayerToggle() {
   }, [])
 
   // ── Visibility resolver ──
+  // All layers now use a single source of truth: layerVisibility from the registry.
+  // 'heatmap' is excluded here because it's controlled by HeatmapSelector, not this toggle.
   function isVisible(id: string): boolean {
-    if (id === 'conflicts' || id === 'conflict-zones') return showConflicts
-    if (id === 'trade-routes')  return showTradeRoutes
-    if (id === 'chokepoints')   return showChokepoints
-    if (id === 'heatmap')       return false // controlled by HeatmapSelector
+    if (id === 'heatmap') return false
     return layerVisibility[id] ?? false
   }
 
   // ── Toggle dispatcher ──
+  // All layers go through toggleLayerById — no special cases.
+  // Future layers are automatically supported by adding them to registry.ts.
   function handleToggle(layer: LayerMeta) {
-    if (layer.placeholder) return
-    if (layer.id === 'conflicts' || layer.id === 'conflict-zones') toggleConflicts()
-    else if (layer.id === 'trade-routes')  toggleTradeRoutes()
-    else if (layer.id === 'chokepoints')   toggleChokepoints()
-    else if (layer.id !== 'heatmap')       toggleLayerById(layer.id)
+    if (layer.placeholder || layer.id === 'heatmap') return
+    toggleLayerById(layer.id)
   }
 
   // ── Active layer count (excluding placeholders and heatmap) ──
