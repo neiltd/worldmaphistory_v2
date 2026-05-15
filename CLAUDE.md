@@ -16,6 +16,31 @@ It is a **read-only consumer** of data — it does not own any ingestion pipelin
 
 ---
 
+## Current phase — intelligence usefulness (rendering work is closed)
+
+**Rendering foundation is stable and complete as of 2026-05-14. Do not reopen it.**
+
+Do NOT initiate any of the following without explicit instruction:
+- PMTiles migration
+- Render registry implementation
+- Advanced clustering systems
+- Additional GPU migration (the ~48 remaining Markers are accepted as-is)
+- Major layer architecture redesigns
+
+**Next work priority order** (wait for semantic data readiness before starting):
+1. Zoom-aware filter activation — uncomment filter expressions in layer files when `strategicImportance` data from Gemini is validated and imported
+2. Lightweight thematic analyst workflows — `themes[]` already tagged in registry; one store field + one UI change
+3. Intelligence event display improvements — when hub provides coordinates
+4. Investment screening table — `indicators-index.json` is ready; needs UI only
+5. Company profile UI — after company validation pipeline passes
+
+**Current semantic data gap** (blocks items 1–2):
+- Power plants: 0/412 records have `strategicImportance` — awaiting Gemini classification
+- Datacenters: 0/180 records have `strategicImportance` — awaiting Gemini classification
+- Submarine cables: 0/12 records have `strategicImportance` — awaiting Gemini classification
+
+---
+
 ## Hard rules
 
 **Before every commit:** run `npm run build` locally.
