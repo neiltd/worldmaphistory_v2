@@ -1,191 +1,159 @@
-import { useState } from 'react'
-import { createPortal } from 'react-dom'
-import { Marker } from 'react-map-gl/maplibre'
+/**
+ * PowerLayer — power plant visualization using MapLibre Source + Layer (GPU circles).
+ *
+ * Migrated from React Marker components (412 DOM elements) to GPU-rendered
+ * circles. All tooltip data is baked into GeoJSON feature properties so
+ * useMapInteraction can handle hover without any store lookups.
+ *
+ * ─── Rendering signals ────────────────────────────────────────────────────────
+ * Color:   fuel type (nuclear=violet, gas=amber, coal=stone, hydro=sky, …)
+ * Radius:  capacity in MW — proxy for installed significance
+ * Opacity: strategicImportance when present; status-based fallback otherwise
+ *          null/missing importance → neutral 0.45 (makes data gap visible)
+ *
+ * ─── Zoom-aware filtering (future) ───────────────────────────────────────────
+ * Once strategicImportance is populated across all 412 records, add a MapLibre
+ * filter expression to the 'power-plants-circles' Layer:
+ *
+ *   filter: ['case',
+ *     ['<', ['zoom'], 3], ['==', ['get', 'importance'], 'critical'],
+ *     ['<', ['zoom'], 5], ['in', ['get', 'importance'], ['literal', ['critical', 'high']]],
+ *     true
+ *   ]
+ *
+ * This shows only Tier 1 at global zoom, Tier 1+2 at continental, all at regional.
+ * No code changes needed beyond adding this filter to the Layer props below.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+import { useMemo } from 'react'
+import { Source, Layer } from 'react-map-gl/maplibre'
+import { isValidCoord } from '../../utils/geoUtils'
 import plantsData from '../../data/validated/power-plants.json'
 import type { LayerProps } from '../_core/types'
 
-interface PowerPlant {
-  id: string
-  name: string
-  countryId: string
-  city?: string | null
-  coordinates: [number, number]
-  type: string
-  status: string
-  capacityMW?: number | null
-  annualOutputGWh?: number | null
-  yearCommissioned?: number | null
-  yearRetirement?: number | null
-  operator?: string | null
-  owner?: string | null
-  strategicNote?: string | null
-  notes?: string | null
-}
-
-const plants = plantsData as unknown as PowerPlant[]
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const plants = plantsData as any[]
 
 // ── Color by fuel type ────────────────────────────────────────────────────────
 const TYPE_COLOR: Record<string, string> = {
-  nuclear:     '#a78bfa',  // violet  — strategic
-  coal:        '#78716c',  // stone   — fossil
-  gas:         '#f59e0b',  // amber   — fossil
-  oil:         '#92400e',  // brown   — fossil
-  hydro:       '#0ea5e9',  // sky     — renewable
-  solar:       '#fbbf24',  // yellow  — renewable
-  wind:        '#34d399',  // emerald — renewable
-  geothermal:  '#f97316',  // orange  — renewable
-  biomass:     '#84cc16',  // lime    — renewable
-  other:       '#64748b',  // slate
+  nuclear:    '#a78bfa',
+  coal:       '#78716c',
+  gas:        '#f59e0b',
+  oil:        '#92400e',
+  hydro:      '#0ea5e9',
+  solar:      '#fbbf24',
+  wind:       '#34d399',
+  geothermal: '#f97316',
+  biomass:    '#84cc16',
+  other:      '#64748b',
 }
 
-// ── Size by capacity ──────────────────────────────────────────────────────────
-function getSize(capacityMW?: number | null): number {
-  if (!capacityMW) return 4
-  if (capacityMW >= 5000) return 9
-  if (capacityMW >= 2000) return 7
-  if (capacityMW >= 1000) return 6
-  if (capacityMW >= 500)  return 5
-  return 4
+function formatCapacity(mw: number | null): string {
+  if (!mw) return '—'
+  return mw >= 1000 ? `${(mw / 1000).toFixed(1)} GW` : `${mw} MW`
 }
 
-// ── Status opacity ────────────────────────────────────────────────────────────
-const STATUS_OPACITY: Record<string, number> = {
-  operating:     1.0,
-  construction:  0.7,
-  planned:       0.5,
-  mothballed:    0.35,
-  decommissioned:0.2,
-}
+// ── Paint expressions — evaluated on GPU, not per React render ────────────────
 
-function formatCapacity(mw?: number | null): string {
-  if (mw == null) return '—'
-  if (mw >= 1000) return `${(mw / 1000).toFixed(1)} GW`
-  return `${mw} MW`
-}
+// Radius: capacity-based (MW). Interpretable without strategicImportance data.
+const RADIUS_EXPR = [
+  'case',
+  ['>=', ['get', 'capacityMW'], 5000], 9,
+  ['>=', ['get', 'capacityMW'], 2000], 7,
+  ['>=', ['get', 'capacityMW'], 1000], 6,
+  ['>=', ['get', 'capacityMW'], 500],  5,
+  4,
+] as const
 
-// ── Lightning bolt icon ───────────────────────────────────────────────────────
-function BoltIcon({ color, size, opacity }: { color: string; size: number; opacity: number }) {
-  return (
-    <svg
-      width={size * 2}
-      height={size * 2}
-      viewBox="0 0 24 24"
-      fill={color}
-      opacity={opacity}
-      style={{ filter: opacity > 0.5 ? `drop-shadow(0 0 3px ${color}66)` : 'none' }}
-    >
-      <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
-    </svg>
-  )
-}
+// Opacity: importance-driven for operating plants; status-based otherwise.
+// null/empty importance → 0.45 (neutral, makes data gap visible, not inferred).
+const OPACITY_EXPR = [
+  'case',
+  ['==', ['get', 'status'], 'operating'],
+    ['match', ['get', 'importance'],
+      'critical', 0.90,
+      'high',     0.75,
+      'medium',   0.55,
+      0.45,  // null or unknown — intentionally dim to signal missing classification
+    ],
+  ['==', ['get', 'status'], 'construction'], 0.60,
+  ['==', ['get', 'status'], 'mothballed'],   0.30,
+  0.20,
+] as const
 
-export default function PowerLayer({ visible }: LayerProps) {
-  const [tooltip, setTooltip] = useState<{
-    plant: PowerPlant; x: number; y: number
-  } | null>(null)
+// Halo radius — larger soft glow behind critical-importance plants
+const HALO_RADIUS_EXPR = [
+  'case',
+  ['>=', ['get', 'capacityMW'], 5000], 18,
+  ['>=', ['get', 'capacityMW'], 2000], 14,
+  12,
+] as const
+
+export default function PowerLayer({ visible, labelLayerId }: LayerProps) {
+  const geoJSON = useMemo(() => ({
+    type: 'FeatureCollection' as const,
+    features: plants
+      .filter(p =>
+        isValidCoord(p.coordinates) &&
+        p.status !== 'decommissioned' &&
+        p.status !== 'planned'
+      )
+      .map(p => ({
+        type: 'Feature' as const,
+        geometry: { type: 'Point' as const, coordinates: p.coordinates as [number, number] },
+        properties: {
+          // Tooltip fields (read by useMapInteraction infrastructure handler)
+          name:       p.name,
+          subtitle:   [p.type, p.city ?? p.countryId].filter(Boolean).join(' · '),
+          importance: p.strategicImportance ?? '',
+          note:       p.strategicNote ?? '',
+          tag_Capacity:    formatCapacity(p.capacityMW),
+          tag_Status:      p.status.charAt(0).toUpperCase() + p.status.slice(1),
+          ...(p.operator        ? { tag_Operator:     p.operator }            : {}),
+          ...(p.yearCommissioned ? { tag_Commissioned: String(p.yearCommissioned) } : {}),
+          // Paint expression inputs
+          color:      TYPE_COLOR[p.type] ?? '#64748b',
+          capacityMW: p.capacityMW ?? 0,
+          status:     p.status,
+        },
+      })),
+  }), [])
 
   if (!visible) return null
 
-  // Only show operating and construction — skip decommissioned/planned
-  const visiblePlants = plants.filter(p =>
-    p.status === 'operating' || p.status === 'construction' || p.status === 'mothballed'
-  )
-
   return (
-    <>
-      {visiblePlants.map(plant => {
-        const color   = TYPE_COLOR[plant.type] ?? '#64748b'
-        const size    = getSize(plant.capacityMW)
-        const opacity = STATUS_OPACITY[plant.status] ?? 0.5
-        const [lng, lat] = plant.coordinates
+    <Source id="power-plants" type="geojson" data={geoJSON}>
 
-        return (
-          <Marker
-            key={plant.id}
-            longitude={lng}
-            latitude={lat}
-            anchor="center"
-            onClick={e => e.originalEvent.stopPropagation()}
-          >
-            <div
-              className="cursor-pointer flex items-center justify-center"
-              style={{ width: size * 2, height: size * 2 }}
-              onMouseEnter={e => setTooltip({ plant, x: e.clientX, y: e.clientY })}
-              onMouseMove={e => setTooltip(t => t ? { ...t, x: e.clientX, y: e.clientY } : null)}
-              onMouseLeave={() => setTooltip(null)}
-            >
-              <BoltIcon color={color} size={size} opacity={opacity} />
-            </div>
-          </Marker>
-        )
-      })}
+      {/* Halo — critical-importance plants only, ambient depth cue */}
+      <Layer
+        id="power-plants-halo"
+        type="circle"
+        beforeId={labelLayerId}
+        filter={['==', ['get', 'importance'], 'critical']}
+        paint={{
+          'circle-radius':  HALO_RADIUS_EXPR as unknown as number,
+          'circle-color':   ['get', 'color'] as unknown as string,
+          'circle-opacity': 0.10,
+          'circle-stroke-width': 0,
+        }}
+      />
 
-      {/* Tooltip */}
-      {tooltip && createPortal(
-        <div
-          className="fixed z-[9999] pointer-events-none"
-          style={{ left: tooltip.x + 14, top: tooltip.y - 10 }}
-        >
-          <div
-            className="rounded-xl shadow-2xl overflow-hidden"
-            style={{ background: '#0A0F1E', border: '1px solid #1E2D4A', minWidth: 220, maxWidth: 280 }}
-          >
-            {/* Header */}
-            <div className="px-3.5 pt-3 pb-2 border-b" style={{ borderColor: '#1E2D4A' }}>
-              <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <span
-                  className="text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-wide"
-                  style={{
-                    background: `${TYPE_COLOR[tooltip.plant.type] ?? '#64748b'}22`,
-                    color: TYPE_COLOR[tooltip.plant.type] ?? '#64748b',
-                    border: `1px solid ${TYPE_COLOR[tooltip.plant.type] ?? '#64748b'}44`,
-                  }}
-                >
-                  {tooltip.plant.type}
-                </span>
-                {tooltip.plant.status !== 'operating' && (
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#1E2D4A] text-slate-500 font-medium uppercase tracking-wide">
-                    {tooltip.plant.status}
-                  </span>
-                )}
-              </div>
-              <p className="text-[13px] font-bold text-white leading-snug">{tooltip.plant.name}</p>
-              <p className="text-[11px] text-slate-500 mt-0.5">
-                {[tooltip.plant.city, tooltip.plant.countryId].filter(Boolean).join(' · ')}
-              </p>
-            </div>
+      {/* Main circles — all plants, interactive */}
+      <Layer
+        id="power-plants-circles"
+        type="circle"
+        beforeId={labelLayerId}
+        paint={{
+          'circle-radius':        RADIUS_EXPR as unknown as number,
+          'circle-color':         ['get', 'color'] as unknown as string,
+          'circle-opacity':       OPACITY_EXPR as unknown as number,
+          'circle-stroke-width':  1,
+          'circle-stroke-color':  '#0A0F1E',
+          'circle-stroke-opacity': 0.4,
+        }}
+      />
 
-            {/* Stats */}
-            <div className="px-3.5 py-2.5 flex flex-col gap-2">
-              <div className="flex justify-between items-center">
-                <span className="text-[11px] text-slate-500">Capacity</span>
-                <span className="text-[12px] font-semibold text-slate-200 tabular-nums">
-                  {formatCapacity(tooltip.plant.capacityMW)}
-                </span>
-              </div>
-              {tooltip.plant.yearCommissioned && (
-                <div className="flex justify-between items-center">
-                  <span className="text-[11px] text-slate-500">Commissioned</span>
-                  <span className="text-[12px] font-semibold text-slate-200 tabular-nums">{tooltip.plant.yearCommissioned}</span>
-                </div>
-              )}
-              {tooltip.plant.operator && (
-                <div className="flex justify-between items-center gap-3">
-                  <span className="text-[11px] text-slate-500 flex-shrink-0">Operator</span>
-                  <span className="text-[11px] text-slate-300 text-right truncate">{tooltip.plant.operator}</span>
-                </div>
-              )}
-              {tooltip.plant.strategicNote && (
-                <p className="text-[11px] text-slate-500 leading-snug pt-2 border-t break-words"
-                  style={{ borderColor: '#1E2D4A' }}>
-                  {tooltip.plant.strategicNote}
-                </p>
-              )}
-            </div>
-          </div>
-        </div>,
-        document.body
-      )}
-    </>
+    </Source>
   )
 }

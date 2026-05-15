@@ -46,10 +46,23 @@ export type TooltipState =
       headline:        string
       eventDate:       string
       eventType:       string
-      coordQuality:    string   // 'source_exact' | 'source_approx' | 'country_centroid' | 'missing'
-      coordSource:     string   // e.g. 'acled-field', 'nominatim', 'gadm-centroid'
-      confidenceLabel: string   // 'high' | 'medium' | 'low'
+      coordQuality:    string
+      coordSource:     string
+      confidenceLabel: string
       fatalities:      number
+      x: number; y: number
+    }
+  | {
+      // Generic infrastructure tooltip — used by power plants, airports, datacenters, and future layers.
+      // All content is read from GeoJSON feature properties baked at build time.
+      // Adding a new infrastructure layer does NOT require a new tooltip variant —
+      // just bake the right properties into the GeoJSON and this renders them.
+      kind: 'infrastructure'
+      name:       string
+      subtitle:   string   // e.g. 'Nuclear · UAE' or 'Hyperscale · Singapore'
+      importance: string   // strategicImportance value — empty string = not set
+      note:       string   // strategicNote or geopoliticalNotes
+      tags:       { label: string; value: string }[]  // rendered as key-value rows
       x: number; y: number
     }
 
@@ -73,10 +86,12 @@ export function useMapInteraction(): MapInteractionResult {
   // correctly re-runs when any layer is toggled.
   const interactiveIds = useMemo(() => {
     const ids: string[] = ['countries-fill']
-    if (isLayerVisible('trade-routes'))          ids.push('trade-routes-line')
-    // intelligence-events-points is the interactive circle layer.
-    // The halo layer (intelligence-events-halo) is decorative only — not interactive.
-    if (isLayerVisible('intelligence-events'))   ids.push('intelligence-events-points')
+    if (isLayerVisible('trade-routes'))        ids.push('trade-routes-line')
+    if (isLayerVisible('intelligence-events')) ids.push('intelligence-events-points')
+    // Infrastructure layers — halo layers are decorative only, not interactive
+    if (isLayerVisible('power-plants'))        ids.push('power-plants-circles')
+    if (isLayerVisible('airports'))            ids.push('airport-circles')
+    if (isLayerVisible('datacenters'))         ids.push('datacenter-circles')
     return ids
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layerVisibility])
@@ -109,6 +124,29 @@ export function useMapInteraction(): MapInteractionResult {
         goods:  f.properties?.keyGoods  ?? '',
         value:  f.properties?.annualValue ?? '',
         risk:   f.properties?.riskLevel  ?? 'medium',
+        x: e.point.x,
+        y: e.point.y,
+      })
+    } else if (
+      f.layer.id === 'power-plants-circles' ||
+      f.layer.id === 'airport-circles' ||
+      f.layer.id === 'datacenter-circles'
+    ) {
+      // Generic infrastructure tooltip — all content comes from GeoJSON properties.
+      // Each layer bakes its own tag_* fields; this handler reads them all uniformly.
+      // To add a new infrastructure layer: add its circle layer ID above and
+      // bake tag_* fields into its GeoJSON feature properties.
+      const props = f.properties ?? {}
+      const tags = Object.entries(props)
+        .filter(([k]) => k.startsWith('tag_'))
+        .map(([k, v]) => ({ label: k.replace('tag_', ''), value: String(v) }))
+      setTooltip({
+        kind:       'infrastructure',
+        name:       String(props.name       ?? ''),
+        subtitle:   String(props.subtitle   ?? ''),
+        importance: String(props.importance ?? ''),
+        note:       String(props.note       ?? ''),
+        tags,
         x: e.point.x,
         y: e.point.y,
       })

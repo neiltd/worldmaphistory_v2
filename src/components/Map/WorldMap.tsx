@@ -36,6 +36,12 @@ const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.j
 // Display colors for tooltip badges
 const RISK_COLOR: Record<string, string>         = { low: '#22c55e', medium: '#f59e0b', high: '#ef4444' }
 const CONF_COLOR: Record<string, string>         = { high: '#4ade80', medium: '#f59e0b', low: '#f87171' }
+const IMPORTANCE_COLOR: Record<string, string>   = {
+  critical: '#f97316',  // orange — global artery
+  high:     '#3b82f6',  // blue   — regional strategic
+  medium:   '#64748b',  // slate  — contextual
+  low:      '#334155',  // dark   — background
+}
 const COORD_QUALITY_COLOR: Record<string, string> = {
   source_exact:     '#4ade80',  // green — GPS/field verified
   source_approx:    '#f59e0b',  // amber — geocoded estimate
@@ -194,6 +200,36 @@ function MapTooltip({
               {tooltip.value} ·{' '}
               <span style={{ color: riskColor[tooltip.risk] }}>{tooltip.risk} risk</span>
             </p>
+          </div>
+        )}
+
+        {tooltip.kind === 'infrastructure' && (
+          <div className="px-3 py-2.5 max-w-64 space-y-1.5">
+            {/* Strategic importance badge — shown when data is available */}
+            {tooltip.importance && IMPORTANCE_COLOR[tooltip.importance] && (
+              <p className="text-[9px] uppercase tracking-widest font-semibold"
+                style={{ color: IMPORTANCE_COLOR[tooltip.importance] }}>
+                {tooltip.importance}
+              </p>
+            )}
+            <p className="font-semibold text-white leading-snug">{tooltip.name}</p>
+            <p className="text-[11px] text-slate-500">{tooltip.subtitle}</p>
+            {tooltip.tags.length > 0 && (
+              <div className="flex flex-col gap-1 pt-1.5 border-t" style={{ borderColor: '#1E2D4A' }}>
+                {tooltip.tags.map(t => (
+                  <div key={t.label} className="flex justify-between items-center gap-3">
+                    <span className="text-[10px] text-slate-500 flex-shrink-0">{t.label}</span>
+                    <span className="text-[10px] text-slate-300 text-right truncate">{t.value}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+            {tooltip.note && (
+              <p className="text-[10px] text-slate-600 leading-snug pt-1.5 border-t line-clamp-3"
+                style={{ borderColor: '#1E2D4A' }}>
+                {tooltip.note}
+              </p>
+            )}
           </div>
         )}
 

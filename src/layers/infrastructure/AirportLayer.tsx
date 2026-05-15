@@ -1,33 +1,67 @@
-import { useState } from 'react'
-import { createPortal } from 'react-dom'
-import { Marker } from 'react-map-gl/maplibre'
+/**
+ * AirportLayer — airport visualization using MapLibre Source + Layer (GPU circles).
+ *
+ * Migrated from React Marker components (320 DOM elements) to GPU circles.
+ * Airports already have strategicImportance fully populated (82 critical,
+ * 161 high, 73 medium, 4 low) so importance-driven rendering is active immediately.
+ *
+ * Color and size are both driven by strategicImportance — unlike power plants
+ * where color is fuel type. For airports, importance IS the primary signal.
+ *
+ * ─── Zoom-aware filtering ─────────────────────────────────────────────────────
+ * Airports are the best candidate for zoom filtering since importance is complete.
+ * To activate, add to 'airport-circles' Layer:
+ *
+ *   filter: ['case',
+ *     ['<', ['zoom'], 3], ['==', ['get', 'importance'], 'critical'],
+ *     ['<', ['zoom'], 5], ['in', ['get', 'importance'], ['literal', ['critical','high']]],
+ *     true
+ *   ]
+ *
+ * At z1–3: 82 critical airports shown. At z4–5: 243. At z6+: all 320.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+import { useMemo } from 'react'
+import { Source, Layer } from 'react-map-gl/maplibre'
+import { isValidCoord } from '../../utils/geoUtils'
 import airportsData from '../../data/validated/airports.json'
 import type { LayerProps } from '../_core/types'
 
-interface Airport {
-  id: string
-  name: string
-  countryId: string
-  city: string
-  iata?: string | null
-  icao?: string | null
-  coordinates: [number, number]
-  passengerVolume?: number | null
-  cargoVolume?: number | null
-  strategicImportance: 'critical' | 'high' | 'medium' | 'low'
-  geopoliticalNotes?: string | null
-  notes?: string | null
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const airports = airportsData as any[]
+
+// Color by strategicImportance — airports' primary rendering signal
+const IMPORTANCE_COLOR: Record<string, string> = {
+  critical: '#f97316',  // orange — global hub
+  high:     '#3b82f6',  // blue   — regional hub
+  medium:   '#64748b',  // slate  — contextual
+  low:      '#334155',  // dark   — minor
 }
 
-const airports = airportsData as unknown as Airport[]
+// Radius by strategicImportance
+const RADIUS_EXPR = [
+  'match', ['get', 'importance'],
+  'critical', 8,
+  'high',     6,
+  'medium',   4,
+  3,
+] as const
 
-// ── Visual config by strategic importance ─────────────────────────────────────
-const STYLE: Record<string, { color: string; size: number; ring: number }> = {
-  critical: { color: '#f97316', size: 8,  ring: 14 },
-  high:     { color: '#3b82f6', size: 6,  ring: 11 },
-  medium:   { color: '#64748b', size: 5,  ring: 9  },
-  low:      { color: '#334155', size: 4,  ring: 7  },
-}
+// Opacity — uniform for airports since all are operating
+const OPACITY_EXPR = [
+  'match', ['get', 'importance'],
+  'critical', 0.90,
+  'high',     0.80,
+  'medium',   0.55,
+  0.35,
+] as const
+
+const HALO_RADIUS_EXPR = [
+  'match', ['get', 'importance'],
+  'critical', 16,
+  12,
+] as const
 
 function formatVolume(n: number | null | undefined): string {
   if (n == null) return '—'
@@ -37,122 +71,61 @@ function formatVolume(n: number | null | undefined): string {
   return String(n)
 }
 
-// ── Plane icon SVG ────────────────────────────────────────────────────────────
-function PlaneIcon({ color, size }: { color: string; size: number }) {
-  return (
-    <svg
-      width={size * 2.2}
-      height={size * 2.2}
-      viewBox="0 0 24 24"
-      fill={color}
-      style={{ filter: `drop-shadow(0 0 3px ${color}66)` }}
-    >
-      <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
-    </svg>
-  )
-}
-
-export default function AirportLayer({ visible }: LayerProps) {
-  const [tooltip, setTooltip] = useState<{
-    airport: Airport; x: number; y: number
-  } | null>(null)
+export default function AirportLayer({ visible, labelLayerId }: LayerProps) {
+  const geoJSON = useMemo(() => ({
+    type: 'FeatureCollection' as const,
+    features: airports
+      .filter(ap => isValidCoord(ap.coordinates))
+      .map(ap => ({
+        type: 'Feature' as const,
+        geometry: { type: 'Point' as const, coordinates: ap.coordinates as [number, number] },
+        properties: {
+          name:       ap.name,
+          subtitle:   [ap.iata, ap.city, ap.countryId].filter(Boolean).join(' · '),
+          importance: ap.strategicImportance ?? 'medium',
+          note:       ap.geopoliticalNotes ?? '',
+          tag_Passengers: formatVolume(ap.passengerVolume),
+          ...(ap.cargoVolume ? { tag_Cargo: `${formatVolume(ap.cargoVolume)} t/yr` } : {}),
+          // Paint inputs
+          color: IMPORTANCE_COLOR[ap.strategicImportance] ?? '#64748b',
+        },
+      })),
+  }), [])
 
   if (!visible) return null
 
   return (
-    <>
-      {airports.map(ap => {
-        const style = STYLE[ap.strategicImportance] ?? STYLE.medium
-        const [lng, lat] = ap.coordinates
+    <Source id="airports" type="geojson" data={geoJSON}>
 
-        return (
-          <Marker
-            key={ap.id}
-            longitude={lng}
-            latitude={lat}
-            anchor="center"
-            onClick={e => e.originalEvent.stopPropagation()}
-          >
-            <div
-              className="relative cursor-pointer flex items-center justify-center"
-              style={{ width: style.ring, height: style.ring }}
-              onMouseEnter={e => setTooltip({ airport: ap, x: e.clientX, y: e.clientY })}
-              onMouseMove={e => setTooltip(t => t ? { ...t, x: e.clientX, y: e.clientY } : null)}
-              onMouseLeave={() => setTooltip(null)}
-            >
-              {/* Outer ring for critical/high airports */}
-              {(ap.strategicImportance === 'critical' || ap.strategicImportance === 'high') && (
-                <div
-                  className="absolute inset-0 rounded-full"
-                  style={{ border: `1px solid ${style.color}55` }}
-                />
-              )}
-              <PlaneIcon color={style.color} size={style.size} />
-            </div>
-          </Marker>
-        )
-      })}
+      {/* Halo — critical airports only */}
+      <Layer
+        id="airport-halo"
+        type="circle"
+        beforeId={labelLayerId}
+        filter={['==', ['get', 'importance'], 'critical']}
+        paint={{
+          'circle-radius':  HALO_RADIUS_EXPR as unknown as number,
+          'circle-color':   ['get', 'color'] as unknown as string,
+          'circle-opacity': 0.12,
+          'circle-stroke-width': 0,
+        }}
+      />
 
-      {/* Tooltip — portal so it renders outside the SVG/map canvas */}
-      {tooltip && createPortal(
-        <div
-          className="fixed z-[9999] pointer-events-none"
-          style={{ left: tooltip.x + 14, top: tooltip.y - 10 }}
-        >
-          <div
-            className="rounded-xl shadow-2xl overflow-hidden"
-            style={{ background: '#0A0F1E', border: '1px solid #1E2D4A', minWidth: 220, maxWidth: 280 }}
-          >
-            {/* Header */}
-            <div className="px-3.5 pt-3 pb-2 border-b" style={{ borderColor: '#1E2D4A' }}>
-              <div className="flex items-center gap-2 mb-1">
-                <span
-                  className="text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-wide"
-                  style={{
-                    background: `${STYLE[tooltip.airport.strategicImportance]?.color}22`,
-                    color: STYLE[tooltip.airport.strategicImportance]?.color,
-                    border: `1px solid ${STYLE[tooltip.airport.strategicImportance]?.color}44`,
-                  }}
-                >
-                  {tooltip.airport.strategicImportance}
-                </span>
-                {tooltip.airport.iata && (
-                  <span className="text-[11px] font-mono font-bold text-slate-400">
-                    {tooltip.airport.iata}
-                  </span>
-                )}
-              </div>
-              <p className="text-[13px] font-bold text-white leading-snug">{tooltip.airport.name}</p>
-              <p className="text-[11px] text-slate-500 mt-0.5">{tooltip.airport.city} · {tooltip.airport.countryId}</p>
-            </div>
+      {/* Main circles — all airports, interactive */}
+      <Layer
+        id="airport-circles"
+        type="circle"
+        beforeId={labelLayerId}
+        paint={{
+          'circle-radius':         RADIUS_EXPR as unknown as number,
+          'circle-color':          ['get', 'color'] as unknown as string,
+          'circle-opacity':        OPACITY_EXPR as unknown as number,
+          'circle-stroke-width':   1,
+          'circle-stroke-color':   '#0A0F1E',
+          'circle-stroke-opacity': 0.4,
+        }}
+      />
 
-            {/* Stats */}
-            <div className="px-3.5 py-2.5 flex flex-col gap-2">
-              <div className="flex justify-between items-center">
-                <span className="text-[11px] text-slate-500">Passengers/yr</span>
-                <span className="text-[12px] font-semibold text-slate-200 tabular-nums">
-                  {formatVolume(tooltip.airport.passengerVolume)}
-                </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-[11px] text-slate-500">Cargo/yr (t)</span>
-                <span className="text-[12px] font-semibold text-slate-200 tabular-nums">
-                  {formatVolume(tooltip.airport.cargoVolume)}
-                </span>
-              </div>
-
-              {/* Geopolitical note */}
-              {tooltip.airport.geopoliticalNotes && (
-                <p className="text-[11px] text-slate-500 leading-snug pt-2 border-t break-words"
-                  style={{ borderColor: '#1E2D4A' }}>
-                  {tooltip.airport.geopoliticalNotes}
-                </p>
-              )}
-            </div>
-          </div>
-        </div>,
-        document.body
-      )}
-    </>
+    </Source>
   )
 }
