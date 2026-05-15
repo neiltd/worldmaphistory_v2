@@ -92,6 +92,9 @@ export function useMapInteraction(): MapInteractionResult {
     if (isLayerVisible('power-plants'))        ids.push('power-plants-circles')
     if (isLayerVisible('airports'))            ids.push('airport-circles')
     if (isLayerVisible('datacenters'))         ids.push('datacenter-circles')
+    if (isLayerVisible('seaports'))            ids.push('port-circles')
+    if (isLayerVisible('rail-hubs'))           ids.push('rail-hub-circles')
+    if (isLayerVisible('submarine-cables'))    ids.push('cable-landing-circles')
     return ids
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layerVisibility])
@@ -129,8 +132,11 @@ export function useMapInteraction(): MapInteractionResult {
       })
     } else if (
       f.layer.id === 'power-plants-circles' ||
-      f.layer.id === 'airport-circles' ||
-      f.layer.id === 'datacenter-circles'
+      f.layer.id === 'airport-circles'      ||
+      f.layer.id === 'datacenter-circles'   ||
+      f.layer.id === 'port-circles'         ||
+      f.layer.id === 'rail-hub-circles'     ||
+      f.layer.id === 'cable-landing-circles'
     ) {
       // Generic infrastructure tooltip — all content comes from GeoJSON properties.
       // Each layer bakes its own tag_* fields; this handler reads them all uniformly.
