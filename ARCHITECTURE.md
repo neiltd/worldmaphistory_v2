@@ -1,22 +1,40 @@
 # World Intelligence — Architecture Boundary Document
 
-**Status:** Accepted · Confirmed 2026-05-14
-**Scope:** Defines the ownership boundary between the WorldMap frontend repository and the Data Hub backend system.
+**Status:** Accepted · Updated 2026-05-14
+**Scope:** Defines the ownership boundaries across the three-system platform.
 
 ---
 
 ## System Overview
 
-The platform is split across two distinct systems:
+The platform is split across three distinct systems:
 
 ```
 ┌─────────────────────────────────┐      import contract       ┌────────────────────────────────┐
 │       WORLDMAP (this repo)      │ ◄─── public/data/imports/ ─┤       DATA HUB (separate)      │
 │                                 │                             │                                │
-│  Static geospatial platform     │                             │  Dynamic intelligence engine   │
+│  Spatial intelligence platform  │                             │  Dynamic intelligence engine   │
 │  Visualization + interaction    │                             │  Ingestion + normalization     │
-└─────────────────────────────────┘                             └────────────────────────────────┘
+│  Infrastructure database        │                             │  Events / indicators / news    │
+└────────────┬────────────────────┘                             └────────────────────────────────┘
+             │
+             │  display surface only
+             │  (future — reads Agent outputs via import contract)
+             ▼
+┌─────────────────────────────────┐
+│   INVESTMENT AGENT (future)     │
+│                                 │
+│  Consumes WorldMap entities     │
+│  Consumes Hub intelligence      │
+│  Generates investment theses    │
+│  Generates sector exposure      │
+│  Generates risk analysis        │
+└─────────────────────────────────┘
 ```
+
+**WorldMap is a visualization platform, not an analysis engine.**
+Investment reasoning, AI thesis generation, and sector scoring belong in the Investment Agent.
+WorldMap may display Agent outputs but must not generate them internally.
 
 The WorldMap frontend never calls external APIs. It reads only from:
 1. Its own bundled static datasets (infrastructure, routes, country profiles)

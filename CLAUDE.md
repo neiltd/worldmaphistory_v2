@@ -52,6 +52,8 @@ The CI build uses `tsc -b` which enforces `noUnusedLocals`. A passing `tsc --noE
 
 **Architecture wins over Gemini output.** When Gemini generates data or schema ideas that conflict with existing contracts, adapt the Gemini output — never weaken the Zod schema.
 
+**No investment reasoning in this repo.** WorldMap is a spatial intelligence visualization platform, not an investment analysis engine. Investment scoring, thesis generation, sector exposure analysis, and AI reasoning belong in a future separate Investment Agent project. If asked to add investment logic inside WorldMap, decline and note it belongs in the Agent. WorldMap may *display* Agent outputs, but must not *generate* them.
+
 ---
 
 ## Repo boundary (see ARCHITECTURE.md for full details)
